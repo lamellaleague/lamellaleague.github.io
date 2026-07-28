@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Mella League — Marcadores en vivo</title>
+<meta name="description" content="Marcadores, calendario y posiciones de las ligas de softbol La Mella League. Panamá.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Barlow:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* ---- CAMBIAR ESTOS 5 VALORES CUANDO EL BRAND KIT ESTÉ LISTO ---- */
+  --tinta:#11181B;      /* fondo, color de libreta */
+  --grama:#1B3A2F;      /* verde de campo, bloques */
+  --cal:#E6EBE6;        /* texto principal, línea de cal */
+  --lapiz:#C8412F;      /* acento: lápiz rojo del anotador */
+  --humo:#7C8A85;       /* texto secundario */
+  /* ---------------------------------------------------------------- */
+  --linea:1px solid rgba(230,235,230,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--tinta); color:var(--cal);
+  font-family:"Barlow",system-ui,sans-serif; font-size:16px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+/* ---------- encabezado: la cabecera de una planilla de anotación ---------- */
+header{border-bottom:2px solid var(--lapiz);padding:38px 0 0}
+.marca{
+  font-family:"Barlow Condensed",sans-serif; font-weight:700;
+  font-size:clamp(44px,11vw,86px); line-height:.92; letter-spacing:-.01em;
+  text-transform:uppercase;
+}
+.marca em{font-style:normal;color:var(--lapiz)}
+.bajada{
+  font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--humo); margin-top:14px;
+}
+.rejilla{display:flex;gap:0;margin-top:26px;border-top:var(--linea);flex-wrap:wrap}
+.rejilla div{
+  flex:1 1 25%; min-width:110px; padding:10px 12px 12px;
+  border-right:var(--linea); border-bottom:var(--linea);
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em;
+  color:var(--humo); text-transform:uppercase;
+}
+.rejilla b{display:block;font-size:15px;color:var(--cal);letter-spacing:0;font-weight:600}
+
+/* ---------- selector de liga: casillas de planilla ---------- */
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:34px 0 22px}
+nav button{
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:19px;
+  text-transform:uppercase;letter-spacing:.03em;
+  background:transparent;color:var(--humo);
+  border:1px solid rgba(230,235,230,.22);border-radius:2px;
+  padding:9px 16px 8px;cursor:pointer;transition:none;
+}
+nav button:hover{color:var(--cal);border-color:var(--cal)}
+nav button:focus-visible{outline:2px solid var(--lapiz);outline-offset:2px}
+nav button[aria-selected="true"]{background:var(--lapiz);border-color:var(--lapiz);color:#fff}
+
+/* ---------- panel de liga ---------- */
+.liga[hidden]{display:none}
+.titulo{
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:26px;
+  text-transform:uppercase;letter-spacing:.02em;
+}
+.sede{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--humo);
+  letter-spacing:.1em;text-transform:uppercase;margin:2px 0 18px;
+}
+.tablero{
+  background:var(--grama); border-radius:3px; padding:14px; min-height:200px;
+  border:1px solid rgba(230,235,230,.1);
+}
+.pendiente{
+  font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--humo);
+  padding:34px 16px;text-align:center;line-height:1.9;
+}
+.pendiente code{color:var(--cal);background:rgba(0,0,0,.28);padding:2px 6px;border-radius:2px}
+
+/* ---------- patrocinador ---------- */
+.patro{margin:46px 0 0;padding:26px 0;border-top:2px solid var(--lapiz);text-align:center}
+.patro span{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--humo);display:block;margin-bottom:14px;
+}
+.patro img{max-height:56px;max-width:190px;opacity:.9}
+footer{
+  padding:24px 0 46px;font-family:"IBM Plex Mono",monospace;
+  font-size:11px;color:var(--humo);letter-spacing:.05em;
+}
+footer a{color:var(--humo)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1 class="marca">La Mella<br><em>League</em></h1>
+    <p class="bajada">Softbol · Panamá · Marcadores en vivo</p>
+    <div class="rejilla">
+      <div>Ligas<b>4</b></div>
+      <div>Equipos<b>18</b></div>
+      <div>Juegos por ciclo<b>46</b></div>
+      <div>Ciclo<b>Ago–Oct 26</b></div>
+    </div>
+  </header>
+
+  <nav role="tablist" aria-label="Ligas">
+    <button role="tab" aria-selected="true"  aria-controls="p1" id="t1">Merachos 20.3</button>
+    <button role="tab" aria-selected="false" aria-controls="p2" id="t2">Contraloría</button>
+    <button role="tab" aria-selected="false" aria-controls="p3" id="t3">Andy Alonso</button>
+    <button role="tab" aria-selected="false" aria-controls="p4" id="t4">Albrook Miércoles</button>
+  </nav>
+
+  <!-- ===================== LIGA 1 — widget real ===================== -->
+  <section class="liga" id="p1" role="tabpanel" aria-labelledby="t1">
+    <h2 class="titulo">Merachos 20.3 · Over 18</h2>
+    <p class="sede">5 equipos · 67 jugadores</p>
+    <div class="tablero"><div id="gc-1"></div></div>
+  </section>
+
+  <!-- ============ LIGAS 2–4 — pegar aquí los otros widgetId ============ -->
+  <section class="liga" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+    <h2 class="titulo">Contraloría</h2>
+    <p class="sede">4 equipos · Final 20 de agosto</p>
+    <div class="tablero"><div id="gc-2"></div>
+      <p class="pendiente">Falta el <code>widgetId</code> de esta liga.<br>
+      GameChanger → la organización → <code>Tools</code> → <code>Copy Scoreboard Code</code>.</p>
+    </div>
+  </section>
+
+  <section class="liga" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+    <h2 class="titulo">Andy Alonso · JACK</h2>
+    <p class="sede">4 equipos</p>
+    <div class="tablero"><div id="gc-3"></div>
+      <p class="pendiente">Falta el <code>widgetId</code> de esta liga.</p>
+    </div>
+  </section>
+
+  <section class="liga" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
+    <h2 class="titulo">Albrook Miércoles</h2>
+    <p class="sede">5 equipos</p>
+    <div class="tablero"><div id="gc-4"></div>
+      <p class="pendiente">Falta el <code>widgetId</code> de esta liga.</p>
+    </div>
+  </section>
+
+  <div class="patro">
+    <span>Patrocinador del ciclo</span>
+    <!-- Reemplazar por el logo real cuando el acuerdo esté firmado -->
+    <img src="logo-patrocinador.png" alt="" onerror="this.style.display='none'">
+  </div>
+
+  <footer>
+    Datos en vivo desde GameChanger · Actualiza solo con juegos anotados head-to-head.<br>
+    La Mella League · Panamá
+  </footer>
+</div>
+
+<script src="https://widgets.gc.com/static/js/sdk.v1.js"></script>
+<script>
+// --- Marcadores GameChanger. Un widgetId por organización. ---
+var LIGAS = [
+  { target:"#gc-1", widgetId:"ae8978ee-583b-4388-a27c-12b870a40f9a" }, // Merachos 20.3
+  { target:"#gc-2", widgetId:"" },  // Contraloría      <- pegar id
+  { target:"#gc-3", widgetId:"" },  // Andy Alonso      <- pegar id
+  { target:"#gc-4", widgetId:"" }   // Albrook miércoles<- pegar id
+];
+LIGAS.forEach(function(l){
+  if(!l.widgetId) return;
+  var p = document.querySelector(l.target).parentNode.querySelector(".pendiente");
+  if(p) p.remove();
+  window.GC.scoreboard.init({ target:l.target, widgetId:l.widgetId, maxVerticalGamesVisible:4 });
+});
+
+// --- Selector de liga ---
+var tabs = document.querySelectorAll('[role="tab"]');
+tabs.forEach(function(tab){
+  tab.addEventListener("click", function(){
+    tabs.forEach(function(t){
+      var abre = t === tab;
+      t.setAttribute("aria-selected", abre);
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !abre;
+    });
+  });
+});
+</script>
+</body>
+</html>
