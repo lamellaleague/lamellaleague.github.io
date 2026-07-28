@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pagar — La Mella League</title>
+<meta name="description" content="Cómo pagar tu cupo o la cuota de tu equipo por Yappy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noche:#0e1614;
+  --campo:#16352a;
+  --campo-alto:#1d4536;
+  --cal:#e9ede8;
+  --mella:#d9483a;
+  --polvo:#7d8f86;
+  --linea:rgba(233,237,232,.13);
+  --display:'Archivo Black',system-ui,sans-serif;
+  --texto:'Archivo',system-ui,sans-serif;
+  --dato:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--noche);color:var(--cal);
+  font-family:var(--texto);font-size:16px;line-height:1.55;
+  padding:0 20px 72px;
+}
+.envoltura{max-width:620px;margin:0 auto}
+
+/* ---------- cabecera ---------- */
+header{padding:34px 0 26px}
+.volver{
+  font-family:var(--dato);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--polvo);text-decoration:none;display:inline-block;margin-bottom:26px;
+}
+.volver:hover,.volver:focus-visible{color:var(--mella)}
+h1{font-family:var(--display);font-size:clamp(38px,11vw,58px);line-height:.92;letter-spacing:-.02em}
+h1 .b{color:var(--mella);display:block}
+.bajada{
+  font-family:var(--dato);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--polvo);margin-top:14px;
+}
+
+/* ---------- pestañas ---------- */
+.pestanas{display:flex;gap:8px;margin:26px 0 34px}
+.pestana{
+  flex:1;background:none;border:1px solid var(--linea);color:var(--polvo);
+  font-family:var(--dato);font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  padding:13px 6px;border-radius:5px;cursor:pointer;transition:.15s;
+}
+.pestana:hover{color:var(--cal);border-color:rgba(233,237,232,.3)}
+.pestana[aria-selected="true"]{background:var(--mella);border-color:var(--mella);color:#fff}
+.pestana:focus-visible{outline:2px solid var(--cal);outline-offset:2px}
+
+/* ---------- que birria es ---------- */
+.ficha{
+  background:var(--campo);border-left:4px solid var(--mella);border-radius:7px;
+  padding:17px 20px;margin-bottom:24px;
+}
+.ficha .cuando{font-family:var(--display);font-size:20px;line-height:1.15;letter-spacing:-.01em}
+.ficha .donde{font-size:16px;font-weight:600;color:#fff;margin-top:7px}
+.ficha .hora{
+  font-family:var(--dato);font-size:12px;letter-spacing:.09em;color:var(--polvo);margin-top:5px;
+}
+.ficha .hora b{color:var(--mella)}
+
+/* ---------- los tres datos ---------- */
+.datos{display:grid;gap:10px;margin-bottom:38px}
+.dato{
+  background:var(--campo);border-radius:7px;padding:16px 18px;
+  display:flex;align-items:center;gap:16px;
+}
+.dato .et{
+  font-family:var(--dato);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--polvo);flex:0 0 96px;
+}
+.dato .vl{font-family:var(--display);font-size:23px;letter-spacing:-.01em;line-height:1.1;flex:1;word-break:break-word}
+.dato .vl.libre{font-family:var(--texto);font-weight:600;font-size:17px;color:var(--cal)}
+.copiar{
+  background:none;border:1px solid var(--linea);color:var(--polvo);border-radius:4px;
+  font-family:var(--dato);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 11px;cursor:pointer;transition:.15s;flex:0 0 auto;
+}
+.copiar:hover{color:var(--cal);border-color:var(--cal)}
+.copiar:focus-visible{outline:2px solid var(--cal);outline-offset:2px}
+.copiar.ok{color:var(--mella);border-color:var(--mella)}
+
+/* ---------- pasos ---------- */
+.titulo{
+  font-family:var(--dato);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--polvo);padding-bottom:11px;border-bottom:1px solid var(--mella);margin-bottom:22px;
+}
+ol.pasos{list-style:none;counter-reset:p}
+ol.pasos li{
+  counter-increment:p;display:flex;gap:16px;padding:15px 0;border-bottom:1px solid var(--linea);
+}
+ol.pasos li::before{
+  content:counter(p,decimal-leading-zero);
+  font-family:var(--dato);font-size:12px;font-weight:700;color:var(--mella);
+  flex:0 0 26px;padding-top:3px;
+}
+ol.pasos b{font-weight:700;color:#fff}
+ol.pasos .nota{display:block;color:var(--polvo);font-size:14px;margin-top:3px}
+
+/* ---------- maqueta de la pantalla ---------- */
+.maqueta{
+  background:var(--campo);border-radius:11px;padding:22px 20px;margin:38px 0;
+  border:1px solid var(--linea);
+}
+.maqueta h2{
+  font-family:var(--dato);font-size:10px;font-weight:400;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--polvo);margin-bottom:16px;
+}
+.tarjeta{background:#fbfcfb;border-radius:9px;overflow:hidden;color:#2a3b34}
+.tarjeta .fila{padding:13px 16px;border-bottom:1px solid #e2e8e4}
+.tarjeta .fila:last-child{border-bottom:none}
+.tarjeta .comercio{text-align:center;padding:16px}
+.tarjeta .comercio strong{font-family:var(--display);font-size:16px;display:block;color:#1d2b25}
+.tarjeta .comercio span{font-family:var(--dato);font-size:12px;color:#6b7c74}
+.tarjeta .monto{text-align:center;font-family:var(--display);font-size:31px;color:#1d2b25;padding:16px}
+.tarjeta .campo{display:flex;align-items:baseline;gap:9px}
+.tarjeta .campo .k{font-family:var(--dato);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#8a9a92;flex:0 0 62px}
+.tarjeta .campo .v{font-weight:600;font-size:15px}
+.marca{position:relative}
+.marca::after{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--mella);
+}
+.pie-maqueta{
+  display:flex;gap:9px;align-items:flex-start;margin-top:15px;
+  font-size:13.5px;color:var(--polvo);line-height:1.5;
+}
+.pie-maqueta .bar{flex:0 0 3px;align-self:stretch;background:var(--mella);border-radius:2px;min-height:34px}
+
+/* ---------- reglas ---------- */
+.reglas{border-top:1px solid var(--mella);padding-top:22px;margin-top:38px}
+.reglas ul{list-style:none}
+.reglas li{
+  padding:11px 0 11px 20px;border-bottom:1px solid var(--linea);
+  font-size:14.5px;color:var(--polvo);position:relative;
+}
+.reglas li::before{content:"—";position:absolute;left:0;color:var(--mella)}
+.reglas li b{color:var(--cal);font-weight:700}
+.reglas li:last-child{border-bottom:none}
+
+.cierre{
+  margin-top:34px;padding:18px 20px;background:var(--campo-alto);border-radius:7px;
+  font-size:15px;line-height:1.55;
+}
+.cierre b{color:#fff}
+
+footer{
+  margin-top:44px;padding-top:20px;border-top:1px solid var(--linea);
+  font-family:var(--dato);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--polvo);
+}
+
+[hidden]{display:none !important}
+@media (max-width:430px){
+  .dato{flex-wrap:wrap;gap:9px}
+  .dato .et{flex:1 0 100%}
+  .dato .vl{flex:1}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+<div class="envoltura">
+
+<header>
+  <a class="volver" href="./">‹ Volver al marcador</a>
+  <h1>Pagar<span class="b">por Yappy</span></h1>
+  <p class="bajada">Liga La Mella · Panamá</p>
+</header>
+
+<div class="pestanas" role="tablist">
+  <button class="pestana" role="tab" id="t-birria" aria-controls="p-birria" aria-selected="true">Cupo de birria</button>
+  <button class="pestana" role="tab" id="t-cuota" aria-controls="p-cuota" aria-selected="false">Cuota de equipo</button>
+</div>
+
+<!-- ============ BIRRIA ============ -->
+<section id="p-birria" role="tabpanel" aria-labelledby="t-birria">
+
+  <div class="ficha">
+    <p class="cuando">Martes 4 de agosto</p>
+    <p class="donde">Clover 3 &middot; Ciudad del Saber, Clayton</p>
+    <p class="hora">7:00 A 9:00 PM &middot; LLEGA 6:45 &middot; <b>22 CUPOS</b></p>
+  </div>
+
+  <div class="datos">
+    <div class="dato">
+      <span class="et">Búscanos</span>
+      <span class="vl" id="v1">@lamellapma</span>
+      <button class="copiar" data-copia="v1">Copiar</button>
+    </div>
+    <div class="dato">
+      <span class="et">Monto</span>
+      <span class="vl">$7.50</span>
+    </div>
+    <div class="dato">
+      <span class="et">Mensaje</span>
+      <span class="vl libre">Tu nombre y apellido</span>
+    </div>
+  </div>
+
+  <p class="titulo">Seis pasos</p>
+  <ol class="pasos">
+    <li>Abre el app de Yappy y toca <b>Transaccionar</b>.</li>
+    <li>En el <b>Directorio</b>, busca <b>@lamellapma</b>.<span class="nota">Estamos en el Directorio de Yappy: es un comercio verificado, no un número suelto. Tiene que salir el logo de Liga La Mella. Si sale otro, no pagues.</span></li>
+    <li>Escribe el monto: <b>$7.50</b><span class="nota">El monto no viene puesto. Escríbelo exacto.</span></li>
+    <li>En <b>Celular</b>, escribe tu número.<span class="nota">Es con lo que amarramos el cupo a ti.</span></li>
+    <li>En <b>Mensaje</b>, escribe tu nombre.</li>
+    <li>Toca <b>Sí, pagar</b> y guarda el número de confirmación.</li>
+  </ol>
+
+  <div class="maqueta">
+    <h2>Así se ve antes de confirmar</h2>
+    <div class="tarjeta">
+      <div class="comercio"><strong>Lamellapma</strong><span>@lamellapma</span></div>
+      <div class="monto">$7.50</div>
+      <div class="fila marca"><div class="campo"><span class="k">Celular</span><span class="v">6123-4567</span></div></div>
+      <div class="fila marca"><div class="campo"><span class="k">Mensaje</span><span class="v">Luis Gómez</span></div></div>
+    </div>
+    <p class="pie-maqueta"><span class="bar"></span>Estos dos campos son los que te guardan el cupo. Sin ellos llega la plata, pero no llega tu nombre.</p>
+  </div>
+
+  <div class="reglas">
+    <ul>
+      <li><b>Nadie juega sin haber pagado antes.</b> Tu cupo queda confirmado cuando te escribimos, no cuando pagas.</li>
+      <li><b>No se devuelve dinero.</b> Si no puedes ir, manda a alguien en tu lugar y avísanos el nombre.</li>
+      <li>Son <b>22 cupos</b>. Si llueve, la birria se corre al <b>mismo día de la semana siguiente</b>, con tu cupo intacto.</li>
+      <li>En Ciudad del Saber <b>no se permite comida, bebida ni alcohol</b>. El agua va incluida en tu cupo.</li>
+      <li>Trae tu guante.</li>
+      <li>Juegas bajo tu propia responsabilidad. La Fundación Ciudad del Saber no responde por lesiones ni accidentes.</li>
+    </ul>
+  </div>
+
+  <p class="cierre" style="border-left:3px solid var(--mella)">Del <b>cupo 23 en adelante</b>: si los 22 ya están llenos cuando pagas, tu pago entra automáticamente a la <b>siguiente birria</b> y te lo confirmamos. No se pierde y no hay que reclamarlo.</p>
+
+  <p class="cierre">¿Pagaste y no te llegó confirmación en una hora? Manda el <b>número de confirmación</b> del comprobante por WhatsApp al <a href="https://wa.me/50762327853" style="color:#fff">6232-7853</a>. Con eso te encontramos en segundos.</p>
+</section>
+
+<!-- ============ CUOTA ============ -->
+<section id="p-cuota" role="tabpanel" aria-labelledby="t-cuota" hidden>
+
+  <div class="datos">
+    <div class="dato">
+      <span class="et">Búscanos</span>
+      <span class="vl" id="v2">@lamellapma</span>
+      <button class="copiar" data-copia="v2">Copiar</button>
+    </div>
+    <div class="dato">
+      <span class="et">Monto</span>
+      <span class="vl libre">El acordado para tu liga</span>
+    </div>
+    <div class="dato">
+      <span class="et">Mensaje</span>
+      <span class="vl libre">Nombre de tu equipo</span>
+    </div>
+  </div>
+
+  <p class="titulo">Seis pasos</p>
+  <ol class="pasos">
+    <li>Abre el app de Yappy y toca <b>Transaccionar</b>.</li>
+    <li>En el <b>Directorio</b>, busca <b>@lamellapma</b>.<span class="nota">Verifica el logo de Liga La Mella antes de seguir.</span></li>
+    <li>Escribe el monto que vas a abonar.<span class="nota">Puedes abonar por partes. Cada abono se registra solo.</span></li>
+    <li>En <b>Celular</b>, escribe tu número.</li>
+    <li>En <b>Mensaje</b>, escribe el <b>nombre de tu equipo</b>.<span class="nota">Es lo único que nos dice de quién es el pago.</span></li>
+    <li>Toca <b>Sí, pagar</b> y guarda el número de confirmación.</li>
+  </ol>
+
+  <div class="maqueta">
+    <h2>Así se ve antes de confirmar</h2>
+    <div class="tarjeta">
+      <div class="comercio"><strong>Lamellapma</strong><span>@lamellapma</span></div>
+      <div class="monto">$250.00</div>
+      <div class="fila marca"><div class="campo"><span class="k">Celular</span><span class="v">6123-4567</span></div></div>
+      <div class="fila marca"><div class="campo"><span class="k">Mensaje</span><span class="v">Kings</span></div></div>
+    </div>
+    <p class="pie-maqueta"><span class="bar"></span>Un abono sin nombre de equipo hay que rastrearlo a mano. Escríbelo siempre, aunque sea el tercero del mes.</p>
+  </div>
+
+  <div class="reglas">
+    <ul>
+      <li><b>La liga trata con el DT.</b> Un solo interlocutor por equipo, siempre.</li>
+      <li>El estado de cuenta de tu equipo se manda <b>en privado al DT</b>.</li>
+      <li>¿Necesitas saber si tu rival está al día para un reclamo? <b>Pregúntanos y te decimos.</b></li>
+      <li>Cada abono te llega con su número de confirmación. Guárdalos.</li>
+    </ul>
+  </div>
+
+  <p class="cierre">¿Diferencia entre lo que abonaste y lo que te aparece? Manda los <b>números de confirmación</b> por WhatsApp al <a href="https://wa.me/50762327853" style="color:#fff">6232-7853</a> y lo cuadramos el mismo día.</p>
+</section>
+
+<footer>lamellaleague.github.io</footer>
+</div>
+
+<script>
+(function(){
+  var pestanas = [].slice.call(document.querySelectorAll('.pestana'));
+  function abrir(t){
+    pestanas.forEach(function(p){
+      var activa = p === t;
+      p.setAttribute('aria-selected', activa);
+      document.getElementById(p.getAttribute('aria-controls')).hidden = !activa;
+    });
+  }
+  pestanas.forEach(function(p){ p.addEventListener('click', function(){ abrir(p); }); });
+
+  document.querySelectorAll('.copiar').forEach(function(b){
+    b.addEventListener('click', function(){
+      var txt = document.getElementById(b.dataset.copia).textContent.trim();
+      var listo = function(){
+        b.textContent = 'Copiado';
+        b.classList.add('ok');
+        setTimeout(function(){ b.textContent = 'Copiar'; b.classList.remove('ok'); }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(listo, function(){ b.textContent = 'Cópialo a mano'; });
+      } else {
+        var a = document.createElement('textarea');
+        a.value = txt; document.body.appendChild(a); a.select();
+        try { document.execCommand('copy'); listo(); } catch(e){ b.textContent = 'Cópialo a mano'; }
+        document.body.removeChild(a);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
