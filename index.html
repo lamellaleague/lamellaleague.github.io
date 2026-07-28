@@ -4,7 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La Mella League — Marcadores en vivo</title>
-<meta name="description" content="Marcadores, calendario y posiciones de las ligas de softbol La Mella League. Panamá.">
+<meta name="description" content="Marcadores en vivo, calendario y posiciones de las cuatro ligas de softbol de La Mella League. Panamá.">
+<meta name="theme-color" content="#11181B">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="La Mella">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Barlow:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -28,10 +34,10 @@ body{
 .wrap{max-width:900px;margin:0 auto;padding:0 20px}
 
 /* ---------- encabezado: la cabecera de una planilla de anotación ---------- */
-header{border-bottom:2px solid var(--lapiz);padding:38px 0 0}
+header{border-bottom:2px solid var(--lapiz);padding:34px 0 0}
 .marca{
   font-family:"Barlow Condensed",sans-serif; font-weight:700;
-  font-size:clamp(44px,11vw,86px); line-height:.92; letter-spacing:-.01em;
+  font-size:clamp(42px,11vw,86px); line-height:.92; letter-spacing:-.01em;
   text-transform:uppercase;
 }
 .marca em{font-style:normal;color:var(--lapiz)}
@@ -39,23 +45,23 @@ header{border-bottom:2px solid var(--lapiz);padding:38px 0 0}
   font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.14em;
   text-transform:uppercase; color:var(--humo); margin-top:14px;
 }
-.rejilla{display:flex;gap:0;margin-top:26px;border-top:var(--linea);flex-wrap:wrap}
+.rejilla{display:flex;margin-top:24px;border-top:var(--linea);flex-wrap:wrap}
 .rejilla div{
-  flex:1 1 25%; min-width:110px; padding:10px 12px 12px;
+  flex:1 1 25%; min-width:104px; padding:10px 12px 12px;
   border-right:var(--linea); border-bottom:var(--linea);
   font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em;
   color:var(--humo); text-transform:uppercase;
 }
 .rejilla b{display:block;font-size:15px;color:var(--cal);letter-spacing:0;font-weight:600}
 
-/* ---------- selector de liga: casillas de planilla ---------- */
-nav{display:flex;gap:8px;flex-wrap:wrap;margin:34px 0 22px}
+/* ---------- selector de liga ---------- */
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 22px}
 nav button{
-  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:19px;
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:18px;
   text-transform:uppercase;letter-spacing:.03em;
   background:transparent;color:var(--humo);
   border:1px solid rgba(230,235,230,.22);border-radius:2px;
-  padding:9px 16px 8px;cursor:pointer;transition:none;
+  padding:9px 15px 8px;cursor:pointer;
 }
 nav button:hover{color:var(--cal);border-color:var(--cal)}
 nav button:focus-visible{outline:2px solid var(--lapiz);outline-offset:2px}
@@ -72,27 +78,40 @@ nav button[aria-selected="true"]{background:var(--lapiz);border-color:var(--lapi
   letter-spacing:.1em;text-transform:uppercase;margin:2px 0 18px;
 }
 .tablero{
-  background:var(--grama); border-radius:3px; padding:14px; min-height:200px;
+  background:var(--grama); border-radius:3px; padding:14px; min-height:190px;
   border:1px solid rgba(230,235,230,.1);
 }
-.pendiente{
-  font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--humo);
-  padding:34px 16px;text-align:center;line-height:1.9;
+.vacio{
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--humo);
+  padding:44px 16px;text-align:center;line-height:1.8;
 }
-.pendiente code{color:var(--cal);background:rgba(0,0,0,.28);padding:2px 6px;border-radius:2px}
+
+/* ---------- instalar ---------- */
+.instalar{
+  margin-top:30px;padding:16px 18px;border:1px dashed rgba(230,235,230,.28);
+  border-radius:3px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+}
+.instalar p{font-size:14.5px;flex:1 1 240px;color:var(--cal)}
+.instalar small{display:block;color:var(--humo);font-size:12.5px;margin-top:2px}
+.instalar button{
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:17px;
+  text-transform:uppercase;letter-spacing:.04em;background:var(--cal);color:var(--tinta);
+  border:0;border-radius:2px;padding:10px 18px 9px;cursor:pointer;
+}
+.instalar button:focus-visible{outline:2px solid var(--lapiz);outline-offset:2px}
+.instalar[hidden]{display:none}
 
 /* ---------- patrocinador ---------- */
-.patro{margin:46px 0 0;padding:26px 0;border-top:2px solid var(--lapiz);text-align:center}
+.patro{margin:42px 0 0;padding:24px 0;border-top:2px solid var(--lapiz);text-align:center}
 .patro span{
   font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.2em;
   text-transform:uppercase;color:var(--humo);display:block;margin-bottom:14px;
 }
 .patro img{max-height:56px;max-width:190px;opacity:.9}
 footer{
-  padding:24px 0 46px;font-family:"IBM Plex Mono",monospace;
-  font-size:11px;color:var(--humo);letter-spacing:.05em;
+  padding:22px 0 44px;font-family:"IBM Plex Mono",monospace;
+  font-size:11px;color:var(--humo);letter-spacing:.05em;line-height:1.8;
 }
-footer a{color:var(--humo)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -111,83 +130,109 @@ footer a{color:var(--humo)}
   </header>
 
   <nav role="tablist" aria-label="Ligas">
-    <button role="tab" aria-selected="true"  aria-controls="p1" id="t1">Merachos 20.3</button>
-    <button role="tab" aria-selected="false" aria-controls="p2" id="t2">Contraloría</button>
-    <button role="tab" aria-selected="false" aria-controls="p3" id="t3">Andy Alonso</button>
-    <button role="tab" aria-selected="false" aria-controls="p4" id="t4">Albrook Miércoles</button>
+    <button role="tab" aria-selected="true"  aria-controls="contraloria"       id="tab-contraloria">Contraloría</button>
+    <button role="tab" aria-selected="false" aria-controls="andy-alonso"       id="tab-andy-alonso">Andy Alonso</button>
+    <button role="tab" aria-selected="false" aria-controls="albrook-martes"    id="tab-albrook-martes">Albrook Martes</button>
+    <button role="tab" aria-selected="false" aria-controls="albrook-miercoles" id="tab-albrook-miercoles">Albrook Miércoles</button>
   </nav>
 
-  <!-- ===================== LIGA 1 — widget real ===================== -->
-  <section class="liga" id="p1" role="tabpanel" aria-labelledby="t1">
-    <h2 class="titulo">Merachos 20.3 · Over 18</h2>
-    <p class="sede">5 equipos · 67 jugadores</p>
-    <div class="tablero"><div id="gc-1"></div></div>
+  <section class="liga" id="contraloria" role="tabpanel" aria-labelledby="tab-contraloria">
+    <h2 class="titulo">Merachos 20.4</h2>
+    <p class="sede">Contraloría · 4 equipos · Final 20 de agosto</p>
+    <div class="tablero"><div id="gc-contraloria"></div></div>
   </section>
 
-  <!-- ============ LIGAS 2–4 — pegar aquí los otros widgetId ============ -->
-  <section class="liga" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
-    <h2 class="titulo">Contraloría</h2>
-    <p class="sede">4 equipos · Final 20 de agosto</p>
-    <div class="tablero"><div id="gc-2"></div>
-      <p class="pendiente">Falta el <code>widgetId</code> de esta liga.<br>
-      GameChanger → la organización → <code>Tools</code> → <code>Copy Scoreboard Code</code>.</p>
-    </div>
+  <section class="liga" id="andy-alonso" role="tabpanel" aria-labelledby="tab-andy-alonso" hidden>
+    <h2 class="titulo">Jack 20.4B</h2>
+    <p class="sede">Andy Alonso · 4 equipos</p>
+    <div class="tablero"><div id="gc-andy-alonso"></div></div>
   </section>
 
-  <section class="liga" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
-    <h2 class="titulo">Andy Alonso · JACK</h2>
-    <p class="sede">4 equipos</p>
-    <div class="tablero"><div id="gc-3"></div>
-      <p class="pendiente">Falta el <code>widgetId</code> de esta liga.</p>
-    </div>
+  <section class="liga" id="albrook-martes" role="tabpanel" aria-labelledby="tab-albrook-martes" hidden>
+    <h2 class="titulo">Atlas M1</h2>
+    <p class="sede">Albrook · Martes · 5 equipos</p>
+    <div class="tablero"><div id="gc-albrook-martes"></div></div>
   </section>
 
-  <section class="liga" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
-    <h2 class="titulo">Albrook Miércoles</h2>
-    <p class="sede">5 equipos</p>
-    <div class="tablero"><div id="gc-4"></div>
-      <p class="pendiente">Falta el <code>widgetId</code> de esta liga.</p>
-    </div>
+  <section class="liga" id="albrook-miercoles" role="tabpanel" aria-labelledby="tab-albrook-miercoles" hidden>
+    <h2 class="titulo">Merachos 20.3</h2>
+    <p class="sede">Albrook · Miércoles · 5 equipos</p>
+    <div class="tablero"><div id="gc-albrook-miercoles"></div></div>
   </section>
+
+  <div class="instalar" id="instalar" hidden>
+    <p>Ponla en tu pantalla de inicio
+      <small>Abre directo en los marcadores, sin buscar el enlace.</small></p>
+    <button id="btn-instalar" type="button">Instalar</button>
+  </div>
 
   <div class="patro">
     <span>Patrocinador del ciclo</span>
-    <!-- Reemplazar por el logo real cuando el acuerdo esté firmado -->
     <img src="logo-patrocinador.png" alt="" onerror="this.style.display='none'">
   </div>
 
   <footer>
-    Datos en vivo desde GameChanger · Actualiza solo con juegos anotados head-to-head.<br>
+    Datos en vivo desde GameChanger. El marcador se actualiza mientras el anotador registra el juego.<br>
     La Mella League · Panamá
   </footer>
 </div>
 
 <script src="https://widgets.gc.com/static/js/sdk.v1.js"></script>
 <script>
-// --- Marcadores GameChanger. Un widgetId por organización. ---
+// ---------- Marcadores GameChanger: un widgetId por organización ----------
 var LIGAS = [
-  { target:"#gc-1", widgetId:"ae8978ee-583b-4388-a27c-12b870a40f9a" }, // Merachos 20.3
-  { target:"#gc-2", widgetId:"" },  // Contraloría      <- pegar id
-  { target:"#gc-3", widgetId:"" },  // Andy Alonso      <- pegar id
-  { target:"#gc-4", widgetId:"" }   // Albrook miércoles<- pegar id
+  { id:"contraloria",       widgetId:"f1756e37-7311-4558-9db3-821dab598ef9" }, // Merachos 20.4
+  { id:"andy-alonso",       widgetId:"f972d8c1-4327-459c-9388-3cb71dd07e01" }, // Jack 20.4B
+  { id:"albrook-martes",    widgetId:"aa0e9ce4-29da-4472-a394-013a66e3ef76" }, // Atlas M1
+  { id:"albrook-miercoles", widgetId:"ae8978ee-583b-4388-a27c-12b870a40f9a" }  // Merachos 20.3
 ];
+
 LIGAS.forEach(function(l){
-  if(!l.widgetId) return;
-  var p = document.querySelector(l.target).parentNode.querySelector(".pendiente");
-  if(p) p.remove();
-  window.GC.scoreboard.init({ target:l.target, widgetId:l.widgetId, maxVerticalGamesVisible:4 });
+  var caja  = document.getElementById("gc-" + l.id);
+  var aviso = document.createElement("p");
+  aviso.className = "vacio";
+  aviso.textContent = "Sin juegos programados en estos días.";
+  caja.parentNode.appendChild(aviso);
+  try{
+    window.GC.scoreboard.init({
+      target: "#gc-" + l.id,
+      widgetId: l.widgetId,
+      maxVerticalGamesVisible: 4
+    });
+    setTimeout(function(){ if(caja.children.length) aviso.remove(); }, 2500);
+  }catch(e){ /* si el widget falla, queda el aviso */ }
 });
 
-// --- Selector de liga ---
-var tabs = document.querySelectorAll('[role="tab"]');
-tabs.forEach(function(tab){
-  tab.addEventListener("click", function(){
-    tabs.forEach(function(t){
-      var abre = t === tab;
-      t.setAttribute("aria-selected", abre);
-      document.getElementById(t.getAttribute("aria-controls")).hidden = !abre;
-    });
+// ---------- Selector de liga, con dirección propia por sede ----------
+var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+
+function abrir(id, escribir){
+  var existe = tabs.some(function(t){ return t.getAttribute("aria-controls") === id; });
+  if(!existe) return;
+  tabs.forEach(function(t){
+    var activa = t.getAttribute("aria-controls") === id;
+    t.setAttribute("aria-selected", activa);
+    document.getElementById(t.getAttribute("aria-controls")).hidden = !activa;
   });
+  if(escribir) history.replaceState(null, "", "#" + id);
+}
+
+tabs.forEach(function(t){
+  t.addEventListener("click", function(){ abrir(t.getAttribute("aria-controls"), true); });
+});
+
+if(location.hash) abrir(location.hash.slice(1), false);
+window.addEventListener("hashchange", function(){ abrir(location.hash.slice(1), false); });
+
+// ---------- Instalar en pantalla de inicio ----------
+var evento = null, cajaInstalar = document.getElementById("instalar");
+window.addEventListener("beforeinstallprompt", function(e){
+  e.preventDefault(); evento = e; cajaInstalar.hidden = false;
+});
+document.getElementById("btn-instalar").addEventListener("click", function(){
+  if(!evento) return;
+  evento.prompt();
+  evento.userChoice.then(function(){ evento = null; cajaInstalar.hidden = true; });
 });
 </script>
 </body>
