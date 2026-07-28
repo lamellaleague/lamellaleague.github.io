@@ -86,6 +86,47 @@ nav button[aria-selected="true"]{background:var(--lapiz);border-color:var(--lapi
   padding:44px 16px;text-align:center;line-height:1.8;
 }
 
+/* ---------- patrocinador por liga ---------- */
+.marca-liga{
+  margin-top:12px;padding:11px 14px;border:1px solid rgba(230,235,230,.16);
+  border-radius:3px;display:flex;align-items:center;gap:14px;
+}
+.marca-liga span{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--humo);
+}
+.marca-liga img{max-height:38px}
+.marca-liga.libre{border-style:dashed}
+.marca-liga.libre b{font-family:"Barlow Condensed",sans-serif;font-weight:700;
+  font-size:17px;text-transform:uppercase;letter-spacing:.03em;color:var(--cal)}
+
+/* ---------- próxima temporada ---------- */
+.temporada{margin-top:38px;border-top:2px solid var(--lapiz);padding-top:22px}
+.temporada h2{
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:28px;
+  text-transform:uppercase;letter-spacing:.02em;
+}
+.temporada > p{color:var(--humo);font-size:14.5px;margin:4px 0 18px}
+.fechas{width:100%;border-collapse:collapse;font-size:15px}
+.fechas td{padding:11px 4px;border-bottom:var(--linea);vertical-align:top}
+.fechas td:first-child{
+  font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--lapiz);
+  white-space:nowrap;padding-right:18px;letter-spacing:.04em;
+}
+.aviso{
+  margin-top:18px;padding:15px 17px;background:var(--grama);border-radius:3px;
+  font-size:14.5px;line-height:1.6;
+}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.cta a{
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:18px;
+  text-transform:uppercase;letter-spacing:.04em;text-decoration:none;
+  padding:12px 20px 11px;border-radius:2px;
+}
+.cta a.solido{background:var(--lapiz);color:#fff}
+.cta a.borde{border:1px solid rgba(230,235,230,.35);color:var(--cal)}
+.cta a:focus-visible{outline:2px solid var(--cal);outline-offset:2px}
+
 /* ---------- instalar ---------- */
 .instalar{
   margin-top:30px;padding:16px 18px;border:1px dashed rgba(230,235,230,.28);
@@ -122,10 +163,10 @@ footer{
     <h1 class="marca">La Mella<br><em>League</em></h1>
     <p class="bajada">Softbol · Panamá · Marcadores en vivo</p>
     <div class="rejilla">
+      <div>Sedes<b>3</b></div>
       <div>Ligas<b>4</b></div>
       <div>Equipos<b>18</b></div>
       <div>Juegos por ciclo<b>46</b></div>
-      <div>Ciclo<b>Ago–Oct 26</b></div>
     </div>
   </header>
 
@@ -140,24 +181,28 @@ footer{
     <h2 class="titulo">Merachos 20.4</h2>
     <p class="sede">Contraloría · 4 equipos · Final 20 de agosto</p>
     <div class="tablero"><div id="gc-contraloria"></div></div>
+    <div class="marca-liga libre"><span>Patrocinador</span><b>Espacio disponible</b></div>
   </section>
 
   <section class="liga" id="andy-alonso" role="tabpanel" aria-labelledby="tab-andy-alonso" hidden>
     <h2 class="titulo">Jack 20.4B</h2>
     <p class="sede">Andy Alonso · 4 equipos</p>
     <div class="tablero"><div id="gc-andy-alonso"></div></div>
+    <div class="marca-liga libre"><span>Patrocinador</span><b>Espacio disponible</b></div>
   </section>
 
   <section class="liga" id="albrook-martes" role="tabpanel" aria-labelledby="tab-albrook-martes" hidden>
     <h2 class="titulo">Atlas M1</h2>
     <p class="sede">Albrook · Martes · 5 equipos</p>
     <div class="tablero"><div id="gc-albrook-martes"></div></div>
+    <div class="marca-liga"><span>Patrocina</span><img src="logo-patrocinador.png" alt="Atlas"></div>
   </section>
 
   <section class="liga" id="albrook-miercoles" role="tabpanel" aria-labelledby="tab-albrook-miercoles" hidden>
     <h2 class="titulo">Merachos 20.3</h2>
     <p class="sede">Albrook · Miércoles · 5 equipos</p>
     <div class="tablero"><div id="gc-albrook-miercoles"></div></div>
+    <div class="marca-liga libre"><span>Patrocinador</span><b>Espacio disponible</b></div>
   </section>
 
   <div class="instalar" id="instalar" hidden>
@@ -166,10 +211,23 @@ footer{
     <button id="btn-instalar" type="button">Instalar</button>
   </div>
 
-  <div class="patro">
-    <span>Patrocinador del ciclo</span>
-    <img src="logo-patrocinador.png" alt="" onerror="this.style.display='none'">
-  </div>
+  <section class="temporada">
+    <h2>Próxima temporada</h2>
+    <p>Los equipos actuales tienen una semana de prioridad. Después se abre al público.</p>
+    <table class="fechas">
+      <tr><td>6 AGO</td><td>Abre inscripción — Contraloría</td></tr>
+      <tr><td>11 AGO</td><td>Abre inscripción — Albrook martes</td></tr>
+      <tr><td>13 AGO</td><td>Abre inscripción — Andy Alonso</td></tr>
+      <tr><td>19 AGO</td><td>Abre inscripción — Albrook miércoles</td></tr>
+      <tr><td>20 AGO – 2 SEP</td><td>Finales de los cuatro torneos</td></tr>
+      <tr><td>1.ª SEM SEP</td><td>Arranque del nuevo ciclo</td></tr>
+    </table>
+    <div class="aviso">Hay equipos en lista de espera. Si quieres meter equipo o buscas dónde jugar, entra a La Banca.</div>
+    <div class="cta">
+      <a class="solido" href="https://chat.whatsapp.com/CCZIPYLjQRv4W0W4PUo0SC">Entrar a La Banca</a>
+      <a class="borde" href="https://www.instagram.com/lamellaleague/">Instagram</a>
+    </div>
+  </section>
 
   <footer>
     Datos en vivo desde GameChanger. El marcador se actualiza mientras el anotador registra el juego.<br>
