@@ -292,17 +292,34 @@ var li=0, se='vivo';
 var esc=function(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})};
 var vacio=function(t,p){return '<div class="vacio"><b>'+t+'</b>'+p+'</div>'};
 
-/* ---------- marcadores en vivo ---------- */
-L.forEach(function(l){
-  var caja=document.getElementById('gc-'+l.id);
+/* ---------- marcadores en vivo: se cargan al hacerse visibles ---------- */
+var iniciado={};
+function activarMarcador(id){
+  if(iniciado[id]) return; iniciado[id]=true;
+  var caja=document.getElementById('gc-'+id);
   var av=document.createElement('p');
-  av.className='vacio-gc'; av.textContent='Sin juegos programados en estos días.';
+  av.className='vacio-gc'; av.textContent='Cargando marcadores\u2026';
   caja.parentNode.appendChild(av);
+  var hayAlgo=function(){ return caja.children.length>0 };
+  if(!(window.GC && window.GC.scoreboard)){
+    av.textContent='No se pudo conectar con GameChanger. Recarga la página.'; return;
+  }
   try{
-    window.GC.scoreboard.init({target:'#gc-'+l.id, widgetId:GC[l.id], maxVerticalGamesVisible:4});
-    setTimeout(function(){ if(caja.children.length) av.remove(); },2500);
-  }catch(e){}
-});
+    window.GC.scoreboard.init({target:'#gc-'+id, widgetId:GC[id], maxVerticalGamesVisible:4});
+  }catch(e){
+    av.textContent='No se pudo cargar el marcador de esta liga.'; return;
+  }
+  var obs=null;
+  if(window.MutationObserver){
+    obs=new MutationObserver(function(){ if(hayAlgo()){ av.remove(); obs.disconnect() } });
+    obs.observe(caja,{childList:true,subtree:true});
+  }
+  setTimeout(function(){
+    if(obs) obs.disconnect();
+    if(hayAlgo()) av.remove();
+    else av.textContent='Sin juegos programados en estos días.';
+  },8000);
+}
 
 /* ---------- secciones de datos ---------- */
 function posiciones(l){
@@ -406,6 +423,9 @@ function pinta(){
   din.hidden = esPago || se==='vivo';
   if(se==='vivo'){
     L.forEach(function(x,i){ document.getElementById('env-'+x.id).hidden = i!==li });
+    var visible=L[li].id;
+    if(window.requestAnimationFrame) requestAnimationFrame(function(){ activarMarcador(visible) });
+    else setTimeout(function(){ activarMarcador(visible) },0);
   } else if(!esPago){
     din.innerHTML = se==='pos'?posiciones(l): se==='res'?resultados(l): se==='cal'?calendario(l): lideres(l);
   }
