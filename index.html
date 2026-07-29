@@ -9,6 +9,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="La Mella">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,6 +51,9 @@ header{padding:30px 0 0;border-bottom:2px solid var(--hondo)}
 .tit{font-family:var(--disp);font-size:24px;text-transform:uppercase}
 .sede{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--humo);margin:2px 0 16px}
 .tablero{background:var(--bloque);border:1px solid var(--linea);border-radius:3px;padding:13px;min-height:180px}
+.degradado{font-size:13px;color:var(--humo);line-height:1.6;padding:2px 0 14px}
+.bloq{border-top:1px solid var(--linea);padding-top:12px;margin-top:6px}
+.rot{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--turq);margin-bottom:6px}
 .vacio-gc{font-size:13px;color:var(--humo);padding:40px 14px;text-align:center;line-height:1.8}
 .patro-liga{margin-top:11px;padding:10px 13px;border:1px solid var(--linea);border-radius:3px;display:flex;align-items:center;gap:13px}
 .patro-liga.libre{border-style:dashed}
@@ -285,7 +289,8 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 </footer>
 </div>
 
-<script src="https://widgets.gc.com/static/js/sdk.v1.js"></script>
+<script>window.__gcEstado="cargando";</script>
+<script src="https://widgets.gc.com/static/js/sdk.v1.js" onload="window.__gcEstado='bajado'" onerror="window.__gcEstado='bloqueado'"></script>
 <script>
 var L=[{"id": "martes", "nombre": "Albrook martes", "torneo": "Atlas M1", "dia": "Martes", "pos": [{"p": 1, "e": "Potros", "m": "Líder", "jg": 2, "jp": 1, "dif": 1, "cf": 25, "cc": 24, "pct": 0.6666666666666666}, {"p": 2, "e": "Drunks", "m": "Diferencia global de carreras", "jg": 2, "jp": 1, "dif": -2, "cf": 17, "cc": 19, "pct": 0.6666666666666666}, {"p": 3, "e": "Hunters", "m": "Porcentaje de ganados", "jg": 2, "jp": 2, "dif": 1, "cf": 27, "cc": 26, "pct": 0.5}, {"p": 4, "e": "La Unidad", "m": "Porcentaje de ganados", "jg": 1, "jp": 2, "dif": 1, "cf": 20, "cc": 19, "pct": 0.3333333333333333}, {"p": 5, "e": "Bambinos", "m": "Diferencia global de carreras", "jg": 1, "jp": 2, "dif": -1, "cf": 33, "cc": 34, "pct": 0.3333333333333333}], "jor": [{"n": 4, "f": "28/07", "d": ["Drunks"], "j": [{"h": "7:30 PM", "l": "Potros", "cl": 14, "v": "Bambinos", "cv": 13}, {"h": "9:00 PM", "l": "Hunters", "cl": 6, "v": "La Unidad", "cv": 11}]}, {"n": 3, "f": "21/07", "d": ["Bambinos"], "j": [{"h": "7:00 PM", "l": "La Unidad", "cl": 6, "v": "Potros", "cv": 7}, {"h": "9:00 PM", "l": "Hunters", "cl": 7, "v": "Drunks", "cv": 0}]}, {"n": 2, "f": "14/07", "d": ["La Unidad"], "j": [{"h": "8:00 PM", "l": "Bambinos", "cl": 9, "v": "Drunks", "cv": 11}, {"h": "9:00 PM", "l": "Hunters", "cl": 5, "v": "Potros", "cv": 4}]}, {"n": 1, "f": "07/07", "d": ["Potros"], "j": [{"h": "7:30 PM", "l": "Hunters", "cl": 9, "v": "Bambinos", "cv": 11}, {"h": "9:00 PM", "l": "La Unidad", "cl": 3, "v": "Drunks", "cv": 6}]}], "prox": [{"n": 5, "f": "04/08", "d": ["Hunters"], "j": [{"h": "7:30 PM", "l": "La Unidad", "v": "Bambinos"}, {"h": "9:00 PM", "l": "Drunks", "v": "Potros"}]}], "bat": [{"e": "Bambinos", "j": "Emerson Lajara", "ci": 7, "jj": 3, "tot": 3, "ap": 9, "h": 5, "ok": true}, {"e": "Bambinos", "j": "Agustin Sierra", "ci": 6, "jj": 3, "tot": 3, "ap": 9, "h": 4, "ok": true}, {"e": "Potros", "j": "Ronald Rosales", "ci": 5, "jj": 3, "tot": 3, "ap": 8, "h": 4, "ok": true}, {"e": "Potros", "j": "Edwin Matos", "ci": 5, "jj": 3, "tot": 3, "ap": 8, "h": 2, "ok": true}, {"e": "Bambinos", "j": "Andy Nava", "ci": 5, "jj": 3, "tot": 3, "ap": 9, "h": 4, "ok": true}], "pit": [{"e": "Drunks", "j": "Wllington Franco", "g": 2, "efe": 4.46, "whip": 2.09, "il": 11.0}, {"e": "Potros", "j": "Ronald Rosales", "g": 1, "efe": 0.0, "whip": 0.75, "il": 1.0}, {"e": "La Unidad", "j": "Carlos Hernandez", "g": 1, "efe": 4.2, "whip": 2.0, "il": 5.0}, {"e": "Hunters", "j": "Juan Carlos Meneses", "g": 1, "efe": 9.55, "whip": 2.27, "il": 11.0}, {"e": "Bambinos", "j": "Neomar Perez", "g": 1, "efe": 12.09, "whip": 2.91, "il": 11.0}], "fuera": []}, {"id": "miercoles", "nombre": "Albrook miércoles", "torneo": "Merachos 20.3", "dia": "Miércoles", "pos": [{"p": 1, "e": "Kings", "m": "Líder", "jg": 2, "jp": 0, "dif": 12, "cf": 26, "cc": 14, "pct": 1.0}, {"p": 2, "e": "Anapolis", "m": "Diferencia global de carreras", "jg": 1, "jp": 0, "dif": 8, "cf": 11, "cc": 3, "pct": 1.0}, {"p": 3, "e": "Caribes", "m": "Porcentaje de ganados", "jg": 1, "jp": 1, "dif": 5, "cf": 23, "cc": 18, "pct": 0.5}, {"p": 4, "e": "4 Gatos", "m": "Porcentaje de ganados", "jg": 0, "jp": 1, "dif": -1, "cf": 8, "cc": 9, "pct": 0.0}, {"p": 5, "e": "Fantasías", "m": "Diferencia global de carreras", "jg": 0, "jp": 2, "dif": -24, "cf": 13, "cc": 37, "pct": 0.0}], "jor": [{"n": 2, "f": "22/07", "d": ["4 Gatos"], "j": [{"h": "7:00 PM", "l": "Anapolis", "cl": 11, "v": "Caribes", "cv": 3}, {"h": "9:00 PM", "l": "Fantasías", "cl": 6, "v": "Kings", "cv": 17}]}, {"n": 1, "f": "15/07", "d": ["Anapolis"], "j": [{"h": "7:00 PM", "l": "Caribes", "cl": 20, "v": "Fantasías", "cv": 7}, {"h": "9:00 PM", "l": "4 Gatos", "cl": 8, "v": "Kings", "cv": 9}]}], "prox": [{"n": 3, "f": "29/07", "d": ["Fantasías"], "j": [{"h": "7:30 PM", "l": "4 Gatos", "v": "Anapolis"}, {"h": "9:00 PM", "l": "Kings", "v": "Caribes"}]}, {"n": 4, "f": "05/08", "d": ["Kings"], "j": [{"h": "7:30 PM", "l": "Anapolis", "v": "Fantasías"}, {"h": "9:00 PM", "l": "Caribes", "v": "4 Gatos"}]}, {"n": 5, "f": "12/08", "d": ["Caribes"], "j": [{"h": "7:30 PM", "l": "Fantasías", "v": "4 Gatos"}, {"h": "9:00 PM", "l": "Kings", "v": "Anapolis"}]}], "bat": [{"e": "Kings", "j": "Pedro Colina", "ci": 5, "jj": 2, "tot": 2, "ap": 7, "h": 4, "ok": true}, {"e": "Fantasías", "j": "Jose Donado", "ci": 4, "jj": 2, "tot": 2, "ap": 5, "h": 3, "ok": true}, {"e": "Caribes", "j": "Alejandro Gil", "ci": 4, "jj": 2, "tot": 2, "ap": 5, "h": 2, "ok": true}, {"e": "Kings", "j": "Ivan Diaz", "ci": 4, "jj": 2, "tot": 2, "ap": 6, "h": 4, "ok": true}, {"e": "Caribes", "j": "Alfredo Piña", "ci": 4, "jj": 2, "tot": 2, "ap": 6, "h": 4, "ok": true}], "pit": [{"e": "Anapolis", "j": "Manuel Aizprua", "g": 1, "efe": 3.5, "whip": 1.33, "il": 6.0}, {"e": "Kings", "j": "Jesus Viñas", "g": 1, "efe": 7.0, "whip": 2.67, "il": 3.0}, {"e": "Kings", "j": "Richard Gomez", "g": 1, "efe": 7.0, "whip": 3.25, "il": 4.0}, {"e": "Caribes", "j": "Wilmer Vasquez Sr", "g": 1, "efe": 9.33, "whip": 3.33, "il": 3.0}, {"e": "Caribes", "j": "Javier Esqueda", "g": 0, "efe": 10.5, "whip": 2.33, "il": 6.0}], "fuera": [{"e": "Kings", "j": "Cristian Diaz", "ci": 5, "jj": 1, "tot": 2, "ap": 3, "h": 3, "ok": false}]}, {"id": "contraloria", "nombre": "Contraloría", "torneo": "Merachos 20.4", "dia": "Jueves", "pos": [{"p": 1, "e": "Venezuela", "m": "Líder", "jg": 1, "jp": 0, "dif": 1, "cf": 10, "cc": 9, "pct": 1.0}, {"p": 2, "e": "Gigantes", "m": "Más carreras anotadas", "jg": 1, "jp": 0, "dif": 1, "cf": 6, "cc": 5, "pct": 1.0}, {"p": 3, "e": "Team Trampa", "m": "Porcentaje de ganados", "jg": 0, "jp": 1, "dif": -1, "cf": 9, "cc": 10, "pct": 0.0}, {"p": 4, "e": "Broncos", "m": "Más carreras anotadas", "jg": 0, "jp": 1, "dif": -1, "cf": 5, "cc": 6, "pct": 0.0}], "jor": [{"n": 1, "f": "16/07", "d": [], "j": [{"h": "7:30 PM", "l": "Venezuela", "cl": 10, "v": "Team Trampa", "cv": 9}, {"h": "9:00 PM", "l": "Gigantes", "cl": 6, "v": "Broncos", "cv": 5}]}], "prox": [{"n": 2, "f": "30/07", "d": [], "j": [{"h": "8:00 PM", "l": "Team Trampa", "v": "Gigantes"}, {"h": "9:30 PM", "l": "Broncos", "v": "Venezuela"}]}, {"n": 3, "f": "06/08", "d": [], "j": [{"h": "8:00 PM", "l": "Venezuela", "v": "Gigantes"}, {"h": "9:30 PM", "l": "Team Trampa", "v": "Broncos"}]}], "bat": [{"e": "Team Trampa", "j": "Jhon Brenan", "ci": 4, "jj": 1, "tot": 1, "ap": 3, "h": 3, "ok": true}, {"e": "Venezuela", "j": "Javier Dimarco", "ci": 3, "jj": 1, "tot": 1, "ap": 4, "h": 4, "ok": true}, {"e": "Broncos", "j": "Rafa Vargas", "ci": 2, "jj": 1, "tot": 1, "ap": 3, "h": 2, "ok": true}, {"e": "Gigantes", "j": "Diomedez Frias", "ci": 2, "jj": 1, "tot": 1, "ap": 3, "h": 1, "ok": true}, {"e": "Venezuela", "j": "Pablo Castañeda", "ci": 2, "jj": 1, "tot": 1, "ap": 4, "h": 3, "ok": true}], "pit": [{"e": "Gigantes", "j": "Eduardo Pardo", "g": 1, "efe": 2.33, "whip": 1.67, "il": 6.0}, {"e": "Venezuela", "j": "Luis Linares", "g": 1, "efe": 21.0, "whip": 5.0, "il": 1.0}, {"e": "Broncos", "j": "Reinedo Pinto", "g": 0, "efe": 7.0, "whip": 3.0, "il": 1.0}, {"e": "Team Trampa", "j": "Andy Bravo", "g": 0, "efe": 10.5, "whip": 3.75, "il": 2.0}], "fuera": []}, {"id": "andy", "nombre": "Andy Alonso", "torneo": "Jack 20.4B", "dia": "Jueves", "pos": [], "jor": [], "prox": [{"n": 1, "f": "30/07", "d": [], "j": [{"h": "9:30 AM", "l": "Drinks", "v": "Brew Crew"}, {"h": "8:00 PM", "l": "Pinoleros 505", "v": "Warthogs"}]}, {"n": 2, "f": "06/08", "d": [], "j": [{"h": "8:00 AM", "l": "Warthogs", "v": "Drinks"}, {"h": "9:30 AM", "l": "Brew Crew", "v": "Pinoleros 505"}]}, {"n": 3, "f": "13/08", "d": [], "j": [{"h": "8:00 AM", "l": "Pinoleros 505", "v": "Drinks"}, {"h": "9:30 AM", "l": "Warthogs", "v": "Brew Crew"}]}], "bat": [], "pit": [], "fuera": []}], GC={"contraloria": "f1756e37-7311-4558-9db3-821dab598ef9", "andy": "f972d8c1-4327-459c-9388-3cb71dd07e01", "martes": "aa0e9ce4-29da-4472-a394-013a66e3ef76", "miercoles": "ae8978ee-583b-4388-a27c-12b870a40f9a"};
 var li=0, se='vivo';
@@ -301,13 +306,19 @@ function activarMarcador(id){
   av.className='vacio-gc'; av.textContent='Cargando marcadores\u2026';
   caja.parentNode.appendChild(av);
   var hayAlgo=function(){ return caja.children.length>0 };
-  if(!(window.GC && window.GC.scoreboard)){
-    av.textContent='No se pudo conectar con GameChanger. Recarga la página.'; return;
-  }
+  esperarSDK(function(listo){
+    if(!listo){
+      console.warn('[La Mella] SDK de GameChanger no disponible. Estado:', window.__gcEstado, '| GC:', typeof window.GC);
+      av.remove(); respaldo(id); return;
+    }
+    arrancar();
+  });
+  function arrancar(){
   try{
     window.GC.scoreboard.init({target:'#gc-'+id, widgetId:GC[id], maxVerticalGamesVisible:4});
   }catch(e){
-    av.textContent='No se pudo cargar el marcador de esta liga.'; return;
+    av.textContent='No se pudo cargar el marcador de esta liga.';
+    console.warn('[La Mella] init falló para '+id, e); return;
   }
   var obs=null;
   if(window.MutationObserver){
@@ -319,6 +330,42 @@ function activarMarcador(id){
     if(hayAlgo()) av.remove();
     else av.textContent='Sin juegos programados en estos días.';
   },8000);
+  }
+}
+/* si el marcador en vivo no responde, mostramos lo que si tenemos */
+function respaldo(id){
+  var l=null; L.forEach(function(x){ if(x.id===id) l=x });
+  var caja=document.getElementById('gc-'+id); if(!l||!caja) return;
+  var h='<p class="degradado">El marcador en vivo no está disponible ahora. Esto es lo último registrado.</p>';
+  if(l.jor.length){
+    var j=l.jor[0];
+    h+='<div class="bloq"><p class="rot">Última jornada · '+j.f+'</p>';
+    j.j.forEach(function(g){
+      h+='<div class="juego"><div class="lin'+(g.cl>g.cv?' gana':'')+'"><span class="t">'+esc(g.l)+'</span><span class="s">'+g.cl+'</span></div>'+
+         '<div class="lin'+(g.cv>g.cl?' gana':'')+'"><span class="t">'+esc(g.v)+'</span><span class="s">'+g.cv+'</span></div></div>';
+    });
+    h+='</div>';
+  }
+  if(l.prox.length){
+    var p=l.prox[0];
+    h+='<div class="bloq"><p class="rot">Próxima jornada · '+p.f+'</p>';
+    p.j.forEach(function(g){
+      h+='<div class="juego"><div class="hora" style="margin:0 0 5px">'+esc(g.h)+'</div>'+
+         '<div class="lin"><span class="t">'+esc(g.v)+'</span></div><div class="vs">en casa de</div>'+
+         '<div class="lin"><span class="t">'+esc(g.l)+'</span></div></div>';
+    });
+    h+='</div>';
+  }
+  if(!l.jor.length && !l.prox.length) h+='<p class="degradado">Este torneo todavía no tiene juegos registrados.</p>';
+  caja.innerHTML=h;
+}
+
+/* espera a que el SDK exista: revisa cada 200 ms hasta 12 s */
+function esperarSDK(cb,quedan){
+  quedan = (quedan===undefined) ? 60 : quedan;
+  if(window.GC && window.GC.scoreboard) return cb(true);
+  if(window.__gcEstado==='bloqueado' || quedan<=0) return cb(false);
+  setTimeout(function(){ esperarSDK(cb,quedan-1) },200);
 }
 
 /* ---------- secciones de datos ---------- */
