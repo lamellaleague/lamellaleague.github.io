@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Posiciones, resultados y líderes — La Mella League</title>
+<meta name="description" content="Posiciones, resultados, calendario y líderes de las cuatro ligas de softbol de La Mella League. Panamá.">
+<meta name="theme-color" content="#17170F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--negro:#17170F;--crema:#F0EDD9;--rojo:#B80000;--vivo:#F01414;--turq:#00B5A5;--linea:#DCD8C0;--tenue:#7A7868}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--crema);color:var(--negro);font:400 16px/1.5 Roboto,system-ui,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:620px;margin:0 auto;padding-bottom:52px}
+h1,h2,h3,.an{font-family:Anton,Impact,sans-serif;font-weight:400;letter-spacing:.3px}
+header{background:var(--negro);padding:18px 20px;display:flex;align-items:center;gap:13px}
+.marca{width:42px;height:42px;border-radius:50%;background:var(--rojo);flex:none}
+h1{font-size:22px;color:var(--crema);line-height:1.05}
+.sub{font-size:11px;color:var(--turq);letter-spacing:1.4px;margin-top:2px}
+nav{background:var(--negro);border-top:1px solid #2C2C22;display:flex;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:1 0 auto;background:none;border:0;border-bottom:3px solid transparent;color:#9C9A88;font:500 13px Roboto,sans-serif;padding:13px 15px;cursor:pointer;white-space:nowrap}
+nav button[aria-selected=true]{color:var(--crema);border-bottom-color:var(--vivo)}
+nav button:focus-visible,.segs button:focus-visible{outline:2px solid var(--turq);outline-offset:-3px}
+.segs{display:flex;border-bottom:1px solid var(--linea)}
+.segs button{flex:1;background:none;border:0;border-bottom:2px solid transparent;color:var(--tenue);font:500 13px Roboto,sans-serif;padding:13px 4px;cursor:pointer}
+.segs button[aria-selected=true]{color:var(--rojo);border-bottom-color:var(--rojo)}
+.aviso{background:#FAEEDA;border-left:3px solid #BA7517;padding:11px 20px;font-size:12px;color:#5C3A08;line-height:1.6}
+.fila{display:grid;grid-template-columns:28px 1fr 32px 32px 46px;align-items:center;gap:6px;padding:11px 20px;border-bottom:1px solid var(--linea)}
+.cab{padding:14px 20px 7px}
+.cab span{font-size:11px;color:var(--tenue);letter-spacing:1px}
+.pn{font-family:Anton,sans-serif;font-size:16px;color:#9A9880}
+.eq{font-family:Anton,sans-serif;font-size:17px}
+.n{font-family:Anton,sans-serif;font-size:16px;text-align:center}
+.dif{font-family:Anton,sans-serif;font-size:16px;text-align:right}
+.lider .pn,.lider .eq,.lider .n,.lider .dif{color:var(--rojo)}
+.nota{padding:13px 20px 4px;font-size:12px;color:var(--tenue);line-height:1.65}
+.nota b{font-weight:500;color:var(--negro)}
+.jorn{padding:20px 20px 5px;display:flex;align-items:baseline;justify-content:space-between}
+.jorn h3{font-size:15px}
+.jorn span{font-size:11px;color:var(--tenue);letter-spacing:1px}
+.juego{padding:11px 20px;border-bottom:1px solid var(--linea)}
+.lin{display:flex;justify-content:space-between;align-items:center;padding:2px 0;gap:10px}
+.lin .t{font-family:Anton,sans-serif;font-size:18px}
+.lin .s{font-family:Anton,sans-serif;font-size:18px;min-width:32px;text-align:right}
+.gana .t,.gana .s{color:var(--rojo)}
+.vs{font-size:11px;color:var(--tenue);letter-spacing:1px;padding:3px 0 1px}
+.hora{font-size:11px;color:var(--tenue);letter-spacing:.6px;margin-top:5px}
+.chip{display:inline-flex;align-items:center;gap:8px;margin:12px 20px 0;padding:6px 12px;background:var(--turq);border-radius:3px}
+.chip i{font-style:normal;font-size:11px;color:#04413B;letter-spacing:.6px}
+.chip b{font-family:Anton,sans-serif;font-size:13px;color:#04413B;font-weight:400}
+.lid{display:grid;grid-template-columns:26px 1fr 44px;align-items:center;gap:10px;padding:11px 20px;border-bottom:1px solid var(--linea)}
+.lid .q{font-family:Anton,sans-serif;font-size:15px;color:#9A9880}
+.lid .nm{font-family:Anton,sans-serif;font-size:16px;line-height:1.2}
+.lid .cl{font-size:11px;color:var(--tenue);letter-spacing:.4px}
+.lid .v{font-family:Anton,sans-serif;font-size:20px;text-align:right;color:var(--rojo)}
+.lid .v small{display:block;font:400 10px Roboto,sans-serif;color:var(--tenue);letter-spacing:.6px}
+.vacio{padding:34px 20px;text-align:center;color:var(--tenue);font-size:14px;line-height:1.7}
+.vacio b{display:block;font-family:Anton,sans-serif;font-size:17px;color:var(--negro);margin-bottom:7px;font-weight:400}
+footer{background:var(--rojo);padding:13px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+footer span{font-size:11px;color:var(--crema);letter-spacing:.5px}
+footer a{font-family:Anton,sans-serif;font-size:13px;color:var(--crema);text-decoration:none;border-bottom:1px solid rgba(240,237,217,.45)}
+@media(max-width:400px){.fila{grid-template-columns:24px 1fr 30px 30px 42px;padding-left:14px;padding-right:14px}
+ .juego,.nota,.jorn,.vacio,.lid,.cab,.aviso{padding-left:14px;padding-right:14px}.chip{margin-left:14px}}
+@media(prefers-reduced-motion:no-preference){main{animation:e .18s ease-out}@keyframes e{from{opacity:0}to{opacity:1}}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="marca" aria-hidden="true"></div>
+<div><h1>La Mella League</h1><div class="sub">Softbol · Panamá</div></div></header>
+<nav role="tablist" aria-label="Ligas" id="ligas"></nav>
+<div class="segs" role="tablist" aria-label="Secciones" id="segs">
+<button role="tab" data-s="pos" aria-selected="true">Posiciones</button>
+<button role="tab" data-s="res" aria-selected="false">Resultados</button>
+<button role="tab" data-s="cal" aria-selected="false">Calendario</button>
+<button role="tab" data-s="lid" aria-selected="false">Líderes</button>
+</div>
+<main id="cont" role="tabpanel" aria-live="polite"></main>
+<footer><span>Actualizado al 28 de julio de 2026</span>
+<a href="https://www.instagram.com/lamellaleague/">@lamellaleague</a></footer>
+</div>
+<script>
+const L=[{"id": "martes", "nombre": "Albrook martes", "torneo": "Atlas M1", "dia": "Martes", "pos": [{"p": 1, "e": "Potros", "m": "Líder", "jg": 2, "jp": 1, "dif": 1, "cf": 25, "cc": 24, "pct": 0.6666666666666666}, {"p": 2, "e": "Drunks", "m": "Diferencia global de carreras", "jg": 2, "jp": 1, "dif": -2, "cf": 17, "cc": 19, "pct": 0.6666666666666666}, {"p": 3, "e": "Hunters", "m": "Porcentaje de ganados", "jg": 2, "jp": 2, "dif": 1, "cf": 27, "cc": 26, "pct": 0.5}, {"p": 4, "e": "La Unidad", "m": "Porcentaje de ganados", "jg": 1, "jp": 2, "dif": 1, "cf": 20, "cc": 19, "pct": 0.3333333333333333}, {"p": 5, "e": "Bambinos", "m": "Diferencia global de carreras", "jg": 1, "jp": 2, "dif": -1, "cf": 33, "cc": 34, "pct": 0.3333333333333333}], "jor": [{"n": 4, "f": "28/07", "d": ["Drunks"], "j": [{"h": "7:30 PM", "l": "Potros", "cl": 14, "v": "Bambinos", "cv": 13}, {"h": "9:00 PM", "l": "Hunters", "cl": 6, "v": "La Unidad", "cv": 11}]}, {"n": 3, "f": "21/07", "d": ["Bambinos"], "j": [{"h": "7:00 PM", "l": "La Unidad", "cl": 6, "v": "Potros", "cv": 7}, {"h": "9:00 PM", "l": "Hunters", "cl": 7, "v": "Drunks", "cv": 0}]}, {"n": 2, "f": "14/07", "d": ["La Unidad"], "j": [{"h": "8:00 PM", "l": "Bambinos", "cl": 9, "v": "Drunks", "cv": 11}, {"h": "9:00 PM", "l": "Hunters", "cl": 5, "v": "Potros", "cv": 4}]}, {"n": 1, "f": "07/07", "d": ["Potros"], "j": [{"h": "7:30 PM", "l": "Hunters", "cl": 9, "v": "Bambinos", "cv": 11}, {"h": "9:00 PM", "l": "La Unidad", "cl": 3, "v": "Drunks", "cv": 6}]}], "prox": [{"n": 5, "f": "04/08", "d": ["Hunters"], "j": [{"h": "7:30 PM", "l": "La Unidad", "v": "Bambinos"}, {"h": "9:00 PM", "l": "Drunks", "v": "Potros"}]}], "bat": [{"e": "Bambinos", "j": "Emerson Lajara", "ci": 7, "jj": 3, "tot": 3, "ap": 9, "h": 5, "ok": true}, {"e": "Bambinos", "j": "Agustin Sierra", "ci": 6, "jj": 3, "tot": 3, "ap": 9, "h": 4, "ok": true}, {"e": "Potros", "j": "Ronald Rosales", "ci": 5, "jj": 3, "tot": 3, "ap": 8, "h": 4, "ok": true}, {"e": "Potros", "j": "Edwin Matos", "ci": 5, "jj": 3, "tot": 3, "ap": 8, "h": 2, "ok": true}, {"e": "Bambinos", "j": "Andy Nava", "ci": 5, "jj": 3, "tot": 3, "ap": 9, "h": 4, "ok": true}], "pit": [{"e": "Drunks", "j": "Wllington Franco", "g": 2, "efe": 4.46, "whip": 2.09, "il": 11.0}, {"e": "Potros", "j": "Ronald Rosales", "g": 1, "efe": 0.0, "whip": 0.75, "il": 1.0}, {"e": "La Unidad", "j": "Carlos Hernandez", "g": 1, "efe": 4.2, "whip": 2.0, "il": 5.0}, {"e": "Hunters", "j": "Juan Carlos Meneses", "g": 1, "efe": 9.55, "whip": 2.27, "il": 11.0}, {"e": "Bambinos", "j": "Neomar Perez", "g": 1, "efe": 12.09, "whip": 2.91, "il": 11.0}], "fuera": []}, {"id": "miercoles", "nombre": "Albrook miércoles", "torneo": "Merachos 20.3", "dia": "Miércoles", "pos": [{"p": 1, "e": "Kings", "m": "Líder", "jg": 2, "jp": 0, "dif": 12, "cf": 26, "cc": 14, "pct": 1.0}, {"p": 2, "e": "Anapolis", "m": "Diferencia global de carreras", "jg": 1, "jp": 0, "dif": 8, "cf": 11, "cc": 3, "pct": 1.0}, {"p": 3, "e": "Caribes", "m": "Porcentaje de ganados", "jg": 1, "jp": 1, "dif": 5, "cf": 23, "cc": 18, "pct": 0.5}, {"p": 4, "e": "4 Gatos", "m": "Porcentaje de ganados", "jg": 0, "jp": 1, "dif": -1, "cf": 8, "cc": 9, "pct": 0.0}, {"p": 5, "e": "Fantasías", "m": "Diferencia global de carreras", "jg": 0, "jp": 2, "dif": -24, "cf": 13, "cc": 37, "pct": 0.0}], "jor": [{"n": 2, "f": "22/07", "d": ["4 Gatos"], "j": [{"h": "7:00 PM", "l": "Anapolis", "cl": 11, "v": "Caribes", "cv": 3}, {"h": "9:00 PM", "l": "Fantasías", "cl": 6, "v": "Kings", "cv": 17}]}, {"n": 1, "f": "15/07", "d": ["Anapolis"], "j": [{"h": "7:00 PM", "l": "Caribes", "cl": 20, "v": "Fantasías", "cv": 7}, {"h": "9:00 PM", "l": "4 Gatos", "cl": 8, "v": "Kings", "cv": 9}]}], "prox": [{"n": 3, "f": "29/07", "d": ["Fantasías"], "j": [{"h": "7:30 PM", "l": "4 Gatos", "v": "Anapolis"}, {"h": "9:00 PM", "l": "Kings", "v": "Caribes"}]}, {"n": 4, "f": "05/08", "d": ["Kings"], "j": [{"h": "7:30 PM", "l": "Anapolis", "v": "Fantasías"}, {"h": "9:00 PM", "l": "Caribes", "v": "4 Gatos"}]}, {"n": 5, "f": "12/08", "d": ["Caribes"], "j": [{"h": "7:30 PM", "l": "Fantasías", "v": "4 Gatos"}, {"h": "9:00 PM", "l": "Kings", "v": "Anapolis"}]}], "bat": [{"e": "Kings", "j": "Pedro Colina", "ci": 5, "jj": 2, "tot": 2, "ap": 7, "h": 4, "ok": true}, {"e": "Fantasías", "j": "Jose Donado", "ci": 4, "jj": 2, "tot": 2, "ap": 5, "h": 3, "ok": true}, {"e": "Caribes", "j": "Alejandro Gil", "ci": 4, "jj": 2, "tot": 2, "ap": 5, "h": 2, "ok": true}, {"e": "Kings", "j": "Ivan Diaz", "ci": 4, "jj": 2, "tot": 2, "ap": 6, "h": 4, "ok": true}, {"e": "Caribes", "j": "Alfredo Piña", "ci": 4, "jj": 2, "tot": 2, "ap": 6, "h": 4, "ok": true}], "pit": [{"e": "Anapolis", "j": "Manuel Aizprua", "g": 1, "efe": 3.5, "whip": 1.33, "il": 6.0}, {"e": "Kings", "j": "Jesus Viñas", "g": 1, "efe": 7.0, "whip": 2.67, "il": 3.0}, {"e": "Kings", "j": "Richard Gomez", "g": 1, "efe": 7.0, "whip": 3.25, "il": 4.0}, {"e": "Caribes", "j": "Wilmer Vasquez Sr", "g": 1, "efe": 9.33, "whip": 3.33, "il": 3.0}, {"e": "Caribes", "j": "Javier Esqueda", "g": 0, "efe": 10.5, "whip": 2.33, "il": 6.0}], "fuera": [{"e": "Kings", "j": "Cristian Diaz", "ci": 5, "jj": 1, "tot": 2, "ap": 3, "h": 3, "ok": false}]}, {"id": "contraloria", "nombre": "Contraloría", "torneo": "Merachos 20.4", "dia": "Jueves", "pos": [{"p": 1, "e": "Venezuela", "m": "Líder", "jg": 1, "jp": 0, "dif": 1, "cf": 10, "cc": 9, "pct": 1.0}, {"p": 2, "e": "Gigantes", "m": "Más carreras anotadas", "jg": 1, "jp": 0, "dif": 1, "cf": 6, "cc": 5, "pct": 1.0}, {"p": 3, "e": "Team Trampa", "m": "Porcentaje de ganados", "jg": 0, "jp": 1, "dif": -1, "cf": 9, "cc": 10, "pct": 0.0}, {"p": 4, "e": "Broncos", "m": "Más carreras anotadas", "jg": 0, "jp": 1, "dif": -1, "cf": 5, "cc": 6, "pct": 0.0}], "jor": [{"n": 1, "f": "16/07", "d": [], "j": [{"h": "7:30 PM", "l": "Venezuela", "cl": 10, "v": "Team Trampa", "cv": 9}, {"h": "9:00 PM", "l": "Gigantes", "cl": 6, "v": "Broncos", "cv": 5}]}], "prox": [{"n": 2, "f": "30/07", "d": [], "j": [{"h": "8:00 PM", "l": "Team Trampa", "v": "Gigantes"}, {"h": "9:30 PM", "l": "Broncos", "v": "Venezuela"}]}, {"n": 3, "f": "06/08", "d": [], "j": [{"h": "8:00 PM", "l": "Venezuela", "v": "Gigantes"}, {"h": "9:30 PM", "l": "Team Trampa", "v": "Broncos"}]}], "bat": [{"e": "Team Trampa", "j": "Jhon Brenan", "ci": 4, "jj": 1, "tot": 1, "ap": 3, "h": 3, "ok": true}, {"e": "Venezuela", "j": "Javier Dimarco", "ci": 3, "jj": 1, "tot": 1, "ap": 4, "h": 4, "ok": true}, {"e": "Broncos", "j": "Rafa Vargas", "ci": 2, "jj": 1, "tot": 1, "ap": 3, "h": 2, "ok": true}, {"e": "Gigantes", "j": "Diomedez Frias", "ci": 2, "jj": 1, "tot": 1, "ap": 3, "h": 1, "ok": true}, {"e": "Venezuela", "j": "Pablo Castañeda", "ci": 2, "jj": 1, "tot": 1, "ap": 4, "h": 3, "ok": true}], "pit": [{"e": "Gigantes", "j": "Eduardo Pardo", "g": 1, "efe": 2.33, "whip": 1.67, "il": 6.0}, {"e": "Venezuela", "j": "Luis Linares", "g": 1, "efe": 21.0, "whip": 5.0, "il": 1.0}, {"e": "Broncos", "j": "Reinedo Pinto", "g": 0, "efe": 7.0, "whip": 3.0, "il": 1.0}, {"e": "Team Trampa", "j": "Andy Bravo", "g": 0, "efe": 10.5, "whip": 3.75, "il": 2.0}], "fuera": []}, {"id": "andy", "nombre": "Andy Alonso", "torneo": "Jack 20.4B", "dia": "Jueves", "pos": [], "jor": [], "prox": [{"n": 1, "f": "30/07", "d": [], "j": [{"h": "9:30 AM", "l": "Drinks", "v": "Brew Crew"}, {"h": "8:00 PM", "l": "Pinoleros 505", "v": "Warthogs"}]}, {"n": 2, "f": "06/08", "d": [], "j": [{"h": "8:00 AM", "l": "Warthogs", "v": "Drinks"}, {"h": "9:30 AM", "l": "Brew Crew", "v": "Pinoleros 505"}]}, {"n": 3, "f": "13/08", "d": [], "j": [{"h": "8:00 AM", "l": "Pinoleros 505", "v": "Drinks"}, {"h": "9:30 AM", "l": "Warthogs", "v": "Brew Crew"}]}], "bat": [], "pit": [], "fuera": []}];let li=0,se='pos';
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const vacio=(t,p)=>`<div class="vacio"><b>${t}</b>${p}</div>`;
+const nav=document.getElementById('ligas');
+L.forEach((l,i)=>{const b=document.createElement('button');b.role='tab';b.textContent=l.nombre;
+ b.setAttribute('aria-selected',i===0);b.onclick=()=>{li=i;pinta()};nav.appendChild(b)});
+document.querySelectorAll('#segs button').forEach(b=>b.onclick=()=>{se=b.dataset.s;pinta()});
+
+function posiciones(l){
+ if(!l.pos.length)return vacio('Sin juegos todavía','La tabla aparece cuando arranque el torneo.');
+ let h='<div class="aviso">Orden preliminar. El sistema de desempate del reglamento se aplica en firme al cerrar la ronda regular.</div>';
+ h+='<div class="fila cab"><span></span><span>Equipo</span><span style="text-align:center">G</span><span style="text-align:center">P</span><span style="text-align:right">Dif</span></div>';
+ l.pos.forEach(r=>{h+=`<div class="fila${r.p===1?' lider':''}"><span class="pn">${r.p}</span>`+
+  `<span class="eq">${esc(r.e)}</span><span class="n">${r.jg}</span><span class="n">${r.jp}</span>`+
+  `<span class="dif">${r.dif>0?'+':r.dif<0?'\u2212':''}${Math.abs(r.dif)}</span></div>`});
+ const d=l.pos.filter(r=>r.m&&!['Líder','Porcentaje de ganados'].includes(r.m));
+ if(d.length)h+='<p class="nota"><b>Desempates aplicados.</b> '+
+  d.map(r=>`${esc(r.e)} queda en el puesto ${r.p} por ${r.m.toLowerCase()}`).join('. ')+'.</p>';
+ return h}
+
+function resultados(l){
+ if(!l.jor.length)return vacio('Sin resultados','Este torneo todavía no registra juegos.');
+ return l.jor.map(j=>{let h=`<div class="jorn"><h3>Jornada ${j.n}</h3><span>${j.f}</span></div>`;
+  j.j.forEach(g=>{h+=`<div class="juego"><div class="lin${g.cl>g.cv?' gana':''}"><span class="t">${esc(g.l)}</span><span class="s">${g.cl}</span></div>`+
+   `<div class="lin${g.cv>g.cl?' gana':''}"><span class="t">${esc(g.v)}</span><span class="s">${g.cv}</span></div>`+
+   `<div class="hora">${esc(g.h)}</div></div>`});
+  if(j.d.length)h+=`<div class="chip"><i>Descansó</i><b>${j.d.map(esc).join(' · ')}</b></div>`;
+  return h}).join('')}
+
+function calendario(l){
+ if(!l.prox.length)return vacio('Calendario pendiente',
+  `${esc(l.nombre)} juega los ${esc(l.dia.toLowerCase())}. Los próximos juegos se publican en cuanto se confirme el rol.`);
+ return l.prox.map(j=>{let h=`<div class="jorn"><h3>Jornada ${j.n}</h3><span>${j.f}</span></div>`;
+  j.j.forEach(g=>{h+=`<div class="juego"><div class="hora" style="margin:0 0 6px">${esc(g.h)}</div>`+
+   `<div class="lin"><span class="t">${esc(g.v)}</span></div><div class="vs">en casa de</div>`+
+   `<div class="lin"><span class="t">${esc(g.l)}</span></div></div>`});
+  if(j.d.length)h+=`<div class="chip"><i>Descansa</i><b>${j.d.map(esc).join(' · ')}</b></div>`;
+  return h}).join('')}
+
+function lideres(l){
+ if(!l.bat.length&&!l.pit.length)return vacio('Sin líderes todavía','Aparecen cuando se registre el primer juego.');
+ let h='';
+ if(l.bat.length){h+='<div class="jorn"><h3>Carreras impulsadas</h3><span>Top 5</span></div>';
+  l.bat.forEach((b,i)=>{h+=`<div class="lid"><span class="q">${i+1}</span><span><span class="nm">${esc(b.j)}</span><br>`+
+   `<span class="cl">${esc(b.e)} · ${b.jj} ${b.jj===1?'juego':'juegos'}</span></span>`+
+   `<span class="v">${b.ci}<small>CI</small></span></div>`})}
+ if(l.pit.length){h+='<div class="jorn"><h3>Lanzadores</h3><span>Por ganados</span></div>';
+  l.pit.forEach((p,i)=>{h+=`<div class="lid"><span class="q">${i+1}</span><span><span class="nm">${esc(p.j)}</span><br>`+
+   `<span class="cl">${esc(p.e)} · ${p.efe.toFixed(2)} efectividad</span></span>`+
+   `<span class="v">${p.g}<small>${p.g===1?'GANADO':'GANADOS'}</small></span></div>`})}
+ h+='<p class="nota"><b>Cómo se cuenta.</b> Solo entran jugadores con al menos el 60 por ciento de los juegos de su equipo. '+
+    'En impulsadas desempata más juegos jugados, luego menos turnos, luego más hits. En lanzadores desempata la efectividad, luego el WHIP.</p>';
+ if(l.fuera&&l.fuera.length)h+='<p class="nota">Fuera del listado por participación: '+
+    l.fuera.map(x=>`${esc(x.j)} (${x.ci} CI en ${x.jj} de ${x.tot})`).join(', ')+'.</p>';
+ return h}
+
+function pinta(){const l=L[li];
+ nav.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-selected',i===li));
+ document.querySelectorAll('#segs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.s===se));
+ document.getElementById('cont').innerHTML=
+  se==='pos'?posiciones(l):se==='res'?resultados(l):se==='cal'?calendario(l):lideres(l)}
+pinta();
+</script>
+</body>
+</html>
