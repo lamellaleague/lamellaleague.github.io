@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>La Mella League — Marcadores, posiciones y líderes</title>
-<meta name="description" content="Marcadores en vivo, posiciones, resultados, calendario y líderes de las cuatro ligas de softbol de La Mella League. Panamá.">
+<title>La Mella League — Temporada 21, inscripción abierta</title>
+<meta name="description" content="Temporada 21 de La Mella League: cuatro ligas de softbol en Panamá, seis equipos cada una. Inscripción abierta. Marcadores en vivo, posiciones, resultados y líderes.">
 <meta name="theme-color" content="#14140E">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
@@ -17,10 +17,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --fondo:#14140E; --bloque:#1F1F16; --alto:#2A2A1E;
-  --cal:#F0EDD9; --rojo:#F01414; --hondo:#B80000; --turq:#00B5A5;
-  --humo:#8A8878; --linea:rgba(240,237,217,.14);
-  --disp:Anton,Impact,sans-serif; --txt:Roboto,system-ui,sans-serif;
+--fondo:#14140E; --bloque:#1F1F16; --alto:#2A2A1E;
+--cal:#F0EDD9; --rojo:#F01414; --hondo:#B80000; --turq:#00B5A5;
+--humo:#8A8878; --linea:rgba(240,237,217,.14);
+--disp:Anton,Impact,sans-serif; --txt:Roboto,system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
@@ -32,14 +32,67 @@ a{color:var(--cal)}
 [hidden]{display:none!important}
 
 header{padding:30px 0 0;border-bottom:2px solid var(--hondo)}
-.marca{font-family:var(--disp);font-size:clamp(40px,11vw,74px);line-height:.9;text-transform:uppercase}
+.cabecera{display:flex;align-items:center;gap:clamp(12px,4vw,22px);flex-wrap:wrap}
+.cabecera>div{flex:1 1 210px;min-width:0}
+
+/* ---------- muñeco 3D ---------- */
+.logo3d{flex:0 0 auto;width:clamp(88px,24vw,132px);perspective:640px;cursor:pointer;
+-webkit-tap-highlight-color:transparent;background:none;border:0;padding:0;display:block}
+.logo3d .flota{animation:flota 6s ease-in-out infinite;will-change:transform}
+.logo3d .gira{display:block;width:100%;transform-style:preserve-3d;
+transition:transform .45s cubic-bezier(.22,1,.36,1);will-change:transform}
+.logo3d img{display:block;width:100%;height:auto;
+filter:drop-shadow(0 8px 14px rgba(0,0,0,.55)) drop-shadow(0 0 1px rgba(240,237,217,.25))}
+.logo3d.activo .gira{transition:transform .08s linear}
+.logo3d.toque .gira{animation:toque .75s cubic-bezier(.34,1.56,.64,1)}
+@keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes toque{
+0%{transform:rotateY(0) scale(1)}
+25%{transform:perspective(640px) rotateY(-26deg) rotateX(9deg) scale(1.09)}
+55%{transform:perspective(640px) rotateY(22deg) rotateX(-6deg) scale(1.05)}
+100%{transform:rotateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){
+.logo3d .flota{animation:none}
+.logo3d.toque .gira{animation:none}
+.logo3d .gira{transition:none}}
+
+.marca{font-family:var(--disp);font-size:clamp(36px,9.5vw,60px);line-height:.9;text-transform:uppercase}
 .marca em{font-style:normal;color:var(--rojo)}
 .bajada{margin-top:12px}
 .rejilla{display:flex;flex-wrap:wrap;margin-top:20px;border-top:1px solid var(--linea)}
 .rejilla div{flex:1 1 25%;min-width:96px;padding:9px 10px 11px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--humo)}
 .rejilla b{display:block;font-family:var(--disp);font-size:19px;color:var(--cal);letter-spacing:0;margin-top:2px}
 
-.secc{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:18px -18px 0;padding:0 18px}
+/* ---------- Temporada 21 ---------- */
+.t21{margin-top:26px;padding:22px 20px 24px;background:var(--bloque);border:1px solid var(--linea);border-left:4px solid var(--rojo);border-radius:6px}
+.t21 .flash{display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#08312D;background:var(--turq);padding:5px 10px 4px;border-radius:2px;font-weight:700}
+.t21 h2{font-size:clamp(28px,8vw,40px);line-height:1.02;text-transform:uppercase;margin-top:13px}
+.t21 h2 em{font-style:normal;color:var(--rojo)}
+.t21 .entrada{color:var(--humo);font-size:15px;margin-top:11px;line-height:1.6}
+.sedes{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:20px 0 4px}
+.sd{background:var(--alto);border-radius:4px;padding:12px 13px}
+.sd b{display:block;font-family:var(--disp);font-size:17px;text-transform:uppercase;font-weight:400}
+.sd span{display:block;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--humo);margin-top:3px}
+.sd.abre{border:1px dashed var(--turq);background:none}
+.sd.abre span{color:var(--turq)}
+.sd.lleno{background:none;border:1px solid var(--linea);opacity:.6}
+.sd.lleno b{text-decoration:line-through;text-decoration-thickness:2px}
+.precios{width:100%;border-collapse:collapse;font-size:15px;margin-bottom:4px}
+.precios td{padding:11px 2px;border-bottom:1px solid var(--linea)}
+.precios td:last-child{text-align:right;font-family:var(--disp);font-size:22px;color:var(--rojo)}
+.precios tr:last-child td{border-bottom:none}
+.precios tr.destaca td:last-child{color:var(--cal)}
+.jocker{margin-top:8px;padding:15px 17px;background:var(--alto);border-radius:5px;border-left:3px solid var(--turq)}
+.jocker b{font-family:var(--disp);font-size:18px;text-transform:uppercase;font-weight:400;display:block;margin-bottom:6px}
+.jocker p{font-size:14.5px;line-height:1.6;color:var(--humo)}
+.jocker p b2{color:var(--cal)}
+.jocker .mt{color:var(--cal);font-weight:500}
+.canal{display:flex;align-items:center;gap:14px;margin-top:18px;padding:14px 16px;background:var(--alto);border-radius:5px;text-decoration:none;border:1px solid var(--linea)}
+.canal .yt{flex:0 0 38px;height:27px;background:var(--rojo);border-radius:6px;color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;line-height:1}
+.canal .ct b{display:block;font-family:var(--disp);font-size:17px;text-transform:uppercase;font-weight:400}
+.canal .ct i{display:block;font-style:normal;font-size:12.5px;color:var(--humo);margin-top:2px}
+
+.secc{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:26px -18px 0;padding:0 18px;border-top:1px solid var(--linea)}
 .secc::-webkit-scrollbar{display:none}
 .secc button{flex:0 0 auto;background:none;border:0;border-bottom:3px solid transparent;color:var(--humo);font:500 14px var(--txt);padding:11px 3px;margin-right:12px;cursor:pointer;white-space:nowrap}
 .secc button[aria-selected=true]{color:var(--cal);border-bottom-color:var(--rojo)}
@@ -52,7 +105,7 @@ header{padding:30px 0 0;border-bottom:2px solid var(--hondo)}
 .sede{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--humo);margin:2px 0 16px}
 .tablero{background:var(--bloque);border:1px solid var(--linea);border-radius:3px;padding:13px;min-height:180px}
 .diag{position:fixed;right:10px;bottom:10px;z-index:99;background:#000;border:1px solid var(--turq);
- border-radius:5px;padding:11px 13px;font:400 11px var(--txt);color:var(--turq);line-height:1.7;max-width:260px}
+border-radius:5px;padding:11px 13px;font:400 11px var(--txt);color:var(--turq);line-height:1.7;max-width:260px}
 .diag b{display:block;font-family:var(--disp);font-size:13px;color:var(--cal);margin-bottom:5px;font-weight:400}
 .diag span{display:block}
 .degradado{font-size:13px;color:var(--humo);line-height:1.6;padding:2px 0 14px}
@@ -64,6 +117,8 @@ header{padding:30px 0 0;border-bottom:2px solid var(--hondo)}
 .patro-liga span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--humo)}
 .patro-liga b{font-family:var(--disp);font-size:16px;text-transform:uppercase;font-weight:400}
 .patro-liga img{max-height:36px}
+.cerrado{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--humo);border:1px solid var(--linea);padding:4px 8px 3px;border-radius:2px;margin-bottom:12px}
+.cerrado.vivo{color:var(--rojo);border-color:var(--hondo)}
 
 .aviso{background:#33280E;border-left:3px solid #C08A1E;padding:11px 14px;font-size:12.5px;color:#E8D7A8;line-height:1.6;border-radius:2px;margin-bottom:6px}
 .fila{display:grid;grid-template-columns:26px 1fr 30px 30px 46px;align-items:center;gap:6px;padding:11px 2px;border-bottom:1px solid var(--linea)}
@@ -104,6 +159,7 @@ header{padding:30px 0 0;border-bottom:2px solid var(--hondo)}
 .ficha .donde{font-size:16px;font-weight:500;color:#fff;margin-top:6px}
 .ficha .hora2{font-size:12px;letter-spacing:.09em;color:var(--humo);margin-top:5px;text-transform:uppercase}
 .ficha .hora2 b{color:var(--rojo)}
+.ficha.pend{border-left-color:var(--humo)}
 .datos{display:grid;gap:9px;margin-bottom:34px}
 .dato{background:var(--bloque);border-radius:6px;padding:15px 17px;display:flex;align-items:center;gap:15px}
 .dato .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--humo);flex:0 0 92px}
@@ -111,7 +167,7 @@ header{padding:30px 0 0;border-bottom:2px solid var(--hondo)}
 .dato .v.libre{font-family:var(--txt);font-weight:500;font-size:16px}
 .copiar{background:none;border:1px solid var(--linea);color:var(--humo);border-radius:4px;font:400 10px var(--txt);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;cursor:pointer;flex:0 0 auto}
 .copiar.ok{color:var(--rojo);border-color:var(--rojo)}
-.rotulo{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--humo);padding-bottom:10px;border-bottom:1px solid var(--hondo);margin-bottom:20px}
+.rotulo{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--humo);padding-bottom:10px;border-bottom:1px solid var(--hondo);margin:26px 0 18px}
 ol.pasos{list-style:none;counter-reset:p}
 ol.pasos li{counter-increment:p;display:flex;gap:15px;padding:14px 0;border-bottom:1px solid var(--linea)}
 ol.pasos li::before{content:counter(p,decimal-leading-zero);font:700 12px var(--txt);color:var(--rojo);flex:0 0 24px;padding-top:3px}
@@ -137,14 +193,7 @@ ol.pasos .sn{display:block;color:var(--humo);font-size:14px;margin-top:3px}
 .cierre{margin-top:22px;padding:17px 19px;background:var(--alto);border-radius:6px;font-size:15px;line-height:1.55}
 .cierre b{color:#fff}
 
-.temporada{margin-top:36px;border-top:2px solid var(--hondo);padding-top:20px}
-.temporada h2{font-size:26px;text-transform:uppercase}
-.temporada>p{color:var(--humo);font-size:14.5px;margin:4px 0 16px}
-.fechas{width:100%;border-collapse:collapse;font-size:15px}
-.fechas td{padding:11px 4px;border-bottom:1px solid var(--linea);vertical-align:top}
-.fechas td:first-child{font-size:13px;color:var(--rojo);white-space:nowrap;padding-right:16px;letter-spacing:.05em;font-weight:500}
-.caja{margin-top:16px;padding:15px 17px;background:var(--bloque);border-radius:4px;font-size:14.5px;line-height:1.6}
-.cta{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.cta{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
 .cta a{font-family:var(--disp);font-size:17px;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;padding:12px 19px 10px;border-radius:2px}
 .cta a.solido{background:var(--hondo);color:#fff}
 .cta a.turq{background:var(--turq);color:#08312D}
@@ -162,136 +211,162 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 <div class="wrap">
 
 <header>
-  <h1 class="marca">La Mella<br><em>League</em></h1>
-  <p class="bajada et">Softbol · Panamá · Marcadores en vivo</p>
-  <div class="rejilla"><div>Sedes<b>3</b></div><div>Ligas<b>4</b></div><div>Equipos<b>18</b></div><div>Juegos por ciclo<b>46</b></div></div>
+<div class="cabecera">
+<button class="logo3d" id="logo3d" type="button" aria-label="La Mella League">
+<span class="flota"><span class="gira"><img src="logo-mella.png" alt="Liga La Mella" width="392" height="400"></span></span>
+</button>
+<div>
+<h1 class="marca">La Mella<br><em>League</em></h1>
+<p class="bajada et">Softbol · Panamá · Marcadores en vivo</p>
+</div>
+</div>
+<div class="rejilla"><div>Sedes<b>3</b></div><div>Ligas<b>4</b></div><div>Cupos libres<b>18</b></div><div>Cuota desde<b>$450</b></div></div>
 </header>
 
+<section class="t21" id="temporada21">
+<span class="flash">Inscripción abierta</span>
+<h2>Temporada 21<br><em>arranca el martes 8 de septiembre</em></h2>
+<p class="entrada">Cuatro ligas. Andy Alonso ya cerró con sus 4 equipos; quedan cupos en las otras tres. Los equipos de la temporada que termina tienen prioridad hasta el jueves 4 de septiembre; después se abre a cualquiera.</p>
+
+<div class="sedes">
+<div class="sd"><b>Albrook</b><span>Martes · 6 cupos</span></div>
+<div class="sd"><b>Albrook</b><span>Miércoles · 6 cupos</span></div>
+<div class="sd lleno"><b>Andy Alonso</b><span>Jueves · 4 equipos · cerrado</span></div>
+<div class="sd abre"><b>Contraloría</b><span>Jueves · abriendo</span></div>
+</div>
+
+<p class="rotulo">Cuota por equipo · Albrook y Contraloría</p>
+<table class="precios">
+<tr><td>Liga de 4 equipos</td><td>$450</td></tr>
+<tr><td>Liga de 5 equipos</td><td>$550</td></tr>
+<tr class="destaca"><td>Liga de 6 equipos</td><td>$650</td></tr>
+</table>
+<p class="nota" style="padding-top:6px"><b>Andy Alonso: cupo cerrado.</b> Los 4 equipos están confirmados, con cuota de $375. Escríbenos si quieres entrar a la lista de espera.</p>
+<p class="nota">La cuota sube con el tamaño de la liga porque sube la cantidad de juegos que juega tu equipo. <b>Queda fija el día que cierra la inscripción</b> y no cambia después. Se paga en dos partes: la mitad al inscribirte y la otra mitad a mitad de torneo. El arbitraje va incluido. <b>Para inscribirte tienes que estar al día con la liga.</b></p>
+
+<div class="jocker">
+<b>¿No tienes equipo? Juega de jocker</b>
+<p>Te registras con la liga y te alineamos donde haga falta gente. <span class="mt">$15 una vez por temporada y $10 por cada juego</span> que juegues; esos $10 se le abonan a la cuota del equipo que te alineó. Máximo dos jockers por lineup. <span class="mt">El jocker no juega playoffs</span>, pero hasta la cuarta jornada un equipo puede ficharte en firme y ahí sí entras completo.</p>
+</div>
+
+<p class="rotulo">Cómo jugamos</p>
+<ul class="reglas" style="border-top:none;padding-top:0;margin-top:0">
+<li><b>Si llegas con 8 jugadores, juegas con 8.</b> Aquí no se pierde el juego por falta de gente.</li>
+<li><b>Transmitimos los juegos en vivo</b> por nuestro canal de YouTube, y quedan grabados.</li>
+<li><b>Cada juego queda registrado en GameChanger:</b> posiciones, estadísticas y líderes, para ti y para tu equipo.</li>
+<li>Los premios individuales se congelan con el <b>último juego de la ronda regular</b>. Los playoffs no los mueven.</li>
+</ul>
+
+<a class="canal" href="https://www.youtube.com/@lamellaleague">
+<span class="yt" aria-hidden="true">▶</span>
+<span class="ct"><b>La Mella League en YouTube</b><i>Juegos en vivo y el archivo completo de la liga</i></span>
+</a>
+
+<div class="cta">
+<a class="turq" href="https://forms.gle/hMfG4FxyPaNUCBDR9">Quiero jugar</a>
+<a class="solido" href="#pagar">Cómo pagar</a>
+<a class="borde" href="https://www.youtube.com/@lamellaleague">YouTube</a>
+<a class="borde" href="https://chat.whatsapp.com/CCZIPYLjQRv4W0W4PUo0SC">Entrar a La Banca</a>
+<a class="borde" href="https://www.instagram.com/lamellaleague/">Instagram</a>
+</div>
+</section>
+
 <div class="secc" role="tablist" aria-label="Secciones" id="secc">
-  <button role="tab" data-s="vivo" aria-selected="true">En vivo</button>
-  <button role="tab" data-s="pos" aria-selected="false">Posiciones</button>
-  <button role="tab" data-s="res" aria-selected="false">Resultados</button>
-  <button role="tab" data-s="cal" aria-selected="false">Calendario</button>
-  <button role="tab" data-s="lid" aria-selected="false">Líderes</button>
-  <button role="tab" data-s="pag" aria-selected="false">Pagar</button>
+<button role="tab" data-s="vivo" aria-selected="true">En vivo</button>
+<button role="tab" data-s="pos" aria-selected="false">Posiciones</button>
+<button role="tab" data-s="res" aria-selected="false">Resultados</button>
+<button role="tab" data-s="cal" aria-selected="false">Calendario</button>
+<button role="tab" data-s="lid" aria-selected="false">Líderes</button>
+<button role="tab" data-s="pag" aria-selected="false">Pagar</button>
 </div>
 
 <div class="ligas" role="tablist" aria-label="Ligas" id="ligas"></div>
 
-<main id="vivo"><section class="env" id="env-martes" hidden><h2 class="tit">Atlas M1</h2><p class="sede">Albrook · Martes · 5 equipos</p><div class="tablero"><div id="gc-martes"></div></div><div class="patro-liga"><span>Patrocina</span><img src="logo-patrocinador.png" alt="Atlas"></div></section><section class="env" id="env-miercoles" hidden><h2 class="tit">Merachos 20.3</h2><p class="sede">Albrook · Miércoles · 5 equipos</p><div class="tablero"><div id="gc-miercoles"></div></div><div class="patro-liga libre"><span>Patrocinador</span><b>Espacio disponible</b></div></section><section class="env" id="env-contraloria" hidden><h2 class="tit">Merachos 20.4</h2><p class="sede">Contraloría · 4 equipos · Final 20 de agosto</p><div class="tablero"><div id="gc-contraloria"></div></div><div class="patro-liga libre"><span>Patrocinador</span><b>Espacio disponible</b></div></section><section class="env" id="env-andy" hidden><h2 class="tit">Jack 20.4B</h2><p class="sede">Andy Alonso · 4 equipos</p><div class="tablero"><div id="gc-andy"></div></div><div class="patro-liga libre"><span>Patrocinador</span><b>Espacio disponible</b></div></section></main>
+<main id="vivo"><section class="env" id="env-martes" hidden><h2 class="tit">Atlas M1</h2><p class="sede">Albrook · Martes · 5 equipos</p><span class="cerrado">Ciclo terminado</span><div class="tablero"><div id="gc-martes"></div></div><div class="patro-liga"><span>Patrocina</span><img src="logo-patrocinador.png" alt="Atlas"></div></section><section class="env" id="env-miercoles" hidden><h2 class="tit">Merachos 20.3</h2><p class="sede">Albrook · Miércoles · 5 equipos</p><span class="cerrado vivo">Final · miércoles 2 de septiembre</span><div class="tablero"><div id="gc-miercoles"></div></div><div class="patro-liga libre"><span>Patrocinador</span><b>Espacio disponible</b></div></section><section class="env" id="env-contraloria" hidden><h2 class="tit">Merachos 20.4</h2><p class="sede">Contraloría · Jueves · 4 equipos</p><span class="cerrado">Ciclo terminado</span><div class="tablero"><div id="gc-contraloria"></div></div><div class="patro-liga libre"><span>Patrocinador</span><b>Espacio disponible</b></div></section><section class="env" id="env-andy" hidden><h2 class="tit">Jack 20.4B</h2><p class="sede">Andy Alonso · Jueves · 4 equipos</p><span class="cerrado">Ciclo terminado</span><div class="tablero"><div id="gc-andy"></div></div><div class="patro-liga libre"><span>Patrocinador</span><b>Espacio disponible</b></div></section></main>
 <main id="dinamico" aria-live="polite" hidden></main>
 
 <main id="pagar" hidden>
-  <div class="sub" role="tablist">
-    <button role="tab" data-p="birria" aria-selected="true">Cupo de birria</button>
-    <button role="tab" data-p="cuota" aria-selected="false">Cuota de equipo</button>
-  </div>
+<div class="sub" role="tablist">
+<button role="tab" data-p="cuota" aria-selected="true">Cuota de equipo</button>
+<button role="tab" data-p="birria" aria-selected="false">Cupo de birria</button>
+</div>
 
-  <section id="p-birria" role="tabpanel">
-    <div class="ficha">
-      <p class="cuando">Martes 4 de agosto</p>
-      <p class="donde">Clover 3 · Ciudad del Saber, Clayton</p>
-      <p class="hora2">7:00 a 9:00 pm · llega 6:45 · <b>22 cupos</b></p>
-    </div>
-    <div class="datos">
-      <div class="dato"><span class="k">Búscanos</span><span class="v" id="v1">@lamellapma</span><button class="copiar" data-copia="v1">Copiar</button></div>
-      <div class="dato"><span class="k">Monto</span><span class="v">$7.50</span></div>
-      <div class="dato"><span class="k">Identificador</span><span class="v libre">Tu celular</span></div>
-    </div>
-    <p class="rotulo">Seis pasos</p>
-    <ol class="pasos">
-      <li>Abre el app de Yappy y toca <b>Pagar</b>.</li>
-      <li>En el <b>Directorio</b>, busca <b>@lamellapma</b>.<span class="sn">Estamos en el Directorio de Yappy: es un comercio verificado, no un número suelto. Tiene que salir el logo de Liga La Mella. Si sale otro, no pagues.</span></li>
-      <li>Motivo del pago: <b>Birrias</b>.<span class="sn">Con eso el pago entra ya clasificado y no hay que rastrearlo.</span></li>
-      <li>Escribe el monto: <b>$7.50</b><span class="sn">El monto no viene puesto. Escríbelo exacto.</span></li>
-      <li>En <b>identificador</b>, escribe tu celular.<span class="sn">Es con lo que amarramos el cupo a ti.</span></li>
-      <li>Toca <b>Sí, pagar</b> y guarda el número de confirmación.</li>
-    </ol>
-    <div class="maqueta">
-      <h3>Así se ve antes de confirmar</h3>
-      <div class="tarjeta">
-        <div class="comercio"><strong>Lamellapma</strong><span>@lamellapma</span></div>
-        <div class="monto">$7.50</div>
-        <div class="f"><span class="k">Motivo</span><span class="v">Birrias</span></div>
-        <div class="f"><span class="k">Identificador</span><span class="v">6123-4567</span></div>
-      </div>
-      <p class="piemaq"><span class="bar"></span>Estos dos campos son los que te guardan el cupo. Sin ellos llega la plata, pero no llega tu nombre.</p>
-    </div>
-    <ul class="reglas">
-      <li><b>Nadie juega sin haber pagado antes.</b> Tu cupo queda confirmado cuando te escribimos, no cuando pagas.</li>
-      <li><b>No se devuelve dinero.</b> Si no puedes ir, manda a alguien en tu lugar y avísanos el nombre.</li>
-      <li>Son <b>22 cupos</b>. Si llueve, la birria se corre al <b>mismo día de la semana siguiente</b>, con tu cupo intacto.</li>
-      <li>En Ciudad del Saber <b>no se permite comida, bebida ni alcohol</b>. El agua va incluida en tu cupo.</li>
-      <li>Trae tu guante.</li>
-      <li>Juegas bajo tu propia responsabilidad. La Fundación Ciudad del Saber no responde por lesiones ni accidentes.</li>
-    </ul>
-    <p class="cierre" style="border-left:3px solid var(--rojo)">Del <b>cupo 23 en adelante</b>: si los 22 ya están llenos cuando pagas, tu pago entra automáticamente a la <b>siguiente birria</b> y te lo confirmamos. No se pierde y no hay que reclamarlo.</p>
-    <p class="cierre">¿Pagaste y no te llegó confirmación en una hora? Manda el <b>número de confirmación</b> del comprobante por WhatsApp al <a href="https://wa.me/50764973574">6497-3574</a>. Con eso te encontramos en segundos.</p>
-  </section>
-
-  <section id="p-cuota" role="tabpanel" hidden>
-    <div class="datos">
-      <div class="dato"><span class="k">Búscanos</span><span class="v" id="v2">@lamellapma</span><button class="copiar" data-copia="v2">Copiar</button></div>
-      <div class="dato"><span class="k">Monto</span><span class="v libre">El acordado para tu liga</span></div>
-      <div class="dato"><span class="k">Identificador</span><span class="v libre">Nombre de tu equipo</span></div>
-    </div>
-    <p class="rotulo">Seis pasos</p>
-    <ol class="pasos">
-      <li>Abre el app de Yappy y toca <b>Pagar</b>.</li>
-      <li>En el <b>Directorio</b>, busca <b>@lamellapma</b>.<span class="sn">Verifica el logo de Liga La Mella antes de seguir.</span></li>
-      <li>Motivo del pago: <b>Cuota de liga</b>.</li>
-      <li>Escribe el monto que vas a abonar.<span class="sn">Puedes abonar por partes. Cada abono se registra solo.</span></li>
-      <li>En <b>identificador</b>, escribe el <b>nombre de tu equipo</b>.<span class="sn">Es lo único que nos dice de quién es el pago.</span></li>
-      <li>Toca <b>Sí, pagar</b> y guarda el número de confirmación.</li>
-    </ol>
-    <div class="maqueta">
-      <h3>Así se ve antes de confirmar</h3>
-      <div class="tarjeta">
-        <div class="comercio"><strong>Lamellapma</strong><span>@lamellapma</span></div>
-        <div class="monto">$250.00</div>
-        <div class="f"><span class="k">Motivo</span><span class="v">Cuota de liga</span></div>
-        <div class="f"><span class="k">Identificador</span><span class="v">Kings</span></div>
-      </div>
-      <p class="piemaq"><span class="bar"></span>Un abono sin nombre de equipo hay que rastrearlo a mano. Escríbelo siempre, aunque sea el tercero del mes.</p>
-    </div>
-    <ul class="reglas">
-      <li><b>La liga trata con el DT.</b> Un solo interlocutor por equipo, siempre.</li>
-      <li>El estado de cuenta de tu equipo se manda <b>en privado al DT</b>.</li>
-      <li>¿Necesitas saber si tu rival está al día para un reclamo? <b>Pregúntanos y te decimos.</b></li>
-      <li>Cada abono te llega con su número de confirmación. Guárdalos.</li>
-    </ul>
-    <p class="cierre">¿Diferencia entre lo que abonaste y lo que te aparece? Manda los <b>números de confirmación</b> por WhatsApp al <a href="https://wa.me/50764973574">6497-3574</a> y lo cuadramos el mismo día.</p>
-  </section>
-</main>
-
-<section class="temporada">
-  <h2>Próxima temporada</h2>
-  <p>Los equipos actuales tienen una semana de prioridad. Después se abre al público.</p>
-  <table class="fechas">
-    <tr><td>6 ago</td><td>Abre inscripción — Contraloría</td></tr>
-    <tr><td>11 ago</td><td>Abre inscripción — Albrook martes</td></tr>
-    <tr><td>13 ago</td><td>Abre inscripción — Andy Alonso</td></tr>
-    <tr><td>19 ago</td><td>Abre inscripción — Albrook miércoles</td></tr>
-    <tr><td>20 ago – 2 sep</td><td>Finales de los cuatro torneos</td></tr>
-    <tr><td>1.ª sem sep</td><td>Arranque del nuevo ciclo</td></tr>
-  </table>
-  <div class="caja">Hay equipos en lista de espera. Si quieres meter equipo o buscas dónde jugar, déjanos tus datos y te escribimos cuando abra cupo en tu sede.</div>
-  <div class="cta">
-    <a class="solido" href="#pagar">Quiero birriar</a>
-    <a class="turq" href="https://forms.gle/hMfG4FxyPaNUCBDR9">Quiero jugar</a>
-    <a class="borde" href="https://chat.whatsapp.com/CCZIPYLjQRv4W0W4PUo0SC">Entrar a La Banca</a>
-    <a class="borde" href="https://www.instagram.com/lamellaleague/">Instagram</a>
-  </div>
+<section id="p-cuota" role="tabpanel">
+<div class="datos">
+<div class="dato"><span class="k">Búscanos</span><span class="v" id="v2">@lamellapma</span><button class="copiar" data-copia="v2">Copiar</button></div>
+<div class="dato"><span class="k">Monto</span><span class="v libre">La mitad de la cuota de tu liga</span></div>
+<div class="dato"><span class="k">Identificador</span><span class="v libre">Nombre de tu equipo</span></div>
+</div>
+<p class="rotulo">Seis pasos</p>
+<ol class="pasos">
+<li>Abre el app de Yappy y toca <b>Pagar</b>.</li>
+<li>En el <b>Directorio</b>, busca <b>@lamellapma</b>.<span class="sn">Verifica el logo de Liga La Mella antes de seguir.</span></li>
+<li>Motivo del pago: <b>Cuota de liga</b>.</li>
+<li>Escribe el monto que vas a abonar.<span class="sn">Puedes abonar por partes. Cada abono se registra solo.</span></li>
+<li>En <b>identificador</b>, escribe el <b>nombre de tu equipo</b>.<span class="sn">Es lo único que nos dice de quién es el pago.</span></li>
+<li>Toca <b>Sí, pagar</b> y guarda el número de confirmación.</li>
+</ol>
+<div class="maqueta">
+<h3>Así se ve antes de confirmar</h3>
+<div class="tarjeta">
+<div class="comercio"><strong>Lamellapma</strong><span>@lamellapma</span></div>
+<div class="monto">$325.00</div>
+<div class="f"><span class="k">Motivo</span><span class="v">Cuota de liga</span></div>
+<div class="f"><span class="k">Identificador</span><span class="v">Kings</span></div>
+</div>
+<p class="piemaq"><span class="bar"></span>Un abono sin nombre de equipo hay que rastrearlo a mano. Escríbelo siempre, aunque sea el tercero del mes.</p>
+</div>
+<ul class="reglas">
+<li><b>La liga trata con el DT.</b> Un solo interlocutor por equipo, siempre.</li>
+<li>El estado de cuenta de tu equipo se manda <b>en privado al DT</b>.</li>
+<li>¿Necesitas saber si tu rival está al día para un reclamo? <b>Pregúntanos y te decimos.</b></li>
+<li>Cada abono te llega con su número de confirmación. Guárdalos.</li>
+</ul>
+<p class="cierre">¿Diferencia entre lo que abonaste y lo que te aparece? Manda los <b>números de confirmación</b> por WhatsApp al <a href="https://wa.me/50764973574">6497-3574</a> y lo cuadramos el mismo día.</p>
 </section>
 
+<section id="p-birria" role="tabpanel" hidden>
+<div class="ficha pend">
+<p class="cuando">Próxima birria por definir</p>
+<p class="donde">Anunciamos día y lugar por WhatsApp e Instagram</p>
+<p class="hora2">No pagues todavía · el cupo se abre cuando salga la fecha</p>
+</div>
+<p class="degradado">Cuando salga la fecha, así se paga el cupo. Déjalo a mano.</p>
+<div class="datos">
+<div class="dato"><span class="k">Búscanos</span><span class="v" id="v1">@lamellapma</span><button class="copiar" data-copia="v1">Copiar</button></div>
+<div class="dato"><span class="k">Monto</span><span class="v">$7.50</span></div>
+<div class="dato"><span class="k">Identificador</span><span class="v libre">Tu celular</span></div>
+</div>
+<p class="rotulo">Seis pasos</p>
+<ol class="pasos">
+<li>Abre el app de Yappy y toca <b>Pagar</b>.</li>
+<li>En el <b>Directorio</b>, busca <b>@lamellapma</b>.<span class="sn">Estamos en el Directorio de Yappy: es un comercio verificado, no un número suelto. Tiene que salir el logo de Liga La Mella. Si sale otro, no pagues.</span></li>
+<li>Motivo del pago: <b>Birrias</b>.<span class="sn">Con eso el pago entra ya clasificado y no hay que rastrearlo.</span></li>
+<li>Escribe el monto: <b>$7.50</b><span class="sn">El monto no viene puesto. Escríbelo exacto.</span></li>
+<li>En <b>identificador</b>, escribe tu celular.<span class="sn">Es con lo que amarramos el cupo a ti.</span></li>
+<li>Toca <b>Sí, pagar</b> y guarda el número de confirmación.</li>
+</ol>
+<ul class="reglas">
+<li><b>Nadie juega sin haber pagado antes.</b> Tu cupo queda confirmado cuando te escribimos, no cuando pagas.</li>
+<li><b>No se devuelve dinero.</b> Si no puedes ir, manda a alguien en tu lugar y avísanos el nombre.</li>
+<li>Son <b>22 cupos</b>. Si llueve, la birria se corre al <b>mismo día de la semana siguiente</b>, con tu cupo intacto.</li>
+<li>En Ciudad del Saber <b>no se permite comida, bebida ni alcohol</b>. El agua va incluida en tu cupo.</li>
+<li>Trae tu guante.</li>
+<li>Juegas bajo tu propia responsabilidad. La Fundación Ciudad del Saber no responde por lesiones ni accidentes.</li>
+</ul>
+<p class="cierre" style="border-left:3px solid var(--rojo)">Del <b>cupo 23 en adelante</b>: si los 22 ya están llenos cuando pagas, tu pago entra automáticamente a la <b>siguiente birria</b> y te lo confirmamos. No se pierde y no hay que reclamarlo.</p>
+<p class="cierre">¿Pagaste y no te llegó confirmación en una hora? Manda el <b>número de confirmación</b> del comprobante por WhatsApp al <a href="https://wa.me/50764973574">6497-3574</a>. Con eso te encontramos en segundos.</p>
+</section>
+</main>
+
 <div class="instalar" id="instalar" hidden>
-  <p>Ponla en tu pantalla de inicio<small>Abre directo en los marcadores, sin buscar el enlace.</small></p>
-  <button id="btn-instalar" type="button">Instalar</button>
+<p>Ponla en tu pantalla de inicio<small>Abre directo en los marcadores, sin buscar el enlace.</small></p>
+<button id="btn-instalar" type="button">Instalar</button>
 </div>
 
 <footer>
-  Marcadores en vivo desde GameChanger. Posiciones, resultados, calendario y líderes actualizados al 9 de agosto de 2026.<br>
-  La Mella League · Panamá · lamellaleague.github.io
+Marcadores en vivo desde GameChanger. Posiciones, resultados y líderes de la temporada que termina, actualizados al 31 de agosto de 2026.<br>
+La Mella League · Panamá · lamellaleague.github.io
 </footer>
 </div>
 
@@ -300,7 +375,7 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 <script>
 (function(){
 'use strict';
-var L=[{"id": "martes", "nombre": "Albrook martes", "torneo": "Atlas M1", "dia": "Martes", "pos": [{"p": 1, "e": "Potros", "m": "Líder", "jg": 3, "jp": 1, "dif": 6, "cf": 41, "cc": 35, "pct": 0.75}, {"p": 2, "e": "La Unidad", "m": "Porcentaje de ganados", "jg": 2, "jp": 2, "dif": 10, "cf": 41, "cc": 31, "pct": 0.5}, {"p": 3, "e": "Hunters", "m": "Más carreras anotadas entre los empatados", "jg": 2, "jp": 2, "dif": 1, "cf": 27, "cc": 26, "pct": 0.5}, {"p": 4, "e": "Drunks", "m": "Diferencia entre los empatados", "jg": 2, "jp": 2, "dif": -7, "cf": 28, "cc": 35, "pct": 0.5}, {"p": 5, "e": "Bambinos", "m": "Porcentaje de ganados", "jg": 1, "jp": 3, "dif": -10, "cf": 45, "cc": 55, "pct": 0.25}], "jor": [{"n": 5, "f": "04/08", "d": ["Hunters"], "j": [{"h": "7:30 PM", "l": "Bambinos", "cl": 12, "v": "La Unidad", "cv": 21}, {"h": "9:00 PM", "l": "Drunks", "cl": 11, "v": "Potros", "cv": 16}]}, {"n": 4, "f": "28/07", "d": ["Drunks"], "j": [{"h": "7:30 PM", "l": "Potros", "cl": 14, "v": "Bambinos", "cv": 13}, {"h": "9:00 PM", "l": "Hunters", "cl": 6, "v": "La Unidad", "cv": 11}]}, {"n": 3, "f": "21/07", "d": ["Bambinos"], "j": [{"h": "7:00 PM", "l": "La Unidad", "cl": 6, "v": "Potros", "cv": 7}, {"h": "9:00 PM", "l": "Hunters", "cl": 7, "v": "Drunks", "cv": 0}]}, {"n": 2, "f": "14/07", "d": ["La Unidad"], "j": [{"h": "8:00 PM", "l": "Bambinos", "cl": 9, "v": "Drunks", "cv": 11}, {"h": "9:00 PM", "l": "Hunters", "cl": 5, "v": "Potros", "cv": 4}]}, {"n": 1, "f": "07/07", "d": ["Potros"], "j": [{"h": "7:30 PM", "l": "Hunters", "cl": 9, "v": "Bambinos", "cv": 11}, {"h": "9:00 PM", "l": "La Unidad", "cl": 3, "v": "Drunks", "cv": 6}]}], "prox": [{"n": 6, "f": "11/08", "d": [], "pl": true, "j": [{"h": "7:30 PM", "l": "Drunks", "v": "Bambinos"}]}], "bat": [{"e": "Potros", "j": "Ronald Rosales", "ci": 9, "jj": 4, "tot": 4, "ap": 11, "h": 6, "ok": true}, {"e": "La Unidad", "j": "Carlos Salazar", "ci": 9, "jj": 3, "tot": 4, "ap": 8, "h": 4, "ok": true}, {"e": "Bambinos", "j": "Emerson Lajara", "ci": 8, "jj": 4, "tot": 4, "ap": 12, "h": 7, "ok": true}, {"e": "Bambinos", "j": "Andy Nava", "ci": 7, "jj": 4, "tot": 4, "ap": 12, "h": 4, "ok": true}, {"e": "Bambinos", "j": "Agustin Sierra", "ci": 6, "jj": 4, "tot": 4, "ap": 11, "h": 4, "ok": true}], "pit": [{"e": "Drunks", "j": "Wellington Franco", "g": 2, "efe": 3.82, "whip": 2.18, "il": 14.0}, {"e": "Potros", "j": "Reinaldo Marshal", "g": 2, "efe": 15.08, "whip": 3.46, "il": 13.0}, {"e": "Potros", "j": "Ronald Rosales", "g": 1, "efe": 2.33, "whip": 2.67, "il": 3.0}, {"e": "Hunters", "j": "Juan Carlos Meneses", "g": 1, "efe": 9.55, "whip": 2.27, "il": 11.0}, {"e": "Bambinos", "j": "Neomar Perez", "g": 1, "efe": 14.7, "whip": 3.15, "il": 13.0}], "fuera": [], "nota": "La ronda regular cerró el 4 de agosto. El juego del 11 es playoff."}, {"id": "miercoles", "nombre": "Albrook miércoles", "torneo": "Merachos 20.3", "dia": "Miércoles", "pos": [{"p": 1, "e": "Kings", "m": "Líder", "jg": 3, "jp": 0, "dif": 16, "cf": 42, "cc": 26, "pct": 1.0}, {"p": 2, "e": "Anapolis", "m": "Diferencia global de carreras", "jg": 2, "jp": 0, "dif": 14, "cf": 23, "cc": 9, "pct": 1.0}, {"p": 3, "e": "Caribes", "m": "Porcentaje de ganados", "jg": 1, "jp": 2, "dif": 1, "cf": 35, "cc": 34, "pct": 0.3333333333333333}, {"p": 4, "e": "4 Gatos", "m": "Porcentaje de ganados", "jg": 0, "jp": 2, "dif": -7, "cf": 14, "cc": 21, "pct": 0.0}, {"p": 5, "e": "Fantasías", "m": "Diferencia global de carreras", "jg": 0, "jp": 2, "dif": -24, "cf": 13, "cc": 37, "pct": 0.0}], "jor": [{"n": 3, "f": "29/07", "d": ["Fantasías"], "j": [{"h": "7:30 PM", "l": "4 Gatos", "cl": 6, "v": "Anapolis", "cv": 12}, {"h": "9:00 PM", "l": "Kings", "cl": 16, "v": "Caribes", "cv": 12}]}, {"n": 2, "f": "22/07", "d": ["4 Gatos"], "j": [{"h": "7:00 PM", "l": "Anapolis", "cl": 11, "v": "Caribes", "cv": 3}, {"h": "9:00 PM", "l": "Fantasías", "cl": 6, "v": "Kings", "cv": 17}]}, {"n": 1, "f": "15/07", "d": ["Anapolis"], "j": [{"h": "7:00 PM", "l": "Caribes", "cl": 20, "v": "Fantasías", "cv": 7}, {"h": "9:00 PM", "l": "4 Gatos", "cl": 8, "v": "Kings", "cv": 9}]}], "prox": [{"n": 5, "f": "12/08", "d": ["Caribes"], "j": [{"h": "7:30 PM", "l": "Fantasías", "v": "4 Gatos"}, {"h": "9:00 PM", "l": "Kings", "v": "Anapolis"}]}, {"n": 4, "f": "19/08", "d": ["Kings"], "j": [{"h": "7:30 PM", "l": "Anapolis", "v": "Fantasías"}, {"h": "9:00 PM", "l": "Caribes", "v": "4 Gatos"}]}], "bat": [{"e": "Kings", "j": "Pedro Colina", "ci": 8, "jj": 3, "tot": 3, "ap": 10, "h": 7, "ok": true}, {"e": "Kings", "j": "Ivan Diaz", "ci": 7, "jj": 3, "tot": 3, "ap": 9, "h": 6, "ok": true}, {"e": "Caribes", "j": "Rommel Rodriguez", "ci": 6, "jj": 3, "tot": 3, "ap": 10, "h": 6, "ok": true}, {"e": "Caribes", "j": "Alejandro Gil", "ci": 5, "jj": 3, "tot": 3, "ap": 7, "h": 3, "ok": true}, {"e": "Kings", "j": "Jose Fasquias", "ci": 5, "jj": 3, "tot": 3, "ap": 10, "h": 7, "ok": true}], "pit": [{"e": "Anapolis", "j": "Manuel Aizpurua", "g": 2, "efe": 5.25, "whip": 1.67, "il": 12.0}, {"e": "Kings", "j": "Jesus Viñas", "g": 1, "efe": 7.0, "whip": 2.67, "il": 3.0}, {"e": "Kings", "j": "Richard Gomez", "g": 1, "efe": 7.0, "whip": 3.25, "il": 4.0}, {"e": "Kings", "j": "Eduard Gonzalez", "g": 1, "efe": 10.5, "whip": 3.25, "il": 4.0}, {"e": "Caribes", "j": "Wilmer Vasquez Sr", "g": 1, "efe": 17.5, "whip": 4.5, "il": 4.0}], "fuera": [], "nota": "La jornada 4, del 5 de agosto, se suspendió por lluvia y se repuso para el 19 de agosto. Por eso aparece después de la jornada 5."}, {"id": "contraloria", "nombre": "Contraloría", "torneo": "Merachos 20.4", "dia": "Jueves", "pos": [{"p": 1, "e": "Venezuela", "m": "Líder", "jg": 2, "jp": 1, "dif": 15, "cf": 38, "cc": 23, "pct": 0.6666666666666666}, {"p": 2, "e": "Broncos", "m": "Diferencia entre los empatados", "jg": 2, "jp": 1, "dif": 5, "cf": 26, "cc": 21, "pct": 0.6666666666666666}, {"p": 3, "e": "Gigantes", "m": "Diferencia entre los empatados", "jg": 2, "jp": 1, "dif": -13, "cf": 17, "cc": 30, "pct": 0.6666666666666666}, {"p": 4, "e": "Team Trampa", "m": "Porcentaje de ganados", "jg": 0, "jp": 3, "dif": -7, "cf": 21, "cc": 28, "pct": 0.0}], "jor": [{"n": 3, "f": "06/08", "d": [], "j": [{"h": "8:00 PM", "l": "Venezuela", "cl": 17, "v": "Gigantes", "cv": 2}, {"h": "9:30 PM", "l": "Team Trampa", "cl": 4, "v": "Broncos", "cv": 9}]}, {"n": 2, "f": "30/07", "d": [], "j": [{"h": "8:00 PM", "l": "Team Trampa", "cl": 8, "v": "Gigantes", "cv": 9}, {"h": "9:30 PM", "l": "Broncos", "cl": 12, "v": "Venezuela", "cv": 11}]}, {"n": 1, "f": "16/07", "d": [], "j": [{"h": "7:30 PM", "l": "Venezuela", "cl": 10, "v": "Team Trampa", "cv": 9}, {"h": "9:00 PM", "l": "Gigantes", "cl": 6, "v": "Broncos", "cv": 5}]}], "prox": [{"n": 4, "f": "13/08", "d": [], "pl": true, "j": [{"h": "8:00 PM", "l": "Venezuela", "v": "Team Trampa"}, {"h": "9:30 PM", "l": "Broncos", "v": "Gigantes"}]}], "bat": [{"e": "Venezuela", "j": "Javier Dimarco", "ci": 9, "jj": 3, "tot": 3, "ap": 10, "h": 6, "ok": true}, {"e": "Venezuela", "j": "Geomar Pineda", "ci": 6, "jj": 3, "tot": 3, "ap": 9, "h": 5, "ok": true}, {"e": "Team Trampa", "j": "Jhon Brenan", "ci": 5, "jj": 3, "tot": 3, "ap": 8, "h": 4, "ok": true}, {"e": "Venezuela", "j": "Pablo Castañeda", "ci": 5, "jj": 3, "tot": 3, "ap": 10, "h": 6, "ok": true}, {"e": "Gigantes", "j": "Diomedez Frias", "ci": 4, "jj": 3, "tot": 3, "ap": 8, "h": 3, "ok": true}], "pit": [{"e": "Broncos", "j": "Juan C. Meneses", "g": 2, "efe": 2.8, "whip": 1.6, "il": 5.0}, {"e": "Gigantes", "j": "Eduardo Pardo", "g": 2, "efe": 6.79, "whip": 2.12, "il": 11.0}, {"e": "Venezuela", "j": "Luis Linares", "g": 2, "efe": 11.55, "whip": 3.15, "il": 6.0}, {"e": "Venezuela", "j": "Pablo Castañeda", "g": 0, "efe": 0.0, "whip": 1.33, "il": 3.0}, {"e": "Broncos", "j": "Edwin Diaz", "g": 0, "efe": 5.6, "whip": 2.4, "il": 5.0}], "fuera": [], "nota": "La ronda regular cerró el 6 de agosto. Los juegos del 13 son playoff."}, {"id": "andy", "nombre": "Andy Alonso", "torneo": "Jack 20.4B", "dia": "Jueves", "pos": [{"p": 1, "e": "Brew Crew", "m": "Líder", "jg": 2, "jp": 0, "dif": 6, "cf": 18, "cc": 12, "pct": 1.0}, {"p": 2, "e": "Drinks", "m": "Porcentaje de ganados", "jg": 1, "jp": 1, "dif": 5, "cf": 21, "cc": 16, "pct": 0.5}, {"p": 3, "e": "Warthogs", "m": "Enfrentamiento directo", "jg": 1, "jp": 1, "dif": -1, "cf": 19, "cc": 20, "pct": 0.5}, {"p": 4, "e": "Pinoleros 505", "m": "Porcentaje de ganados", "jg": 0, "jp": 2, "dif": -10, "cf": 11, "cc": 21, "pct": 0.0}], "jor": [{"n": 2, "f": "06/08", "d": [], "j": [{"h": "8:00 PM", "l": "Warthogs", "cl": 8, "v": "Drinks", "cv": 15}, {"h": "9:30 PM", "l": "Brew Crew", "cl": 10, "v": "Pinoleros 505", "cv": 6}]}, {"n": 1, "f": "30/07", "d": [], "j": [{"h": "8:00 PM", "l": "Pinoleros 505", "cl": 5, "v": "Warthogs", "cv": 11}, {"h": "9:30 PM", "l": "Drinks", "cl": 6, "v": "Brew Crew", "cv": 8}]}], "prox": [{"n": 3, "f": "13/08", "d": [], "j": [{"h": "8:00 PM", "l": "Pinoleros 505", "v": "Drinks"}, {"h": "9:30 PM", "l": "Warthogs", "v": "Brew Crew"}]}], "bat": [{"e": "Warthogs", "j": "Alexander Beitia", "ci": 8, "jj": 2, "tot": 2, "ap": 6, "h": 4, "ok": true}, {"e": "Brew Crew", "j": "Jose Acevedo", "ci": 5, "jj": 2, "tot": 2, "ap": 5, "h": 3, "ok": true}, {"e": "Brew Crew", "j": "Josue Braghtley", "ci": 4, "jj": 2, "tot": 2, "ap": 4, "h": 2, "ok": true}, {"e": "Drinks", "j": "Nicolas Flores", "ci": 4, "jj": 2, "tot": 2, "ap": 5, "h": 3, "ok": true}, {"e": "Warthogs", "j": "Cerrud", "ci": 3, "jj": 2, "tot": 2, "ap": 6, "h": 3, "ok": true}], "pit": [{"e": "Brew Crew", "j": "Josue Braghtley", "g": 2, "efe": 2.71, "whip": 1.45, "il": 10.0}, {"e": "Pinoleros 505", "j": "Francisco Gutierrez", "g": 0, "efe": 1.91, "whip": 1.73, "il": 11.0}, {"e": "Drinks", "j": "Joe Duarte", "g": 0, "efe": 8.0, "whip": 1.43, "il": 7.0}, {"e": "Pinoleros 505", "j": "Alvin Obando", "g": 0, "efe": 28.0, "whip": 8.0, "il": 1.0}], "fuera": [{"e": "Warthogs", "j": "Jose Anibal", "ci": 3, "jj": 1, "tot": 2, "ap": 2, "h": 2, "ok": false}]}], WIDGETS={"contraloria": "f1756e37-7311-4558-9db3-821dab598ef9", "andy": "f972d8c1-4327-459c-9388-3cb71dd07e01", "martes": "aa0e9ce4-29da-4472-a394-013a66e3ef76", "miercoles": "ae8978ee-583b-4388-a27c-12b870a40f9a"};
+var L=[{"id": "martes", "nombre": "Albrook martes", "torneo": "Atlas M1", "dia": "Martes", "estado": "Ronda regular completa. Cerró el 4 de agosto.", "pos": [{"p": 1, "e": "Potros", "m": "Líder", "jg": 3, "jp": 1, "dif": 6, "cf": 41, "cc": 35, "pct": 0.75}, {"p": 2, "e": "La Unidad", "m": "Porcentaje de ganados", "jg": 2, "jp": 2, "dif": 10, "cf": 41, "cc": 31, "pct": 0.5}, {"p": 3, "e": "Hunters", "m": "Más carreras anotadas entre los empatados", "jg": 2, "jp": 2, "dif": 1, "cf": 27, "cc": 26, "pct": 0.5}, {"p": 4, "e": "Drunks", "m": "Diferencia entre los empatados", "jg": 2, "jp": 2, "dif": -7, "cf": 28, "cc": 35, "pct": 0.5}, {"p": 5, "e": "Bambinos", "m": "Porcentaje de ganados", "jg": 1, "jp": 3, "dif": -10, "cf": 45, "cc": 55, "pct": 0.25}], "jor": [{"n": 5, "f": "04/08", "d": ["Hunters"], "j": [{"h": "7:30 PM", "l": "Bambinos", "cl": 12, "v": "La Unidad", "cv": 21}, {"h": "9:00 PM", "l": "Drunks", "cl": 11, "v": "Potros", "cv": 16}]}, {"n": 4, "f": "28/07", "d": ["Drunks"], "j": [{"h": "7:30 PM", "l": "Potros", "cl": 14, "v": "Bambinos", "cv": 13}, {"h": "9:00 PM", "l": "Hunters", "cl": 6, "v": "La Unidad", "cv": 11}]}, {"n": 3, "f": "21/07", "d": ["Bambinos"], "j": [{"h": "7:00 PM", "l": "La Unidad", "cl": 6, "v": "Potros", "cv": 7}, {"h": "9:00 PM", "l": "Hunters", "cl": 7, "v": "Drunks", "cv": 0}]}, {"n": 2, "f": "14/07", "d": ["La Unidad"], "j": [{"h": "8:00 PM", "l": "Bambinos", "cl": 9, "v": "Drunks", "cv": 11}, {"h": "9:00 PM", "l": "Hunters", "cl": 5, "v": "Potros", "cv": 4}]}, {"n": 1, "f": "07/07", "d": ["Potros"], "j": [{"h": "7:30 PM", "l": "Hunters", "cl": 9, "v": "Bambinos", "cv": 11}, {"h": "9:00 PM", "l": "La Unidad", "cl": 3, "v": "Drunks", "cv": 6}]}], "prox": [], "bat": [{"e": "Potros", "j": "Ronald Rosales", "ci": 9, "jj": 4, "tot": 4, "ap": 11, "h": 6, "ok": true}, {"e": "La Unidad", "j": "Carlos Salazar", "ci": 9, "jj": 3, "tot": 4, "ap": 8, "h": 4, "ok": true}, {"e": "Bambinos", "j": "Emerson Lajara", "ci": 8, "jj": 4, "tot": 4, "ap": 12, "h": 7, "ok": true}, {"e": "Bambinos", "j": "Andy Nava", "ci": 7, "jj": 4, "tot": 4, "ap": 12, "h": 4, "ok": true}, {"e": "Bambinos", "j": "Agustin Sierra", "ci": 6, "jj": 4, "tot": 4, "ap": 11, "h": 4, "ok": true}], "pit": [{"e": "Drunks", "j": "Wellington Franco", "g": 2, "efe": 3.82, "whip": 2.18, "il": 14.0}, {"e": "Potros", "j": "Reinaldo Marshal", "g": 2, "efe": 15.08, "whip": 3.46, "il": 13.0}, {"e": "Potros", "j": "Ronald Rosales", "g": 1, "efe": 2.33, "whip": 2.67, "il": 3.0}, {"e": "Hunters", "j": "Juan Carlos Meneses", "g": 1, "efe": 9.55, "whip": 2.27, "il": 11.0}, {"e": "Bambinos", "j": "Neomar Perez", "g": 1, "efe": 14.7, "whip": 3.15, "il": 13.0}], "fuera": [], "nota": "El ciclo terminó. Los equipos pasan a la Temporada 21."}, {"id": "miercoles", "nombre": "Albrook miércoles", "torneo": "Merachos 20.3", "dia": "Miércoles", "estado": "Faltan por cargar las jornadas del 12 y el 19 de agosto.", "pos": [{"p": 1, "e": "Kings", "m": "Líder", "jg": 3, "jp": 0, "dif": 16, "cf": 42, "cc": 26, "pct": 1.0}, {"p": 2, "e": "Anapolis", "m": "Diferencia global de carreras", "jg": 2, "jp": 0, "dif": 14, "cf": 23, "cc": 9, "pct": 1.0}, {"p": 3, "e": "Caribes", "m": "Porcentaje de ganados", "jg": 1, "jp": 2, "dif": 1, "cf": 35, "cc": 34, "pct": 0.3333333333333333}, {"p": 4, "e": "4 Gatos", "m": "Porcentaje de ganados", "jg": 0, "jp": 2, "dif": -7, "cf": 14, "cc": 21, "pct": 0.0}, {"p": 5, "e": "Fantasías", "m": "Diferencia global de carreras", "jg": 0, "jp": 2, "dif": -24, "cf": 13, "cc": 37, "pct": 0.0}], "jor": [{"n": 3, "f": "29/07", "d": ["Fantasías"], "j": [{"h": "7:30 PM", "l": "4 Gatos", "cl": 6, "v": "Anapolis", "cv": 12}, {"h": "9:00 PM", "l": "Kings", "cl": 16, "v": "Caribes", "cv": 12}]}, {"n": 2, "f": "22/07", "d": ["4 Gatos"], "j": [{"h": "7:00 PM", "l": "Anapolis", "cl": 11, "v": "Caribes", "cv": 3}, {"h": "9:00 PM", "l": "Fantasías", "cl": 6, "v": "Kings", "cv": 17}]}, {"n": 1, "f": "15/07", "d": ["Anapolis"], "j": [{"h": "7:00 PM", "l": "Caribes", "cl": 20, "v": "Fantasías", "cv": 7}, {"h": "9:00 PM", "l": "4 Gatos", "cl": 8, "v": "Kings", "cv": 9}]}], "prox": [{"n": "Final", "f": "02/09", "d": [], "pl": true, "j": [{"h": "Por confirmar", "l": "Anapolis", "v": "4 Gatos", "neutral": true}]}], "bat": [{"e": "Kings", "j": "Pedro Colina", "ci": 8, "jj": 3, "tot": 3, "ap": 10, "h": 7, "ok": true}, {"e": "Kings", "j": "Ivan Diaz", "ci": 7, "jj": 3, "tot": 3, "ap": 9, "h": 6, "ok": true}, {"e": "Caribes", "j": "Rommel Rodriguez", "ci": 6, "jj": 3, "tot": 3, "ap": 10, "h": 6, "ok": true}, {"e": "Caribes", "j": "Alejandro Gil", "ci": 5, "jj": 3, "tot": 3, "ap": 7, "h": 3, "ok": true}, {"e": "Kings", "j": "Jose Fasquias", "ci": 5, "jj": 3, "tot": 3, "ap": 10, "h": 7, "ok": true}], "pit": [{"e": "Anapolis", "j": "Manuel Aizpurua", "g": 2, "efe": 5.25, "whip": 1.67, "il": 12.0}, {"e": "Kings", "j": "Jesus Viñas", "g": 1, "efe": 7.0, "whip": 2.67, "il": 3.0}, {"e": "Kings", "j": "Richard Gomez", "g": 1, "efe": 7.0, "whip": 3.25, "il": 4.0}, {"e": "Kings", "j": "Eduard Gonzalez", "g": 1, "efe": 10.5, "whip": 3.25, "il": 4.0}, {"e": "Caribes", "j": "Wilmer Vasquez Sr", "g": 1, "efe": 17.5, "whip": 4.5, "il": 4.0}], "fuera": [], "nota": "Estas posiciones y estos líderes van hasta la jornada 3. Las jornadas del 12 y el 19 de agosto todavía no están cargadas aquí. Los premios individuales se congelaron con el último juego de la ronda regular, el 19 de agosto, y se anuncian con las cifras finales."}, {"id": "contraloria", "nombre": "Contraloría", "torneo": "Merachos 20.4", "dia": "Jueves", "estado": "Ronda regular completa. Cerró el 6 de agosto.", "pos": [{"p": 1, "e": "Venezuela", "m": "Líder", "jg": 2, "jp": 1, "dif": 15, "cf": 38, "cc": 23, "pct": 0.6666666666666666}, {"p": 2, "e": "Broncos", "m": "Diferencia entre los empatados", "jg": 2, "jp": 1, "dif": 5, "cf": 26, "cc": 21, "pct": 0.6666666666666666}, {"p": 3, "e": "Gigantes", "m": "Diferencia entre los empatados", "jg": 2, "jp": 1, "dif": -13, "cf": 17, "cc": 30, "pct": 0.6666666666666666}, {"p": 4, "e": "Team Trampa", "m": "Porcentaje de ganados", "jg": 0, "jp": 3, "dif": -7, "cf": 21, "cc": 28, "pct": 0.0}], "jor": [{"n": 3, "f": "06/08", "d": [], "j": [{"h": "8:00 PM", "l": "Venezuela", "cl": 17, "v": "Gigantes", "cv": 2}, {"h": "9:30 PM", "l": "Team Trampa", "cl": 4, "v": "Broncos", "cv": 9}]}, {"n": 2, "f": "30/07", "d": [], "j": [{"h": "8:00 PM", "l": "Team Trampa", "cl": 8, "v": "Gigantes", "cv": 9}, {"h": "9:30 PM", "l": "Broncos", "cl": 12, "v": "Venezuela", "cv": 11}]}, {"n": 1, "f": "16/07", "d": [], "j": [{"h": "7:30 PM", "l": "Venezuela", "cl": 10, "v": "Team Trampa", "cv": 9}, {"h": "9:00 PM", "l": "Gigantes", "cl": 6, "v": "Broncos", "cv": 5}]}], "prox": [], "bat": [{"e": "Venezuela", "j": "Javier Dimarco", "ci": 9, "jj": 3, "tot": 3, "ap": 10, "h": 6, "ok": true}, {"e": "Venezuela", "j": "Geomar Pineda", "ci": 6, "jj": 3, "tot": 3, "ap": 9, "h": 5, "ok": true}, {"e": "Team Trampa", "j": "Jhon Brenan", "ci": 5, "jj": 3, "tot": 3, "ap": 8, "h": 4, "ok": true}, {"e": "Venezuela", "j": "Pablo Castañeda", "ci": 5, "jj": 3, "tot": 3, "ap": 10, "h": 6, "ok": true}, {"e": "Gigantes", "j": "Diomedez Frias", "ci": 4, "jj": 3, "tot": 3, "ap": 8, "h": 3, "ok": true}], "pit": [{"e": "Broncos", "j": "Juan C. Meneses", "g": 2, "efe": 2.8, "whip": 1.6, "il": 5.0}, {"e": "Gigantes", "j": "Eduardo Pardo", "g": 2, "efe": 6.79, "whip": 2.12, "il": 11.0}, {"e": "Venezuela", "j": "Luis Linares", "g": 2, "efe": 11.55, "whip": 3.15, "il": 6.0}, {"e": "Venezuela", "j": "Pablo Castañeda", "g": 0, "efe": 0.0, "whip": 1.33, "il": 3.0}, {"e": "Broncos", "j": "Edwin Diaz", "g": 0, "efe": 5.6, "whip": 2.4, "il": 5.0}], "fuera": [], "nota": "El ciclo terminó. Contraloría vuelve a abrir en la Temporada 21."}, {"id": "andy", "nombre": "Andy Alonso", "torneo": "Jack 20.4B", "dia": "Jueves", "estado": "Falta por cargar la jornada del 13 de agosto.", "pos": [{"p": 1, "e": "Brew Crew", "m": "Líder", "jg": 2, "jp": 0, "dif": 6, "cf": 18, "cc": 12, "pct": 1.0}, {"p": 2, "e": "Drinks", "m": "Porcentaje de ganados", "jg": 1, "jp": 1, "dif": 5, "cf": 21, "cc": 16, "pct": 0.5}, {"p": 3, "e": "Warthogs", "m": "Enfrentamiento directo", "jg": 1, "jp": 1, "dif": -1, "cf": 19, "cc": 20, "pct": 0.5}, {"p": 4, "e": "Pinoleros 505", "m": "Porcentaje de ganados", "jg": 0, "jp": 2, "dif": -10, "cf": 11, "cc": 21, "pct": 0.0}], "jor": [{"n": 2, "f": "06/08", "d": [], "j": [{"h": "8:00 PM", "l": "Warthogs", "cl": 8, "v": "Drinks", "cv": 15}, {"h": "9:30 PM", "l": "Brew Crew", "cl": 10, "v": "Pinoleros 505", "cv": 6}]}, {"n": 1, "f": "30/07", "d": [], "j": [{"h": "8:00 PM", "l": "Pinoleros 505", "cl": 5, "v": "Warthogs", "cv": 11}, {"h": "9:30 PM", "l": "Drinks", "cl": 6, "v": "Brew Crew", "cv": 8}]}], "prox": [], "bat": [{"e": "Warthogs", "j": "Alexander Beitia", "ci": 8, "jj": 2, "tot": 2, "ap": 6, "h": 4, "ok": true}, {"e": "Brew Crew", "j": "Jose Acevedo", "ci": 5, "jj": 2, "tot": 2, "ap": 5, "h": 3, "ok": true}, {"e": "Brew Crew", "j": "Josue Braghtley", "ci": 4, "jj": 2, "tot": 2, "ap": 4, "h": 2, "ok": true}, {"e": "Drinks", "j": "Nicolas Flores", "ci": 4, "jj": 2, "tot": 2, "ap": 5, "h": 3, "ok": true}, {"e": "Warthogs", "j": "Cerrud", "ci": 3, "jj": 2, "tot": 2, "ap": 6, "h": 3, "ok": true}], "pit": [{"e": "Brew Crew", "j": "Josue Braghtley", "g": 2, "efe": 2.71, "whip": 1.45, "il": 10.0}, {"e": "Pinoleros 505", "j": "Francisco Gutierrez", "g": 0, "efe": 1.91, "whip": 1.73, "il": 11.0}, {"e": "Drinks", "j": "Joe Duarte", "g": 0, "efe": 8.0, "whip": 1.43, "il": 7.0}, {"e": "Pinoleros 505", "j": "Alvin Obando", "g": 0, "efe": 28.0, "whip": 8.0, "il": 1.0}], "fuera": [{"e": "Warthogs", "j": "Jose Anibal", "ci": 3, "jj": 1, "tot": 2, "ap": 2, "h": 2, "ok": false}], "nota": "El ciclo terminó. La jornada del 13 de agosto todavía no está cargada aquí."}], WIDGETS={"contraloria": "f1756e37-7311-4558-9db3-821dab598ef9", "andy": "f972d8c1-4327-459c-9388-3cb71dd07e01", "martes": "aa0e9ce4-29da-4472-a394-013a66e3ef76", "miercoles": "ae8978ee-583b-4388-a27c-12b870a40f9a"};
 var li=0, se='vivo';
 var esc=function(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})};
 var vacio=function(t,p){return '<div class="vacio"><b>'+t+'</b>'+p+'</div>'};
@@ -308,252 +383,289 @@ var vacio=function(t,p){return '<div class="vacio"><b>'+t+'</b>'+p+'</div>'};
 /* ---------- marcadores en vivo: se cargan al hacerse visibles ---------- */
 var iniciado={};
 function activarMarcador(id){
-  if(iniciado[id]) return; iniciado[id]=true;
-  var caja=document.getElementById('gc-'+id);
-  var av=document.createElement('p');
-  av.className='vacio-gc'; av.textContent='Cargando marcadores\u2026';
-  caja.parentNode.appendChild(av);
-  var hayAlgo=function(){ return caja.children.length>0 };
-  esperarSDK(function(listo){
-    if(!listo){
-      console.warn('[La Mella] SDK de GameChanger no disponible. Estado:', window.__gcEstado, '| GC:', typeof window.GC);
-      av.remove(); respaldo(id); return;
-    }
-    arrancar();
-  });
-  function arrancar(){
-  try{
-    window.GC.scoreboard.init({target:'#gc-'+id, widgetId:WIDGETS[id], maxVerticalGamesVisible:4});
-  }catch(e){
-    av.textContent='No se pudo cargar el marcador de esta liga.';
-    console.warn('[La Mella] init falló para '+id, e); return;
-  }
-  var obs=null;
-  if(window.MutationObserver){
-    obs=new MutationObserver(function(){ if(hayAlgo()){ av.remove(); obs.disconnect() } });
-    obs.observe(caja,{childList:true,subtree:true});
-  }
-  setTimeout(function(){
-    if(obs) obs.disconnect();
-    if(hayAlgo()) av.remove();
-    else av.textContent='Sin juegos programados en estos días.';
-  },8000);
-  }
+if(iniciado[id]) return; iniciado[id]=true;
+var caja=document.getElementById('gc-'+id);
+var av=document.createElement('p');
+av.className='vacio-gc'; av.textContent='Cargando marcadores…';
+caja.parentNode.appendChild(av);
+var hayAlgo=function(){ return caja.children.length>0 };
+esperarSDK(function(listo){
+if(!listo){
+console.warn('[La Mella] SDK de GameChanger no disponible. Estado:', window.__gcEstado, '| GC:', typeof window.GC);
+av.remove(); respaldo(id); return;
+}
+arrancar();
+});
+function arrancar(){
+try{
+window.GC.scoreboard.init({target:'#gc-'+id, widgetId:WIDGETS[id], maxVerticalGamesVisible:4});
+}catch(e){
+av.textContent='No se pudo cargar el marcador de esta liga.';
+console.warn('[La Mella] init falló para '+id, e); return;
+}
+var obs=null;
+if(window.MutationObserver){
+obs=new MutationObserver(function(){ if(hayAlgo()){ av.remove(); obs.disconnect() } });
+obs.observe(caja,{childList:true,subtree:true});
+}
+setTimeout(function(){
+if(obs) obs.disconnect();
+if(hayAlgo()) av.remove();
+else av.textContent='Sin juegos programados en estos días.';
+},8000);
+}
 }
 /* si el marcador en vivo no responde, mostramos lo que si tenemos */
 function respaldo(id){
-  var l=null; L.forEach(function(x){ if(x.id===id) l=x });
-  var caja=document.getElementById('gc-'+id); if(!l||!caja) return;
-  var h='<p class="degradado">El marcador en vivo no está disponible ahora. Esto es lo último registrado.</p>';
-  if(l.jor.length){
-    var j=l.jor[0];
-    h+='<div class="bloq"><p class="rot">Última jornada · '+j.f+'</p>';
-    j.j.forEach(function(g){
-      h+='<div class="juego"><div class="lin'+(g.cl>g.cv?' gana':'')+'"><span class="t">'+esc(g.l)+'</span><span class="s">'+g.cl+'</span></div>'+
-         '<div class="lin'+(g.cv>g.cl?' gana':'')+'"><span class="t">'+esc(g.v)+'</span><span class="s">'+g.cv+'</span></div></div>';
-    });
-    h+='</div>';
-  }
-  if(l.prox.length){
-    var p=l.prox[0];
-    h+='<div class="bloq"><p class="rot">Próxima jornada · '+p.f+'</p>';
-    p.j.forEach(function(g){
-      h+='<div class="juego"><div class="hora" style="margin:0 0 5px">'+esc(g.h)+'</div>'+
-         '<div class="lin"><span class="t">'+esc(g.v)+'</span></div><div class="vs">en casa de</div>'+
-         '<div class="lin"><span class="t">'+esc(g.l)+'</span></div></div>';
-    });
-    h+='</div>';
-  }
-  if(!l.jor.length && !l.prox.length) h+='<p class="degradado">Este torneo todavía no tiene juegos registrados.</p>';
-  caja.innerHTML=h;
+var l=null; L.forEach(function(x){ if(x.id===id) l=x });
+var caja=document.getElementById('gc-'+id); if(!l||!caja) return;
+var h='<p class="degradado">El marcador en vivo no está disponible ahora. Esto es lo último registrado.</p>';
+if(l.jor.length){
+var j=l.jor[0];
+h+='<div class="bloq"><p class="rot">Última jornada · '+j.f+'</p>';
+j.j.forEach(function(g){
+h+='<div class="juego"><div class="lin'+(g.cl>g.cv?' gana':'')+'"><span class="t">'+esc(g.l)+'</span><span class="s">'+g.cl+'</span></div>'+
+'<div class="lin'+(g.cv>g.cl?' gana':'')+'"><span class="t">'+esc(g.v)+'</span><span class="s">'+g.cv+'</span></div></div>';
+});
+h+='</div>';
+}
+if(l.prox.length){
+var p=l.prox[0];
+h+='<div class="bloq"><p class="rot">Próximo juego · '+p.f+'</p>';
+p.j.forEach(function(g){
+h+='<div class="juego"><div class="hora" style="margin:0 0 5px">'+esc(g.h)+'</div>'+
+'<div class="lin"><span class="t">'+esc(g.v)+'</span></div><div class="vs">'+(g.neutral?'contra':'en casa de')+'</div>'+
+'<div class="lin"><span class="t">'+esc(g.l)+'</span></div></div>';
+});
+h+='</div>';
+}
+if(!l.jor.length && !l.prox.length) h+='<p class="degradado">Este torneo todavía no tiene juegos registrados.</p>';
+caja.innerHTML=h;
 }
 
 /* espera a que el SDK exista: revisa cada 200 ms hasta 12 s */
 function esperarSDK(cb,quedan){
-  quedan = (quedan===undefined) ? 60 : quedan;
-  if(window.GC && window.GC.scoreboard) return cb(true);
-  if(window.__gcEstado==='bloqueado' || quedan<=0) return cb(false);
-  setTimeout(function(){ esperarSDK(cb,quedan-1) },200);
+quedan = (quedan===undefined) ? 60 : quedan;
+if(window.GC && window.GC.scoreboard) return cb(true);
+if(window.__gcEstado==='bloqueado' || quedan<=0) return cb(false);
+setTimeout(function(){ esperarSDK(cb,quedan-1) },200);
 }
 
 /* ---------- secciones de datos ---------- */
 function posiciones(l){
-  if(!l.pos.length) return vacio('Sin juegos todavía','La tabla aparece cuando arranque el torneo.');
-  var h='<div class="aviso">Orden preliminar. El sistema de desempate del reglamento se aplica en firme al cerrar la ronda regular.</div>';
-  h+='<div class="fila cab"><span></span><span class="et">Equipo</span><span class="et" style="text-align:center">G</span><span class="et" style="text-align:center">P</span><span class="et" style="text-align:right">Dif</span></div>';
-  l.pos.forEach(function(r){
-    h+='<div class="fila'+(r.p===1?' lider':'')+'"><span class="pn">'+r.p+'</span><span class="eq">'+esc(r.e)+
-       '</span><span class="n">'+r.jg+'</span><span class="n">'+r.jp+'</span><span class="dif">'+
-       (r.dif>0?'+':r.dif<0?'\u2212':'')+Math.abs(r.dif)+'</span></div>';
-  });
-  var d=l.pos.filter(function(r){return r.m && ['Líder','Porcentaje de ganados'].indexOf(r.m)<0});
-  if(d.length) h+='<p class="nota"><b>Desempates aplicados.</b> '+d.map(function(r){
-    return esc(r.e)+' queda en el puesto '+r.p+' por '+r.m.toLowerCase()}).join('. ')+'.</p>';
-  return h;
+if(!l.pos.length) return vacio('Sin juegos todavía','La tabla aparece cuando arranque el torneo.');
+var h='<div class="aviso">'+esc(l.estado||'')+' El sistema de desempate del reglamento se aplica en firme al cerrar la ronda regular.</div>';
+h+='<div class="fila cab"><span></span><span class="et">Equipo</span><span class="et" style="text-align:center">G</span><span class="et" style="text-align:center">P</span><span class="et" style="text-align:right">Dif</span></div>';
+l.pos.forEach(function(r){
+h+='<div class="fila'+(r.p===1?' lider':'')+'"><span class="pn">'+r.p+'</span><span class="eq">'+esc(r.e)+
+'</span><span class="n">'+r.jg+'</span><span class="n">'+r.jp+'</span><span class="dif">'+
+(r.dif>0?'+':r.dif<0?'−':'')+Math.abs(r.dif)+'</span></div>';
+});
+var d=l.pos.filter(function(r){return r.m && ['Líder','Porcentaje de ganados'].indexOf(r.m)<0});
+if(d.length) h+='<p class="nota"><b>Desempates aplicados.</b> '+d.map(function(r){
+return esc(r.e)+' queda en el puesto '+r.p+' por '+r.m.toLowerCase()}).join('. ')+'.</p>';
+return h;
 }
 function resultados(l){
-  if(!l.jor.length) return vacio('Sin resultados','Este torneo todavía no registra juegos.');
-  return l.jor.map(function(j){
-    var h='<div class="jorn"><h3>'+(j.pl?'Playoff':'Jornada '+j.n)+'</h3><span class="et">'+j.f+'</span></div>';
-    j.j.forEach(function(g){
-      h+='<div class="juego"><div class="lin'+(g.cl>g.cv?' gana':'')+'"><span class="t">'+esc(g.l)+'</span><span class="s">'+g.cl+'</span></div>'+
-         '<div class="lin'+(g.cv>g.cl?' gana':'')+'"><span class="t">'+esc(g.v)+'</span><span class="s">'+g.cv+'</span></div>'+
-         '<div class="hora">'+esc(g.h)+'</div></div>';
-    });
-    if(j.d.length) h+='<div class="chip"><i>Descansó</i><b>'+j.d.map(esc).join(' · ')+'</b></div>';
-    return h;
-  }).join('');
+if(!l.jor.length) return vacio('Sin resultados','Este torneo todavía no registra juegos.');
+return l.jor.map(function(j){
+var h='<div class="jorn"><h3>'+(j.pl?'Playoff':'Jornada '+j.n)+'</h3><span class="et">'+j.f+'</span></div>';
+j.j.forEach(function(g){
+h+='<div class="juego"><div class="lin'+(g.cl>g.cv?' gana':'')+'"><span class="t">'+esc(g.l)+'</span><span class="s">'+g.cl+'</span></div>'+
+'<div class="lin'+(g.cv>g.cl?' gana':'')+'"><span class="t">'+esc(g.v)+'</span><span class="s">'+g.cv+'</span></div>'+
+'<div class="hora">'+esc(g.h)+'</div></div>';
+});
+if(j.d.length) h+='<div class="chip"><i>Descansó</i><b>'+j.d.map(esc).join(' · ')+'</b></div>';
+return h;
+}).join('');
 }
 function calendario(l){
-  var av = l.nota ? '<p class="nota"><b>Aviso.</b> '+esc(l.nota)+'</p>' : '';
-  if(!l.prox.length) return av+vacio('Calendario pendiente', esc(l.nombre)+' juega los '+esc(l.dia.toLowerCase())+
-    '. Los próximos juegos se publican en cuanto se confirme el rol.');
-  return av+l.prox.map(function(j){
-    var h='<div class="jorn"><h3>'+(j.pl?'Playoff':'Jornada '+j.n)+'</h3><span class="et">'+j.f+'</span></div>';
-    j.j.forEach(function(g){
-      h+='<div class="juego"><div class="hora" style="margin:0 0 6px">'+esc(g.h)+'</div>'+
-         '<div class="lin"><span class="t">'+esc(g.v)+'</span></div><div class="vs">en casa de</div>'+
-         '<div class="lin"><span class="t">'+esc(g.l)+'</span></div></div>';
-    });
-    if(j.d.length) h+='<div class="chip"><i>Descansa</i><b>'+j.d.map(esc).join(' · ')+'</b></div>';
-    return h;
-  }).join('');
+var av = l.nota ? '<p class="nota"><b>Aviso.</b> '+esc(l.nota)+'</p>' : '';
+if(!l.prox.length) return av+vacio('Ciclo terminado', 'La Temporada 21 arranca el martes 8 de septiembre. El rol se publica al cerrar la inscripción.');
+return av+l.prox.map(function(j){
+var h='<div class="jorn"><h3>'+(j.pl?(j.n==='Final'?'Final':'Playoff'):'Jornada '+j.n)+'</h3><span class="et">'+j.f+'</span></div>';
+j.j.forEach(function(g){
+h+='<div class="juego"><div class="hora" style="margin:0 0 6px">'+esc(g.h)+'</div>'+
+'<div class="lin"><span class="t">'+esc(g.v)+'</span></div><div class="vs">'+(g.neutral?'contra':'en casa de')+'</div>'+
+'<div class="lin"><span class="t">'+esc(g.l)+'</span></div></div>';
+});
+if(j.d.length) h+='<div class="chip"><i>Descansa</i><b>'+j.d.map(esc).join(' · ')+'</b></div>';
+return h;
+}).join('');
 }
 function lideres(l){
-  if(!l.bat.length && !l.pit.length) return vacio('Sin líderes todavía','Aparecen cuando se registre el primer juego.');
-  var h='';
-  if(l.bat.length){
-    h+='<div class="jorn"><h3>Carreras impulsadas</h3><span class="et">Top 5</span></div>';
-    l.bat.forEach(function(b,i){
-      h+='<div class="lid"><span class="q">'+(i+1)+'</span><span><span class="nm">'+esc(b.j)+'</span><br>'+
-         '<span class="cl">'+esc(b.e)+' · '+b.jj+(b.jj===1?' juego':' juegos')+'</span></span>'+
-         '<span class="v">'+b.ci+'<small>CI</small></span></div>';
-    });
-  }
-  if(l.pit.length){
-    h+='<div class="jorn"><h3>Lanzadores</h3><span class="et">Por ganados</span></div>';
-    l.pit.forEach(function(p,i){
-      h+='<div class="lid"><span class="q">'+(i+1)+'</span><span><span class="nm">'+esc(p.j)+'</span><br>'+
-         '<span class="cl">'+esc(p.e)+' · '+p.efe.toFixed(2)+' efectividad</span></span>'+
-         '<span class="v">'+p.g+'<small>'+(p.g===1?'GANADO':'GANADOS')+'</small></span></div>';
-    });
-  }
-  h+='<p class="nota"><b>Cómo se cuenta.</b> Solo entran jugadores con al menos el 60 por ciento de los juegos de su equipo. '+
-     'En impulsadas desempata más juegos jugados, luego menos turnos, luego más hits. En lanzadores desempata la efectividad, luego el WHIP.</p>';
-  if(l.fuera && l.fuera.length) h+='<p class="nota">Fuera del listado por participación: '+
-     l.fuera.map(function(x){return esc(x.j)+' ('+x.ci+' CI en '+x.jj+' de '+x.tot+')'}).join(', ')+'.</p>';
-  return h;
+if(!l.bat.length && !l.pit.length) return vacio('Sin líderes todavía','Aparecen cuando se registre el primer juego.');
+var h='';
+if(l.estado) h+='<div class="aviso">'+esc(l.estado)+'</div>';
+if(l.bat.length){
+h+='<div class="jorn"><h3>Carreras impulsadas</h3><span class="et">Top 5</span></div>';
+l.bat.forEach(function(b,i){
+h+='<div class="lid"><span class="q">'+(i+1)+'</span><span><span class="nm">'+esc(b.j)+'</span><br>'+
+'<span class="cl">'+esc(b.e)+' · '+b.jj+(b.jj===1?' juego':' juegos')+'</span></span>'+
+'<span class="v">'+b.ci+'<small>CI</small></span></div>';
+});
+}
+if(l.pit.length){
+h+='<div class="jorn"><h3>Lanzadores</h3><span class="et">Por ganados</span></div>';
+l.pit.forEach(function(p,i){
+h+='<div class="lid"><span class="q">'+(i+1)+'</span><span><span class="nm">'+esc(p.j)+'</span><br>'+
+'<span class="cl">'+esc(p.e)+' · '+p.efe.toFixed(2)+' efectividad</span></span>'+
+'<span class="v">'+p.g+'<small>'+(p.g===1?'GANADO':'GANADOS')+'</small></span></div>';
+});
+}
+h+='<p class="nota"><b>Cómo se cuenta.</b> Solo optan a premio los jugadores con al menos el 60 por ciento de los juegos de su equipo en la ronda regular. '+
+'Es filtro de premio, no de elegibilidad: con un solo juego se puede jugar playoff y final. '+
+'En impulsadas desempata más juegos jugados, luego menos turnos, luego más hits. En lanzadores desempata la efectividad, luego el WHIP.</p>';
+if(l.fuera && l.fuera.length) h+='<p class="nota">Fuera del listado por participación: '+
+l.fuera.map(function(x){return esc(x.j)+' ('+x.ci+' CI en '+x.jj+' de '+x.tot+')'}).join(', ')+'.</p>';
+return h;
 }
 
 /* ---------- navegación ---------- */
 var cajaLigas=document.getElementById('ligas');
 L.forEach(function(l,i){
-  var b=document.createElement('button');
-  b.setAttribute('role','tab'); b.textContent=l.nombre;
-  b.setAttribute('aria-selected', i===0);
-  b.onclick=function(){ li=i; history.replaceState(null,'','#'+l.id); pinta(); };
-  cajaLigas.appendChild(b);
+var b=document.createElement('button');
+b.setAttribute('role','tab'); b.textContent=l.nombre;
+b.setAttribute('aria-selected', i===0);
+b.onclick=function(){ li=i; history.replaceState(null,'','#'+l.id); pinta(); };
+cajaLigas.appendChild(b);
 });
 [].forEach.call(document.querySelectorAll('#secc button'), function(b){
-  b.onclick=function(){ se=b.dataset.s; if(se==='pag') history.replaceState(null,'','#pagar'); pinta(); };
+b.onclick=function(){ se=b.dataset.s; if(se==='pag') history.replaceState(null,'','#pagar'); pinta(); };
 });
 [].forEach.call(document.querySelectorAll('.sub button'), function(b){
-  b.onclick=function(){
-    [].forEach.call(document.querySelectorAll('.sub button'), function(o){
-      var act=o===b;
-      o.setAttribute('aria-selected',act);
-      document.getElementById('p-'+o.dataset.p).hidden=!act;
-    });
-  };
+b.onclick=function(){
+[].forEach.call(document.querySelectorAll('.sub button'), function(o){
+var act=o===b;
+o.setAttribute('aria-selected',act);
+document.getElementById('p-'+o.dataset.p).hidden=!act;
+});
+};
 });
 
 function pinta(){
-  var l=L[li];
-  [].forEach.call(cajaLigas.children, function(b,i){ b.setAttribute('aria-selected', i===li) });
-  [].forEach.call(document.querySelectorAll('#secc button'), function(b){ b.setAttribute('aria-selected', b.dataset.s===se) });
-  var esPago = se==='pag';
-  cajaLigas.hidden = esPago;
-  document.getElementById('pagar').hidden = !esPago;
-  document.getElementById('vivo').hidden = esPago || se!=='vivo';
-  var din=document.getElementById('dinamico');
-  din.hidden = esPago || se==='vivo';
-  if(se==='vivo'){
-    L.forEach(function(x,i){ document.getElementById('env-'+x.id).hidden = i!==li });
-    var visible=L[li].id;
-    if(window.requestAnimationFrame) requestAnimationFrame(function(){ activarMarcador(visible) });
-    else setTimeout(function(){ activarMarcador(visible) },0);
-  } else if(!esPago){
-    din.innerHTML = se==='pos'?posiciones(l): se==='res'?resultados(l): se==='cal'?calendario(l): lideres(l);
-  }
+var l=L[li];
+[].forEach.call(cajaLigas.children, function(b,i){ b.setAttribute('aria-selected', i===li) });
+[].forEach.call(document.querySelectorAll('#secc button'), function(b){ b.setAttribute('aria-selected', b.dataset.s===se) });
+var esPago = se==='pag';
+cajaLigas.hidden = esPago;
+document.getElementById('pagar').hidden = !esPago;
+document.getElementById('vivo').hidden = esPago || se!=='vivo';
+var din=document.getElementById('dinamico');
+din.hidden = esPago || se==='vivo';
+if(se==='vivo'){
+L.forEach(function(x,i){ document.getElementById('env-'+x.id).hidden = i!==li });
+var visible=L[li].id;
+if(window.requestAnimationFrame) requestAnimationFrame(function(){ activarMarcador(visible) });
+else setTimeout(function(){ activarMarcador(visible) },0);
+} else if(!esPago){
+din.innerHTML = se==='pos'?posiciones(l): se==='res'?resultados(l): se==='cal'?calendario(l): lideres(l);
+}
 }
 
 /* ---------- direcciones directas: #albrook-martes, #pagar ---------- */
 var ALIAS={'albrook-martes':'martes','albrook-miercoles':'miercoles','andy-alonso':'andy','contraloria':'contraloria'};
 function desdeHash(){
-  var h=(location.hash||'').slice(1);
-  if(!h) return;
-  if(h==='pagar'){ se='pag'; return; }
-  var id=ALIAS[h]||h;
-  L.forEach(function(l,i){ if(l.id===id) li=i });
+var h=(location.hash||'').slice(1);
+if(!h) return;
+if(h==='pagar'){ se='pag'; return; }
+if(h==='temporada21') return;
+var id=ALIAS[h]||h;
+L.forEach(function(l,i){ if(l.id===id) li=i });
 }
 desdeHash(); pinta();
 window.addEventListener('hashchange', function(){ desdeHash(); pinta(); });
 
+/* ---------- muñeco que reacciona al dedo y al cursor ---------- */
+(function(){
+var caja=document.getElementById('logo3d'); if(!caja) return;
+var gira=caja.querySelector('.gira');
+var quieto=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var MAX=17;
+
+function inclinar(e){
+if(quieto) return;
+var r=caja.getBoundingClientRect();
+var x=((e.clientX-r.left)/r.width-.5)*2, y=((e.clientY-r.top)/r.height-.5)*2;
+x=Math.max(-1,Math.min(1,x)); y=Math.max(-1,Math.min(1,y));
+caja.classList.add('activo');
+gira.style.transform='perspective(640px) rotateY('+(x*MAX).toFixed(2)+'deg) rotateX('+(-y*MAX).toFixed(2)+
+'deg) translateZ(16px) scale(1.06)';
+}
+function soltar(){
+caja.classList.remove('activo');
+gira.style.transform='';
+}
+/* mouse y lapiz: sigue el cursor mientras esta encima */
+caja.addEventListener('pointermove',function(e){ if(e.pointerType!=='touch') inclinar(e) });
+caja.addEventListener('pointerleave',soltar);
+caja.addEventListener('pointercancel',soltar);
+
+/* dedo: reacciona al tocarlo, sin bloquear el scroll de la pagina */
+function saludar(){
+if(quieto||caja.classList.contains('toque')) return;
+soltar(); caja.classList.add('toque');
+}
+gira.addEventListener('animationend',function(){ caja.classList.remove('toque') });
+caja.addEventListener('touchstart',saludar,{passive:true});
+caja.addEventListener('click',function(){ if(!('ontouchstart' in window)) saludar() });
+})();
+
 /* ---------- copiar ---------- */
 [].forEach.call(document.querySelectorAll('.copiar'), function(b){
-  b.onclick=function(){
-    var txt=document.getElementById(b.dataset.copia).textContent.trim();
-    var listo=function(){ b.textContent='Copiado'; b.classList.add('ok');
-      setTimeout(function(){ b.textContent='Copiar'; b.classList.remove('ok') },1800) };
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(txt).then(listo, function(){ b.textContent='Cópialo a mano' });
-    } else {
-      var a=document.createElement('textarea'); a.value=txt; document.body.appendChild(a); a.select();
-      try{ document.execCommand('copy'); listo(); }catch(e){ b.textContent='Cópialo a mano' }
-      document.body.removeChild(a);
-    }
-  };
+b.onclick=function(){
+var txt=document.getElementById(b.dataset.copia).textContent.trim();
+var listo=function(){ b.textContent='Copiado'; b.classList.add('ok');
+setTimeout(function(){ b.textContent='Copiar'; b.classList.remove('ok') },1800) };
+if(navigator.clipboard && navigator.clipboard.writeText){
+navigator.clipboard.writeText(txt).then(listo, function(){ b.textContent='Cópialo a mano' });
+} else {
+var a=document.createElement('textarea'); a.value=txt; document.body.appendChild(a); a.select();
+try{ document.execCommand('copy'); listo(); }catch(e){ b.textContent='Cópialo a mano' }
+document.body.removeChild(a);
+}
+};
 });
 
 /* ---------- instalar ---------- */
 var ev=null, ci=document.getElementById('instalar');
 window.addEventListener('beforeinstallprompt', function(e){ e.preventDefault(); ev=e; ci.hidden=false });
 document.getElementById('btn-instalar').onclick=function(){
-  if(!ev) return; ev.prompt();
-  ev.userChoice.then(function(){ ev=null; ci.hidden=true });
+if(!ev) return; ev.prompt();
+ev.userChoice.then(function(){ ev=null; ci.hidden=true });
 };
 
 /* ---------- validador interno ---------- */
 function revisar(){
-  var sdkOk = !!(window.GC && window.GC.scoreboard);
-  var filas = L.map(function(l){
-    var c = document.getElementById('gc-'+l.id);
-    var nodos = c ? c.children.length : 0;
-    return { liga:l.nombre, widgetId:(WIDGETS[l.id]||'').slice(0,8)+'\u2026',
-             abierta:!!iniciado[l.id],
-             marcador: !iniciado[l.id] ? 'sin abrir' : (nodos ? 'recibiendo' : 'respaldo'),
-             jugados:l.jor.length, programados:l.prox.length };
-  });
-  return { archivoSDK: window.__gcEstado || 'desconocido',
-           objetoGC: typeof window.GC, scoreboard: sdkOk ? 'disponible' : 'ausente',
-           ligas: filas };
+var sdkOk = !!(window.GC && window.GC.scoreboard);
+var filas = L.map(function(l){
+var c = document.getElementById('gc-'+l.id);
+var nodos = c ? c.children.length : 0;
+return { liga:l.nombre, widgetId:(WIDGETS[l.id]||'').slice(0,8)+'…',
+abierta:!!iniciado[l.id],
+marcador: !iniciado[l.id] ? 'sin abrir' : (nodos ? 'recibiendo' : 'respaldo'),
+jugados:l.jor.length, programados:l.prox.length };
+});
+return { archivoSDK: window.__gcEstado || 'desconocido',
+objetoGC: typeof window.GC, scoreboard: sdkOk ? 'disponible' : 'ausente',
+ligas: filas };
 }
 window.LaMella = { revisar: revisar,
-  ver: function(){ var r=revisar();
-    console.log('%cLa Mella — estado','font:700 13px sans-serif;color:#B80000');
-    console.log('Archivo SDK:', r.archivoSDK, '| window.GC:', r.objetoGC, '| scoreboard:', r.scoreboard);
-    (console.table||console.log)(r.ligas); return r; } };
+ver: function(){ var r=revisar();
+console.log('%cLa Mella — estado','font:700 13px sans-serif;color:#B80000');
+console.log('Archivo SDK:', r.archivoSDK, '| window.GC:', r.objetoGC, '| scoreboard:', r.scoreboard);
+(console.table||console.log)(r.ligas); return r; } };
 
 if(/[?&]diag=1/.test(location.search)){
-  var p=document.createElement('div'); p.className='diag';
-  var pinta2=function(){ var r=revisar();
-    p.innerHTML='<b>Estado interno</b>'+
-      '<span>Archivo SDK: '+r.archivoSDK+'</span>'+
-      '<span>window.GC: '+r.objetoGC+'</span>'+
-      '<span>scoreboard: '+r.scoreboard+'</span>'+
-      r.ligas.map(function(f){ return '<span>'+f.liga+': '+f.marcador+'</span>' }).join('');
-  };
-  pinta2(); document.body.appendChild(p); setInterval(pinta2,2000);
+var p=document.createElement('div'); p.className='diag';
+var pinta2=function(){ var r=revisar();
+p.innerHTML='<b>Estado interno</b>'+
+'<span>Archivo SDK: '+r.archivoSDK+'</span>'+
+'<span>window.GC: '+r.objetoGC+'</span>'+
+'<span>scoreboard: '+r.scoreboard+'</span>'+
+r.ligas.map(function(f){ return '<span>'+f.liga+': '+f.marcador+'</span>' }).join('');
+};
+pinta2(); document.body.appendChild(p); setInterval(pinta2,2000);
 }
 })();
 </script>
