@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La Mella League — Temporada 21, inscripción abierta</title>
-<meta name="description" content="Temporada 21 de La Mella League: cuatro ligas de softbol en Panamá. Inscripción abierta. Sedes, cuotas, calendario y reglamento.">
+<meta name="description" content="Temporada 21 de La Mella League: tres ligas de softbol en Panamá, $450 por equipo en un solo pago, cuatro juegos garantizados. Inscripción abierta hasta el sábado 6 de septiembre.">
 <meta name="theme-color" content="#14140E">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
@@ -18,7 +18,7 @@
 <style>
 :root{
 --fondo:#14140E; --bloque:#1F1F16; --alto:#2A2A1E;
---cal:#F0EDD9; --rojo:#F01414; --hondo:#B80000; --turq:#00B5A5;
+--cal:#F0EDD9; --rojo:#F01414; --hondo:#B80000; --turq:#00B5A5;--ambar:#C08A1E;
 --humo:#8A8878; --linea:rgba(240,237,217,.14);
 --disp:Anton,Impact,sans-serif; --txt:Roboto,system-ui,sans-serif;
 }
@@ -227,6 +227,62 @@ ol.pasos .sn{display:block;color:var(--humo);font-size:14px;margin-top:4px}
 footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-size:11px;letter-spacing:.08em;color:var(--humo);line-height:1.9}
 @media(max-width:430px){.dato{flex-wrap:wrap;gap:8px}.dato .k{flex:1 0 100%}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.ligas21{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:10px;margin:20px 0 6px}
+.lg21{background:var(--alto);border-radius:5px;padding:14px 15px;border-top:3px solid var(--rojo)}
+.lg21 .d{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--humo)}
+.lg21 b{display:block;font-family:var(--disp);font-size:20px;text-transform:uppercase;font-weight:400;margin:3px 0 6px}
+.lg21 .s{display:block;font-size:12px;color:var(--humo);line-height:1.5;margin-bottom:10px}
+.lg21 .p{font-family:var(--disp);font-size:26px;color:var(--rojo);line-height:1}
+.lg21 .pd{font-size:11.5px;color:var(--humo);margin-top:2px}
+.corte{margin-top:18px;padding:14px 16px;background:var(--hondo);border-radius:5px;text-align:center}
+.corte b{display:block;font-family:var(--disp);font-size:clamp(17px,4.4vw,23px);text-transform:uppercase;font-weight:400;color:#fff;line-height:1.15}
+.corte span{display:block;font-size:13px;color:rgba(255,255,255,.85);margin-top:5px}
+.incluye{margin:14px 0 0;padding:0;list-style:none}
+.incluye li{padding:8px 0 8px 24px;position:relative;font-size:14.5px;color:var(--humo);border-bottom:1px solid var(--linea)}
+.incluye li:last-child{border-bottom:none}
+.incluye li::before{content:"\2713";position:absolute;left:0;color:var(--turq);font-weight:700}
+.incluye li b{color:var(--cal);font-weight:500}
+.paso1{display:grid;grid-template-columns:repeat(auto-fit,minmax(124px,1fr));gap:9px;margin-top:16px}
+.paso1 div{background:var(--alto);border-radius:4px;padding:12px 13px}
+.paso1 i{display:block;font-style:normal;font-family:var(--disp);font-size:15px;color:var(--turq);margin-bottom:4px}
+.paso1 span{font-size:13px;color:var(--humo);line-height:1.5}
+
+.prod{display:flex;align-items:center;gap:12px;margin:34px 0 -14px}
+.prod .num{flex:0 0 auto;font-family:var(--disp);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--fondo);background:var(--rojo);padding:5px 10px 4px;border-radius:2px}
+.prod .lin{flex:1;height:1px;background:var(--linea)}
+.prod.b .num{background:var(--turq);color:#08312D}
+.t21.jack{border-left-color:var(--turq)}
+.t21.jack h2 em{color:var(--turq)}
+.t21.jack .flash{background:var(--humo);color:#14140E}
+.cerrado{margin-top:18px;padding:13px 16px;border:1px solid var(--linea);border-radius:5px;text-align:center}
+.cerrado b{display:block;font-family:var(--disp);font-size:19px;text-transform:uppercase;font-weight:400;color:var(--humo)}
+.cerrado span{display:block;font-size:13px;color:var(--humo);margin-top:4px;opacity:.85}
+.rost{width:100%;border-collapse:collapse;font-size:14.5px;margin:12px 0 2px}
+.rost td{padding:9px 2px;border-bottom:1px solid var(--linea);color:var(--humo)}
+.rost td:first-child{color:var(--cal)}
+.rost td:last-child{text-align:right;font-family:var(--disp);font-size:19px;color:var(--rojo)}
+.rost tr:last-child td{border-bottom:none}
+.rost tr.dest td:last-child{color:var(--turq)}
+.rost tr.dest td:first-child{color:var(--cal);font-weight:700}
+
+.swch{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:30px 0 0}
+.sw{font-family:var(--disp);font-size:clamp(13px,3.2vw,17px);text-transform:uppercase;letter-spacing:.03em;
+ padding:14px 8px 12px;border-radius:4px;border:1px solid var(--linea);background:var(--bloque);color:var(--humo);
+ cursor:pointer;line-height:1.15;transition:background .15s,color .15s,border-color .15s}
+.sw small{display:block;font-family:var(--txt);font-size:10.5px;letter-spacing:.08em;margin-top:4px;opacity:.75;font-weight:400}
+.sw:hover{color:var(--cal)}
+.sw.a.on{background:var(--hondo);border-color:var(--hondo);color:#fff}
+.sw.b.on{background:var(--turq);border-color:var(--turq);color:#08312D}
+.sw.c.on{background:var(--ambar);border-color:var(--ambar);color:#14140E}
+.t21.birria{border-left-color:var(--ambar)}
+.t21.birria h2 em{color:var(--ambar)}
+.t21.birria .flash{background:var(--ambar);color:#14140E}
+.fechas{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:20px 0 6px}
+.fe{background:var(--alto);border-radius:5px;padding:16px 15px;text-align:center;border:1px dashed var(--ambar)}
+.fe b{display:block;font-family:var(--disp);font-size:30px;line-height:1;color:var(--ambar)}
+.fe i{display:block;font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--humo);margin-top:6px}
+.fe span{display:block;font-size:12.5px;color:var(--humo);margin-top:8px}
 </style>
 </head>
 <body>
@@ -242,64 +298,146 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 <p class="bajada et">Softbol · Panamá · Temporada 21</p>
 </div>
 </div>
-<div class="rejilla"><div>Sedes<b>3</b></div><div>Ligas<b>4</b></div><div>Cupos libres<b>18</b></div><div>Cuota desde<b>$450</b></div></div>
+<div class="rejilla"><div>Sedes<b>3</b></div><div>Ligas<b>3</b></div><div>Cupos libres<b>12</b></div><div>Cuota<b>$450</b></div></div>
 </header>
 
+<div class="swch">
+<button class="sw a on" type="button" data-p="prod-ligas">Las ligas<small>3 noches · $450</small></button>
+<button class="sw b" type="button" data-p="prod-jack">JACK Andy Alonso<small>Cupo cerrado</small></button>
+<button class="sw c" type="button" data-p="prod-birria">La Birria<small>Lista abierta</small></button>
+</div>
+<div class="prodwrap" id="prod-ligas">
 <section class="t21" id="temporada21">
-<span class="flash">Inscripción abierta</span>
+<span class="flash">Inscripción abierta · cierra el sábado 6 de septiembre</span>
 <h2>Temporada 21<br><em>arranca el martes 8 de septiembre</em></h2>
-<p class="entrada">Cuatro ligas. Andy Alonso ya cerró con sus 5 equipos; quedan cupos en las otras tres. Los equipos de la temporada que termina tienen prioridad hasta el jueves 4 de septiembre; después se abre a cualquiera.</p>
+<p class="entrada">Tres noches, tres ligas. Cada una son <b>cuatro juegos garantizados en cuatro semanas</b>, con calendario publicado, árbitros, anotador oficial, estadísticas y transmisión en vivo. Se paga una sola vez, antes de la primera jornada, y el cupo queda separado.</p>
 
-<div class="sedes">
-<div class="sd"><b>Albrook</b><span>Martes · 6 cupos</span></div>
-<div class="sd"><b>Albrook</b><span>Miércoles · 6 cupos</span></div>
-<div class="sd lleno"><b>Andy Alonso</b><span>Jueves · 5 equipos · cerrado</span></div>
-<div class="sd abre"><b>Contraloría</b><span>Jueves · abriendo</span></div>
+<div class="ligas21">
+<div class="lg21"><span class="d">Martes · Albrook</span><b>Meracho +</b><span class="s">Complejo Deportivo del MEF, al lado del Hospital Modular</span><div class="p">$450</div><div class="pd">4 juegos · 4 equipos</div></div>
+<div class="lg21"><span class="d">Miércoles · Albrook</span><b>Meracho Senior</b><span class="s">Complejo Deportivo del MEF, al lado del Hospital Modular</span><div class="p">$450</div><div class="pd">4 juegos · 4 equipos</div></div>
+<div class="lg21"><span class="d">Jueves · Contraloría</span><b>Merachos Contraloría</b><span class="s">Cuadro de la Contraloría · transmisión multicámara con Tiger League</span><div class="p">$450</div><div class="pd">4 juegos · 4 equipos</div></div>
 </div>
-<p class="nota" style="padding-top:10px">En <b>Contraloría</b> los juegos se transmiten en vivo con <b>multicámara</b>, en alianza con Tiger League. Es la sede donde tu equipo se ve mejor.</p>
 
-<p class="rotulo">Cuota por equipo · Albrook y Contraloría</p>
-<table class="precios">
-<tr><td>Liga de 4 equipos</td><td>$450</td></tr>
-<tr><td>Liga de 5 equipos</td><td>$550</td></tr>
-<tr class="destaca"><td>Liga de 6 equipos</td><td>$650</td></tr>
+<table class="rost">
+<tr><td>Con roster de 11</td><td>$40.91 por jugador</td></tr>
+<tr><td>Con roster de 14</td><td>$32.14 por jugador</td></tr>
+<tr class="dest"><td>Con roster de 18</td><td>$25.00 por jugador</td></tr>
+<tr><td>Con roster de 20</td><td>$22.50 por jugador</td></tr>
 </table>
-<p class="nota" style="padding-top:6px"><b>Andy Alonso: cupo cerrado.</b> Los 5 equipos están confirmados, con cuota de $475 — la liga JACK, tipo birria, tiene su propio reglamento y su propia cuota. Escríbenos si quieres entrar a la lista de espera.</p>
-<p class="nota">La cuota sube con el tamaño de la liga porque sube la cantidad de juegos que juega tu equipo. <b>Queda fija el día que cierra la inscripción</b> y no cambia después. Se paga por jornada de fase de grupos: $100 en cada una y $150 en la última. El arbitraje va incluido. <b>Para inscribirte tienes que estar al día con la liga.</b></p>
+<p class="nota">Con 18 jugadores el juego te sale en <b>$6.25 por cabeza</b>. Cuatro equipos por noche: <b>nadie descansa</b>, todos juegan todas las semanas.</p>
 
-<p class="rotulo">Calendario · JACK Andy Alonso</p>
-<p class="nota" style="padding-top:0">Cuota de <b>$475</b> por equipo, en <b>cuatro abonos de $118.75</b>, uno por jornada de fase de grupos. Cinco equipos, todos contra todos, uno descansa cada semana y todos pasan a playoff.</p>
-<div class="cal21"><div class="jor "><div class="fecha"><b>10</b><i>SEP</i></div><div class="cuerpo"><div class="rot2">Jornada 1</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Goofy’s Squad <em>@</em> Warthogs</span></div><div class="par"><span class="h">9:30 pm</span><span>La Comisión <em>@</em> Pinoleros 505</span></div><div class="desc">Descansa · Drinks</div></div></div><div class="jor "><div class="fecha"><b>17</b><i>SEP</i></div><div class="cuerpo"><div class="rot2">Jornada 2</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Goofy’s Squad <em>@</em> La Comisión</span></div><div class="par"><span class="h">9:30 pm</span><span>Warthogs <em>@</em> Drinks</span></div><div class="desc">Descansa · Pinoleros 505</div></div></div><div class="jor "><div class="fecha"><b>24</b><i>SEP</i></div><div class="cuerpo"><div class="rot2">Jornada 3</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Drinks <em>@</em> La Comisión</span></div><div class="par"><span class="h">9:30 pm</span><span>Pinoleros 505 <em>@</em> Goofy’s Squad</span></div><div class="desc">Descansa · Warthogs</div></div></div><div class="jor "><div class="fecha"><b>1</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Jornada 4</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Pinoleros 505 <em>@</em> Drinks</span></div><div class="par"><span class="h">9:30 pm</span><span>La Comisión <em>@</em> Warthogs</span></div><div class="desc">Descansa · Goofy’s Squad</div></div></div><div class="jor "><div class="fecha"><b>8</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Jornada 5</div><div class="par"><span class="h">8:00 pm</span><span>Warthogs <em>@</em> Pinoleros 505</span></div><div class="par"><span class="h">9:30 pm</span><span>Drinks <em>@</em> Goofy’s Squad</span></div><div class="desc">Descansa · La Comisión</div></div></div><div class="jor po"><div class="fecha"><b>15</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Repechaje</div><div class="par"><span class="h">8:00 pm</span><span>5.º de la tabla <em>@</em> 4.º de la tabla</span></div></div></div><div class="jor po"><div class="fecha"><b>22</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Semifinales</div><div class="par"><span class="h">8:00 pm</span><span>Ganador 4 vs 5 <em>@</em> 1.º de la tabla</span></div><div class="par"><span class="h">9:30 pm</span><span>3.º de la tabla <em>@</em> 2.º de la tabla</span></div></div></div><div class="jor po fin"><div class="fecha"><b>29</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Final</div><div class="par"><span class="h">8:00 pm</span><span>Ganador S1 <em>@</em> Ganador S2</span></div></div></div></div>
-<p class="nota">Si se cancela una jornada por lluvia, la fecha siguiente pasa a ser esa jornada, el calendario se corre una semana y la final se mueve en consecuencia.</p>
+<p class="rotulo">Qué incluye tu cuota</p>
+<ul class="incluye">
+<li><b>Cuatro juegos garantizados</b>, con fecha, hora y sede publicadas desde el primer día</li>
+<li><b>Dos árbitros y anotador oficial</b> en cada juego</li>
+<li><b>Transmisión en vivo</b> por YouTube, y el juego queda grabado</li>
+<li><b>Estadísticas de cada jugador</b> en GameChanger: posiciones, resultados y líderes</li>
+<li><b>Caja de cerveza al ganador de cada juego</b></li>
+<li><b>Trofeo, premiación y comida</b> en la jornada de finales</li>
+</ul>
 
-<div class="jocker">
-<b>¿No tienes equipo? Juega de jocker</b>
-<p>Te registras con la liga y te alineamos donde haga falta gente. <span class="mt">$15 una vez por temporada y $10 por cada juego</span> que juegues; esos $10 se le abonan a la cuota del equipo que te alineó. Máximo dos jockers por lineup. <span class="mt">El jocker no juega playoffs</span>, pero hasta la cuarta jornada un equipo puede ficharte en firme y ahí sí entras completo.</p>
+<p class="rotulo">Cómo separas tu cupo</p>
+<div class="paso1">
+<div><i>1 · Escoge tu noche</i><span>Martes, miércoles o jueves. El pack es el mismo en las tres.</span></div>
+<div><i>2 · Paga los $450</i><span>Un solo pago, por Yappy o a la cuenta. Sin abonos.</span></div>
+<div><i>3 · Manda el comprobante</i><span>Con el nombre de tu equipo. Ese día quedas dentro.</span></div>
+<div><i>4 · Entrega tu roster</i><span>Nombre, apellido y número. Antes de la primera jornada.</span></div>
 </div>
+
+<p class="nota"><b>El que paga primero escoge horario</b> —7:30 o 9:00— y su equipo sale publicado aquí el mismo día. El calendario con los enfrentamientos se publica el domingo 7 de septiembre.</p>
+
+<div class="corte">
+<b>La lista cierra el sábado 6 de septiembre</b>
+<span>Cuatro cupos por noche. Doce en total. Después de esa fecha, la ronda siguiente arranca el 6 de octubre.</span>
+</div>
+
+
 
 <p class="rotulo">Cómo jugamos</p>
 <ul class="reglas" style="border-top:none;padding-top:0;margin-top:0">
 <li><b>Si llegas con 8 jugadores, juegas con 8.</b> Aquí no se pierde el juego por falta de gente.</li>
-<li><b>Transmitimos los juegos en vivo</b> por nuestro canal de YouTube, y quedan grabados.</li>
-<li><b>Cada juego queda registrado en GameChanger:</b> posiciones, estadísticas y líderes, para ti y para tu equipo.</li>
-<li>Los premios individuales se congelan con el <b>último juego de la ronda regular</b>. Los playoffs no los mueven.</li>
+<li><b>Dos juegos por noche</b>, a las 7:30 y a las 9:00. Juegos de 1 hora 20 minutos o 6 episodios.</li>
+<li><b>Roster:</b> mínimo 11, recomendado 14, máximo 20. Abierto en la fase de grupos y cerrado para la jornada de finales.</li>
+<li><b>En la jornada de finales juegan los cuatro equipos</b>, cada uno por su puesto.</li>
+<li>Los premios individuales se congelan con el <b>último juego de la fase de grupos</b>.</li>
 </ul>
 
 <a class="canal" href="https://www.youtube.com/@lamellaleague">
-<span class="yt" aria-hidden="true">▶</span>
+<span class="yt" aria-hidden="true">&#9654;</span>
 <span class="ct"><b>La Mella League en YouTube</b><i>Juegos en vivo y el archivo completo de la liga</i></span>
 </a>
 
 <div class="cta">
 <a class="turq" href="https://forms.gle/hMfG4FxyPaNUCBDR9">Quiero jugar</a>
-<a class="solido" href="reglamento.pdf" target="_blank" rel="noopener">Reglamento</a>
-<a class="borde" href="#pagar">Cómo pagar</a>
-<a class="borde" href="https://www.youtube.com/@lamellaleague">YouTube</a>
+<a class="solido" href="#pagar">C&oacute;mo pagar</a>
+<a class="borde" href="reglamento.pdf" target="_blank" rel="noopener">Reglamento</a>
+<a class="borde" href="anexo-packs.pdf" target="_blank" rel="noopener">Anexo de Packs</a>
 <a class="borde" href="https://chat.whatsapp.com/CCZIPYLjQRv4W0W4PUo0SC">Entrar a La Banca</a>
 <a class="borde" href="https://www.instagram.com/lamellaleague/">Instagram</a>
 </div>
 </section>
 
+
+
+
+</div>
+
+<div class="prodwrap" id="prod-jack" hidden>
+<section class="t21 jack" id="jack">
+<span class="flash">Cupo cerrado</span>
+<h2>JACK Andy Alonso<br><em>del 10 de septiembre al 29 de octubre</em></h2>
+<p class="entrada">La birria ligeramente organizada. Jueves en el Estadio Municipal de Parque Lefevre, sobre grama sintética. <b>Todos batean, sin límite</b> · reingresos ilimitados · defensiva libre, hasta 11 a la defensiva · un solo árbitro, por decisión y no por carencia. Juegos de 1 hora 30 o 7 episodios.</p>
+
+<div class="cerrado">
+<b>Los cinco equipos están confirmados</b>
+<span>Drinks · Pinoleros 505 · Warthogs · Goofy&rsquo;s Squad · La Comisión</span>
+</div>
+
+<p class="nota" style="padding-top:14px">Cuota de <b>$475</b> por equipo, en <b>cuatro abonos de $118.75</b>, uno por jornada de fase de grupos. Cinco equipos, todos contra todos, uno descansa cada semana y todos pasan a playoff: <b>14 juegos en 8 jueves</b>. La JACK tiene su propio reglamento y su propia cuota.</p>
+
+<p class="rotulo">Calendario</p>
+<div class="cal21"><div class="jor "><div class="fecha"><b>10</b><i>SEP</i></div><div class="cuerpo"><div class="rot2">Jornada 1</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Goofy’s Squad <em>@</em> Warthogs</span></div><div class="par"><span class="h">9:30 pm</span><span>La Comisión <em>@</em> Pinoleros 505</span></div><div class="desc">Descansa · Drinks</div></div></div><div class="jor "><div class="fecha"><b>17</b><i>SEP</i></div><div class="cuerpo"><div class="rot2">Jornada 2</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Goofy’s Squad <em>@</em> La Comisión</span></div><div class="par"><span class="h">9:30 pm</span><span>Warthogs <em>@</em> Drinks</span></div><div class="desc">Descansa · Pinoleros 505</div></div></div><div class="jor "><div class="fecha"><b>24</b><i>SEP</i></div><div class="cuerpo"><div class="rot2">Jornada 3</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Drinks <em>@</em> La Comisión</span></div><div class="par"><span class="h">9:30 pm</span><span>Pinoleros 505 <em>@</em> Goofy’s Squad</span></div><div class="desc">Descansa · Warthogs</div></div></div><div class="jor "><div class="fecha"><b>1</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Jornada 4</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Pinoleros 505 <em>@</em> Drinks</span></div><div class="par"><span class="h">9:30 pm</span><span>La Comisión <em>@</em> Warthogs</span></div><div class="desc">Descansa · Goofy’s Squad</div></div></div><div class="jor "><div class="fecha"><b>8</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Jornada 5</div><div class="par"><span class="h">8:00 pm</span><span>Warthogs <em>@</em> Pinoleros 505</span></div><div class="par"><span class="h">9:30 pm</span><span>Drinks <em>@</em> Goofy’s Squad</span></div><div class="desc">Descansa · La Comisión</div></div></div><div class="jor po"><div class="fecha"><b>15</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Repechaje</div><div class="par"><span class="h">8:00 pm</span><span>5.º de la tabla <em>@</em> 4.º de la tabla</span></div></div></div><div class="jor po"><div class="fecha"><b>22</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Semifinales</div><div class="par"><span class="h">8:00 pm</span><span>Ganador 4 vs 5 <em>@</em> 1.º de la tabla</span></div><div class="par"><span class="h">9:30 pm</span><span>3.º de la tabla <em>@</em> 2.º de la tabla</span></div></div></div><div class="jor po fin"><div class="fecha"><b>29</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Final</div><div class="par"><span class="h">8:00 pm</span><span>Ganador S1 <em>@</em> Ganador S2</span></div></div></div></div>
+<p class="nota">Si se cancela una jornada por lluvia, la fecha siguiente pasa a ser esa jornada, el calendario se corre una semana y la final se mueve en consecuencia.</p>
+
+<div class="cta">
+<a class="borde" href="anexo-jack.pdf" target="_blank" rel="noopener">Anexo de la JACK</a>
+<a class="borde" href="reglamento.pdf" target="_blank" rel="noopener">Reglamento</a>
+<a class="borde" href="#pagar">C&oacute;mo pagar</a>
+</div>
+</section>
+
+
+
+</div>
+
+<div class="prodwrap" id="prod-birria" hidden>
+<section class="t21 birria" id="birria21">
+<span class="flash">Lista abierta · sin compromiso</span>
+<h2>La Birria<br><em>una noche, sin liga y sin temporada</em></h2>
+<p class="entrada">Un solo juego, para el que quiere jugar sin meterse en un torneo de cuatro semanas. No hay inscripción de equipo ni calendario: se anota quien quiera, se arman los equipos esa misma noche y se juega.</p>
+
+<p class="rotulo">Fechas tentativas</p>
+<div class="fechas">
+<div class="fe"><b>22</b><i>Martes · septiembre</i><span>Por confirmar</span></div>
+<div class="fe"><b>6</b><i>Martes · octubre</i><span>Por confirmar</span></div>
+</div>
+<p class="nota"><b>La fecha se confirma cuando la lista esté llena.</b> Anótate en cualquiera de las dos y te avisamos apenas se cierre. Si no se llena, no se juega y no pierdes nada.</p>
+
+<p class="rotulo">C&oacute;mo funciona</p>
+<ul class="reglas" style="border-top:none;padding-top:0;margin-top:0">
+<li><b>Te anotas solo, no en equipo.</b> Los equipos se arman esa noche con los que llegaron.</li>
+<li><b>No hay liga, no hay tabla y no hay playoff.</b> Es una noche de softbol y ya.</li>
+<li><b>Sede, hora y costo se confirman con la fecha</b>, cuando se cierre la lista.</li>
+<li>Si te gusta, ah&iacute; te enteras de qu&eacute; noche de liga te queda mejor.</li>
+</ul>
+
+<div class="cta">
+<a class="turq" href="https://forms.gle/hMfG4FxyPaNUCBDR9">Anotarme</a>
+<a class="borde" href="https://chat.whatsapp.com/CCZIPYLjQRv4W0W4PUo0SC">Entrar a La Banca</a>
+<a class="borde" href="https://www.instagram.com/lamellaleague/">Instagram</a>
+</div>
+</section>
+</div>
 
 
 <section id="pagar" class="seccpago">
@@ -462,6 +600,18 @@ document.getElementById('btn-instalar').onclick=function(){
 if(!ev) return; ev.prompt();
 ev.userChoice.then(function(){ ev=null; ci.hidden=true });
 };
+})();
+</script>
+<script>
+(function(){
+ var P=['prod-ligas','prod-jack','prod-birria'];
+ document.querySelectorAll('.sw').forEach(function(b){
+  b.addEventListener('click',function(){
+   document.querySelectorAll('.sw').forEach(function(x){x.classList.toggle('on',x===b)});
+   P.forEach(function(id){var e=document.getElementById(id); if(e) e.hidden=(id!==b.dataset.p)});
+   var y=b.closest('.swch').getBoundingClientRect().top+window.pageYOffset-12; window.scrollTo({top:y,behavior:'smooth'});
+  });
+ });
 })();
 </script>
 </body>
