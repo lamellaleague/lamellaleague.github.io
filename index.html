@@ -60,7 +60,7 @@ filter:drop-shadow(0 8px 14px rgba(0,0,0,.55)) drop-shadow(0 0 1px rgba(240,237,
 .marca em{font-style:normal;color:var(--rojo)}
 .bajada{margin-top:12px}
 .rejilla{display:flex;flex-wrap:wrap;margin-top:20px;border-top:1px solid var(--linea)}
-.rejilla div{flex:1 1 25%;min-width:96px;padding:9px 10px 11px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--humo)}
+.rejilla div{flex:1 1 20%;min-width:94px;padding:9px 10px 11px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--humo)}
 .rejilla b{display:block;font-family:var(--disp);font-size:19px;color:var(--cal);letter-spacing:0;margin-top:2px}
 
 /* ---------- Temporada 21 ---------- */
@@ -283,6 +283,14 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 .fe b{display:block;font-family:var(--disp);font-size:30px;line-height:1;color:var(--ambar)}
 .fe i{display:block;font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--humo);margin-top:6px}
 .fe span{display:block;font-size:12.5px;color:var(--humo);margin-top:8px}
+
+.contacto{margin:0 0 20px;padding:16px 18px;background:var(--bloque);border:1px solid var(--linea);border-left:4px solid var(--turq);border-radius:5px}
+.contacto b{display:block;font-family:var(--disp);font-size:18px;text-transform:uppercase;font-weight:400;margin-bottom:6px}
+.contacto p{font-size:14.5px;color:var(--humo);line-height:1.6;margin:0 0 12px}
+.wa{display:flex;flex-wrap:wrap;gap:9px}
+.wa a{flex:1 1 170px;text-align:center;text-decoration:none;padding:12px 14px;border-radius:4px;background:var(--alto);border:1px solid var(--linea);color:var(--cal)}
+.wa a b{display:block;font-family:var(--disp);font-size:20px;font-weight:400;margin:0;text-transform:none}
+.wa a span{display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--humo);margin-top:3px}
 </style>
 </head>
 <body>
@@ -298,7 +306,7 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 <p class="bajada et">Softbol · Panamá · Temporada 21</p>
 </div>
 </div>
-<div class="rejilla"><div>Sedes<b>3</b></div><div>Ligas<b>3</b></div><div>Cupos libres<b>12</b></div><div>Cuota<b>$450</b></div></div>
+<div class="rejilla"><div>Sedes<b>3</b></div><div>Ligas<b>4</b></div><div>Cupos<b>17</b></div><div>Libres<b>12</b></div><div>Cuota<b>$450</b></div></div>
 </header>
 
 <div class="swch">
@@ -368,8 +376,9 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 </a>
 
 <div class="cta">
-<a class="turq" href="https://forms.gle/hMfG4FxyPaNUCBDR9">Quiero jugar</a>
+<a class="turq" href="https://wa.me/50764973574">Escr&iacute;benos</a>
 <a class="solido" href="#pagar">C&oacute;mo pagar</a>
+<a class="borde" href="https://forms.gle/hMfG4FxyPaNUCBDR9">Formulario</a>
 <a class="borde" href="reglamento.pdf" target="_blank" rel="noopener">Reglamento</a>
 <a class="borde" href="anexo-packs.pdf" target="_blank" rel="noopener">Anexo de Packs</a>
 <a class="borde" href="https://chat.whatsapp.com/CCZIPYLjQRv4W0W4PUo0SC">Entrar a La Banca</a>
@@ -432,7 +441,8 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 </ul>
 
 <div class="cta">
-<a class="turq" href="https://forms.gle/hMfG4FxyPaNUCBDR9">Anotarme</a>
+<a class="turq" href="https://wa.me/50764973574">Anotarme</a>
+<a class="borde" href="https://forms.gle/hMfG4FxyPaNUCBDR9">Formulario</a>
 <a class="borde" href="https://chat.whatsapp.com/CCZIPYLjQRv4W0W4PUo0SC">Entrar a La Banca</a>
 <a class="borde" href="https://www.instagram.com/lamellaleague/">Instagram</a>
 </div>
@@ -441,7 +451,16 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 
 
 <section id="pagar" class="seccpago">
-<p class="rotulo" style="margin-top:34px">Cómo pagar</p>
+<p class="rotulo" style="margin-top:34px">Antes de pagar, escríbenos</p>
+<div class="contacto">
+<b>Primero coordinamos, después pagas</b>
+<p>Escríbenos por WhatsApp para confirmarte que hay cupo en la noche que quieres y apartarte el horario. Toma dos minutos y evita que pagues por una noche que ya se llenó.</p>
+<div class="wa">
+<a href="https://wa.me/50764973574"><b>6497-3574</b><span>WhatsApp</span></a>
+<a href="https://wa.me/50762327853"><b>6232-7853</b><span>WhatsApp</span></a>
+</div>
+</div>
+<p class="rotulo">Cómo pagar</p>
 <div class="sub" role="tablist">
 <button role="tab" data-p="cuota" aria-selected="true">Cuota de equipo</button>
 <button role="tab" data-p="birria" aria-selected="false">Cupo de birria</button>
@@ -450,7 +469,7 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 <section id="p-cuota" role="tabpanel">
 <div class="datos">
 <div class="dato"><span class="k">Búscanos</span><span class="v" id="v2">@lamellapma</span><button class="copiar" data-copia="v2">Copiar</button></div>
-<div class="dato"><span class="k">Monto</span><span class="v libre">El abono que toca esa jornada</span></div>
+<div class="dato"><span class="k">Monto</span><span class="v libre">$450 · la liga completa</span></div>
 <div class="dato"><span class="k">Identificador</span><span class="v libre">Nombre de tu equipo</span></div>
 </div>
 <p class="rotulo">Seis pasos</p>
@@ -458,7 +477,7 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 <li>Abre el app de Yappy y toca <b>Pagar</b>.</li>
 <li>En el <b>Directorio</b>, busca <b>@lamellapma</b>.<span class="sn">Verifica el logo de Liga La Mella antes de seguir.</span></li>
 <li>Motivo del pago: <b>Cuota de liga</b>.</li>
-<li>Escribe el monto que vas a abonar.<span class="sn">Puedes abonar por partes. Cada abono se registra solo.</span></li>
+<li>Escribe el monto: <b>$450</b>.<span class="sn">Es un solo pago y cubre la liga completa. En la JACK son cuatro abonos de $118.75.</span></li>
 <li>En <b>identificador</b>, escribe el <b>nombre de tu equipo</b>.<span class="sn">Es lo único que nos dice de quién es el pago.</span></li>
 <li>Toca <b>Sí, pagar</b> y guarda el número de confirmación.</li>
 </ol>
@@ -466,19 +485,19 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 <h3>Así se ve antes de confirmar</h3>
 <div class="tarjeta">
 <div class="comercio"><strong>Lamellapma</strong><span>@lamellapma</span></div>
-<div class="monto">$325.00</div>
+<div class="monto">$450.00</div>
 <div class="f"><span class="k">Motivo</span><span class="v">Cuota de liga</span></div>
 <div class="f"><span class="k">Identificador</span><span class="v">Warthogs</span></div>
 </div>
-<p class="piemaq"><span class="bar"></span>Un abono sin nombre de equipo hay que rastrearlo a mano. Escríbelo siempre, aunque sea el tercero del mes.</p>
+<p class="piemaq"><span class="bar"></span>Un pago sin nombre de equipo hay que rastrearlo a mano. Escríbelo siempre.</p>
 </div>
 <ul class="reglas">
 <li><b>La liga trata con el DT.</b> Un solo interlocutor por equipo, siempre.</li>
-<li>El estado de cuenta de tu equipo se manda <b>en privado al DT</b>.</li>
-<li>¿Necesitas saber si tu rival está al día para un reclamo? <b>Pregúntanos y te decimos.</b></li>
-<li>Cada abono te llega con su número de confirmación. Guárdalos.</li>
+<li><b>El pago es el cupo.</b> Se paga completo antes de la primera jornada y el cupo queda separado ese mismo día.</li>
+<li><b>El que paga primero escoge horario</b> —7:30 o 9:00— y su equipo sale publicado en el sitio.</li>
+<li>No se recibe efectivo. Guarda tu número de confirmación.</li>
 </ul>
-<p class="cierre">¿Diferencia entre lo que abonaste y lo que te aparece? Manda los <b>números de confirmación</b> por WhatsApp al <a href="https://wa.me/50764973574">6497-3574</a> y lo cuadramos el mismo día.</p>
+<p class="cierre">Manda tu comprobante por WhatsApp al <a href="https://wa.me/50764973574">6497-3574</a> o al <a href="https://wa.me/50762327853">6232-7853</a>, con el nombre de tu equipo, y te confirmamos el cupo el mismo día.</p>
 </section>
 
 <section id="p-birria" role="tabpanel" hidden>
