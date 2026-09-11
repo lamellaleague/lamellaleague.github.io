@@ -301,7 +301,24 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 .sw:hover{color:var(--cal)}
 .sw.a.on{background:var(--hondo);border-color:var(--hondo);color:#fff}
 .sw.b.on{background:var(--turq);border-color:var(--turq);color:#08312D}
-.sw.c.on{background:var(--ambar);border-color:var(--ambar);color:#14140E} .sw.d.on{background:var(--cal);border-color:var(--cal);color:#14140E} .t21.sen{border-left-color:var(--cal)} .t21.sen h2 em{color:var(--cal)} .t21.sen .flash{background:var(--humo);color:#14140E}
+.sw.c.on{background:var(--ambar);border-color:var(--ambar);color:#14140E} .sw.d.on{background:var(--cal);border-color:var(--cal);color:#14140E} .t21.sen{border-left-color:var(--cal)} .t21.sen h2 em{color:var(--cal)} .t21.sen .flash{background:var(--humo);color:#14140E} .num{margin-top:14px;padding-top:4px}
+.num table{width:100%;border-collapse:collapse;font-size:14px}
+.num th{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--humo);font-weight:500;text-align:right;padding:6px 4px;border-bottom:1px solid var(--linea)}
+.num td{text-align:right;padding:8px 4px;border-bottom:1px solid var(--linea)}
+.num th:nth-child(2),.num td:nth-child(2){text-align:left}
+.num td:first-child{color:var(--humo);width:26px}
+.num td.eq{color:var(--cal);font-weight:500}
+.num td.dif{color:var(--turq)}
+.num tr.sj td{color:var(--humo)}
+.ldr{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.ldr .lc{min-width:0;position:relative;background:var(--bloque);border:1px solid var(--linea);border-radius:5px;padding:12px 44px 12px 14px}
+.ldr .lc i{display:block;font-style:normal;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--turq);margin-bottom:6px}
+.ldr .lc b{display:block;font-family:var(--disp);font-weight:400;font-size:19px;text-transform:uppercase;line-height:1.1;color:var(--cal)}
+.ldr .lc span{display:block;font-size:12.5px;color:var(--humo);margin-top:3px}
+.ldr .lc em{font-style:normal;font-family:var(--disp);font-size:30px;color:var(--rojo);position:absolute;top:10px;right:14px;line-height:1}
+.ldr .lc small{display:block;font-size:12px;color:var(--humo);margin-top:8px;line-height:1.45}
+.baja{display:inline-block;margin-top:14px}
+@media(max-width:520px){.ldr{grid-template-columns:1fr}}
 .t21.birria{border-left-color:var(--ambar)}
 .t21.birria h2 em{color:var(--ambar)}
 .t21.birria .flash{background:var(--ambar);color:#14140E}
@@ -468,6 +485,28 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 
 <p class="rotulo">Marcador en vivo</p>
 <div id="gc-scoreboard-widget-ynah"></div>
+
+<p class="rotulo">Números de la JACK · después de la jornada 1</p>
+<div class="num">
+<table>
+<tr><th>#</th><th>Equipo</th><th>JJ</th><th>G</th><th>P</th><th>CA</th><th>CP</th><th>Dif</th></tr>
+<tr><td>1</td><td class="eq">Pinoleros 505</td><td>1</td><td>1</td><td>0</td><td>21</td><td>1</td><td class="dif">+20</td></tr>
+<tr><td>2</td><td class="eq">Warthogs</td><td>1</td><td>1</td><td>0</td><td>17</td><td>6</td><td class="dif">+11</td></tr>
+<tr><td>3</td><td class="eq">Goofy’s Squad</td><td>1</td><td>0</td><td>1</td><td>6</td><td>17</td><td class="dif">−11</td></tr>
+<tr><td>4</td><td class="eq">La Comisión</td><td>1</td><td>0</td><td>1</td><td>1</td><td>21</td><td class="dif">−20</td></tr>
+<tr class="sj"><td>—</td><td>Drinks</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+</table>
+<p class="nota">Pinoleros 505 va sobre Warthogs y Goofy’s Squad sobre La Comisión por <b>diferencia de carreras</b>: no se han enfrentado. Drinks descansó en la jornada 1.</p>
+</div>
+
+<div class="ldr">
+<div class="lc"><i>Premio · Impulsadas</i><em>4</em><b>Abdiel Cerrud</b><span>Warthogs</span><small>Con 3: Manuel Aizpurua y Alexander Beitia (Warthogs), Brando Hernandez y Josue Mayorga (Pinoleros 505)</small></div>
+<div class="lc"><i>Premio · Juegos ganados</i><em>1</em><b>Frambely Gutierrez</b><span>Pinoleros 505</span><small>Empatado con Martin Castillero (Warthogs)</small></div>
+<div class="lc"><i>Jonrones</i><em>1</em><b>Tres empatados</b><span>Moises Tenorio (Warthogs) · Elmer Meneses y Andy Hill (Pinoleros 505)</span></div>
+<div class="lc"><i>Ponches</i><em>3</em><b>Frambely Gutierrez</b><span>Pinoleros 505</span><small>Le sigue Jose Isaac Martinez (La Comisión) con 2</small></div>
+</div>
+<p class="nota">Los premios son impulsadas en bateo y juegos ganados en pitcheo, con filtro de 60% de los juegos del equipo, y se congelan con el último juego de la fase regular. Fuente: GameChanger, corte del viernes 11 de septiembre.</p>
+<div class="cta"><a class="turq" href="jack-numeros.csv" download>Bajar todos los números (Excel)</a></div>
 
 <p class="rotulo">Calendario</p>
 <div class="cal21"><div class="jor "><div class="fecha"><b>10</b><i>SEP</i></div><div class="cuerpo"><div class="rot2">Jornada 1</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Goofy’s Squad <em>@</em> Warthogs</span></div><div class="par"><span class="h">9:30 pm</span><span>La Comisión <em>@</em> Pinoleros 505</span></div><div class="desc">Descansa · Drinks</div></div></div><div class="jor "><div class="fecha"><b>17</b><i>SEP</i></div><div class="cuerpo"><div class="rot2">Jornada 2</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Goofy’s Squad <em>@</em> La Comisión</span></div><div class="par"><span class="h">9:30 pm</span><span>Warthogs <em>@</em> Drinks</span></div><div class="desc">Descansa · Pinoleros 505</div></div></div><div class="jor "><div class="fecha"><b>24</b><i>SEP</i></div><div class="cuerpo"><div class="rot2">Jornada 3</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Drinks <em>@</em> La Comisión</span></div><div class="par"><span class="h">9:30 pm</span><span>Pinoleros 505 <em>@</em> Goofy’s Squad</span></div><div class="desc">Descansa · Warthogs</div></div></div><div class="jor "><div class="fecha"><b>1</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Jornada 4</div><span class="pago">Pago $118.75</span><div class="par"><span class="h">8:00 pm</span><span>Pinoleros 505 <em>@</em> Drinks</span></div><div class="par"><span class="h">9:30 pm</span><span>La Comisión <em>@</em> Warthogs</span></div><div class="desc">Descansa · Goofy’s Squad</div></div></div><div class="jor "><div class="fecha"><b>8</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Jornada 5</div><div class="par"><span class="h">8:00 pm</span><span>Warthogs <em>@</em> Pinoleros 505</span></div><div class="par"><span class="h">9:30 pm</span><span>Drinks <em>@</em> Goofy’s Squad</span></div><div class="desc">Descansa · La Comisión</div></div></div><div class="jor po"><div class="fecha"><b>15</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Repechaje</div><div class="par"><span class="h">8:00 pm</span><span>5.º de la tabla <em>@</em> 4.º de la tabla</span></div></div></div><div class="jor po"><div class="fecha"><b>22</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Semifinales</div><div class="par"><span class="h">8:00 pm</span><span>Ganador 4 vs 5 <em>@</em> 1.º de la tabla</span></div><div class="par"><span class="h">9:30 pm</span><span>3.º de la tabla <em>@</em> 2.º de la tabla</span></div></div></div><div class="jor po fin"><div class="fecha"><b>29</b><i>OCT</i></div><div class="cuerpo"><div class="rot2">Final</div><div class="par"><span class="h">8:00 pm</span><span>Ganador S1 <em>@</em> Ganador S2</span></div></div></div></div>
@@ -641,7 +680,7 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 </section>
 
 <footer>
-Temporada 21 · Actualizado al 10 de septiembre de 2026. Marcador en vivo de la JACK y del Meracho Senior en sus pestañas; posiciones y líderes, en GameChanger.<br>
+Temporada 21 · Actualizado al 11 de septiembre de 2026. Marcador en vivo de la JACK y del Meracho Senior en sus pestañas; posiciones y líderes, en GameChanger.<br>
 La Mella League · Panamá · lamellaleague.github.io
 </footer>
 </div>
