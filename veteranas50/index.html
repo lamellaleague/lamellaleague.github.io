@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copa Diamante 50+ · Torneo de Veteranas 2026</title>
+<meta name="description" content="Torneo de Veteranas 50+ · Copa Diamante · V versión · Metro Centro 2026. Diez equipos, 19 y 20 de septiembre, Complejo Los Andes. Calendario, resultados, posiciones y líderes.">
+<meta name="theme-color" content="#0B1733">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1733; --navy2:#13254D; --navy3:#1B3268;
+  --gold:#D9A62E; --gold2:#F2D07A; --red:#C8102E; --red2:#E23A50;
+  --cream:#F5F1E6; --muted:#93A2C4;
+  --disp:'Oswald',"Arial Narrow",system-ui,sans-serif;
+  --body:'Barlow',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--navy);color:var(--cream);font-family:var(--body);
+     font-size:16px;line-height:1.55;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+.wrap{max-width:1060px;margin:0 auto;padding-inline:18px}
+
+/* ---------- HERO ---------- */
+header{
+  background:
+    radial-gradient(1200px 500px at 50% -10%, rgba(217,166,46,.20), transparent 62%),
+    linear-gradient(175deg,var(--navy3) 0%, var(--navy2) 42%, var(--navy) 100%);
+  border-bottom:4px solid var(--gold);
+  padding-block:32px 0;text-align:center;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;
+  background:linear-gradient(90deg,var(--red) 0 33%,var(--cream) 33% 66%,var(--navy3) 66% 100%);opacity:.85}
+.copa{width:min(340px,74vw);margin:0 auto 14px;
+  filter:drop-shadow(0 10px 26px rgba(0,0,0,.55))}
+.kicker{font-family:var(--disp);font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;font-size:clamp(11px,2.4vw,13px);color:var(--gold2);margin:0 0 10px}
+h1{font-family:var(--disp);font-weight:700;line-height:.95;margin:0 0 6px;
+  font-size:clamp(30px,7.4vw,58px);letter-spacing:.01em;text-transform:uppercase}
+h1 em{display:block;font-style:normal;color:var(--gold);font-size:.62em;letter-spacing:.06em}
+.when{font-family:var(--disp);font-weight:500;font-size:clamp(15px,3.4vw,21px);
+  color:var(--cream);margin:10px 0 2px;letter-spacing:.03em}
+.where{color:var(--muted);font-size:clamp(13px,3vw,15px);margin:0 0 26px}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);
+  border-top:1px solid rgba(255,255,255,.12);margin-top:8px}
+.stats div{background:rgba(11,23,51,.72);padding:14px 6px}
+.stats b{display:block;font-family:var(--disp);font-weight:700;color:var(--gold);
+  font-size:clamp(22px,5.4vw,32px);line-height:1}
+.stats span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- SECCIONES ---------- */
+section{padding-block:40px}
+.rotulo{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.16em;
+  font-size:clamp(12px,2.8vw,14px);color:var(--gold);margin:0 0 4px}
+h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.02em;
+  font-size:clamp(22px,5.2vw,34px);margin:0 0 20px;line-height:1.05}
+.nota{color:var(--muted);font-size:14px;margin:14px 0 0}
+
+/* equipos */
+.equipos{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.eq{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border:1px solid rgba(217,166,46,.25);border-radius:12px;padding:14px 10px 12px;text-align:center}
+.eq figure{margin:0 0 10px;background:#F7F5EF;border-radius:9px;padding:8px;
+  height:86px;display:flex;align-items:center;justify-content:center}
+.eq figure img{max-height:70px;width:auto;object-fit:contain}
+.eq b{display:block;font-family:var(--disp);font-weight:600;font-size:13px;
+  text-transform:uppercase;letter-spacing:.04em;line-height:1.2}
+.eq span{display:block;font-size:11px;color:var(--muted);margin-top:3px;letter-spacing:.08em;text-transform:uppercase}
+
+/* calendario */
+.cuadros{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cuadro{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;overflow:hidden}
+.cuadro>h3{margin:0;font-family:var(--disp);font-weight:600;text-transform:uppercase;
+  letter-spacing:.1em;font-size:14px;padding:12px 16px;
+  background:linear-gradient(90deg,var(--navy3),var(--navy2));border-bottom:2px solid var(--gold);color:var(--gold2)}
+.dia{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  font-size:12px;color:var(--cream);background:rgba(200,16,46,.22);
+  padding:7px 16px;border-block:1px solid rgba(255,255,255,.08)}
+.j{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:11px 14px;
+  border-bottom:1px solid rgba(255,255,255,.07);align-items:center}
+.j:last-child{border-bottom:0}
+.j .h{font-family:var(--disp);font-weight:600;font-size:13px;color:var(--gold);
+  letter-spacing:.01em;white-space:nowrap}
+.j .m{font-size:14px;line-height:1.35}
+.j .m i{font-style:normal;color:var(--muted);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;display:block;margin-top:2px}
+.j.fin{background:linear-gradient(90deg,rgba(217,166,46,.20),rgba(217,166,46,.04))}
+.j.fin .m{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:14px}
+
+/* bloques por venir */
+.porvenir{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pv{border:1px dashed rgba(217,166,46,.45);border-radius:14px;padding:26px 20px;text-align:center;
+  background:rgba(217,166,46,.05)}
+.pv b{display:block;font-family:var(--disp);font-weight:600;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--gold2);font-size:15px;margin-bottom:6px}
+.pv span{color:var(--muted);font-size:14px}
+
+/* franja */
+.franja{background:linear-gradient(90deg,var(--red),#8E0B20);padding:22px 0;text-align:center;
+  border-block:3px solid var(--gold)}
+.franja p{margin:0;font-family:var(--disp);font-weight:500;text-transform:uppercase;
+  letter-spacing:.1em;font-size:clamp(13px,3.2vw,17px)}
+
+footer{background:#070F22;border-top:4px solid var(--gold);padding-block:30px 36px;text-align:center}
+footer .mella{font-family:var(--disp);font-weight:700;text-transform:uppercase;
+  letter-spacing:.08em;font-size:clamp(16px,4vw,22px);color:var(--gold);margin:0 0 4px}
+footer p{margin:4px 0;color:var(--muted);font-size:14px}
+footer a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(217,166,46,.5)}
+
+@media (max-width:720px){
+  .cuadros,.porvenir{grid-template-columns:1fr}
+  .equipos{grid-template-columns:repeat(auto-fill,minmax(116px,1fr));gap:9px}
+  .eq figure{height:72px;padding:6px}
+  .eq figure img{max-height:58px}
+  .j{grid-template-columns:72px 1fr;padding:10px 12px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <img class="copa" src="copa.png" alt="Copa Diamante 50+ · Softbol Femenino Veteranas · Metro Centro 2026">
+    <p class="kicker">Revolution Softball Team · Veteranas Metro Centro</p>
+    <h1>Torneo de Veteranas<em>50+ · V versión</em></h1>
+    <p class="when">Sábado 19 y domingo 20 de septiembre de 2026</p>
+    <p class="where">Cuadro Los Andes N.° 1 &nbsp;·&nbsp; Complejo Los Andes N.° 2</p>
+  </div>
+  <div class="stats">
+    <div><b>10</b><span>Equipos</span></div>
+    <div><b>17</b><span>Juegos</span></div>
+    <div><b>2</b><span>Cuadros</span></div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="rotulo">Quiénes juegan</p>
+    <h2>Los diez equipos</h2>
+    <div class="equipos">
+      <div class="eq"><figure><img src="metrocentro.png" alt=""></figure><b>Metro Centro A</b><span>Metro Centro</span></div>
+      <div class="eq"><figure><img src="c3.png" alt=""></figure><b>Veteranas C3</b><span>C3</span></div>
+      <div class="eq"><figure><img src="quinceaneras.png" alt=""></figure><b>Las Quinceañeras</b><span>Quinceañeras</span></div>
+      <div class="eq"><figure><img src="azuero.png" alt=""></figure><b>Veteranas de Azuero</b><span>Azuero</span></div>
+      <div class="eq"><figure><img src="chicasoeste.png" alt=""></figure><b>Chicas del Oeste</b><span>Oeste</span></div>
+      <div class="eq"><figure><img src="potras.png" alt=""></figure><b>Potras del Este</b><span>Este</span></div>
+      <div class="eq"><figure><img src="west.png" alt=""></figure><b>New West Veteranas</b><span>Oeste</span></div>
+      <div class="eq"><figure><img src="cocle.png" alt=""></figure><b>Veteranas Coclé</b><span>Coclé</span></div>
+      <div class="eq"><figure><img src="norte.png" alt=""></figure><b>Metro Norte</b><span>Metro Norte</span></div>
+      <div class="eq"><figure><img src="metrocentro.png" alt=""></figure><b>Metro Centro B</b><span>Metro Centro</span></div>
+    </div>
+    <p class="nota">Cada equipo juega tres partidos de ronda regular. Los dos mejores disputan el campeonato.</p>
+  </div>
+</section>
+
+<div class="franja"><div class="wrap"><p>Resultados, posiciones y líderes — al cierre de cada jornada</p></div></div>
+
+<section>
+  <div class="wrap">
+    <p class="rotulo">Calendario oficial</p>
+    <h2>Los dos cuadros, juego por juego</h2>
+    <div class="cuadros">
+
+      <div class="cuadro">
+        <h3>Cuadro Los Andes N.° 1</h3>
+        <div class="dia">Sábado 19 de septiembre</div>
+        <div class="j"><span class="h">8:30 am</span><span class="m">Metro Centro A <i>vs Veteranas C3</i></span></div>
+        <div class="j"><span class="h">10:30 am</span><span class="m">Veteranas de Azuero <i>vs Las Quinceañeras</i></span></div>
+        <div class="j"><span class="h">11:45 am</span><span class="m">Chicas del Oeste <i>vs Metro Centro A</i></span></div>
+        <div class="j"><span class="h">1:00 pm</span><span class="m">Veteranas C3 <i>vs Veteranas de Azuero</i></span></div>
+        <div class="j"><span class="h">2:30 pm</span><span class="m">Las Quinceañeras <i>vs Chicas del Oeste</i></span></div>
+        <div class="dia">Domingo 20 de septiembre</div>
+        <div class="j"><span class="h">9:00 am</span><span class="m">New West Veteranas <i>vs Veteranas Coclé</i></span></div>
+        <div class="j"><span class="h">10:45 am</span><span class="m">Metro Norte <i>vs Metro Centro B</i></span></div>
+        <div class="j fin"><span class="h">2:30 pm</span><span class="m">Campeonato</span></div>
+        <div class="j fin"><span class="h">4:00 pm</span><span class="m">Tercer y cuarto lugar</span></div>
+      </div>
+
+      <div class="cuadro">
+        <h3>Complejo Los Andes N.° 2</h3>
+        <div class="dia">Sábado 19 de septiembre</div>
+        <div class="j"><span class="h">8:30 am</span><span class="m">Metro Centro B <i>vs Potras del Este</i></span></div>
+        <div class="j"><span class="h">10:30 am</span><span class="m">New West Veteranas <i>vs Metro Norte</i></span></div>
+        <div class="j"><span class="h">11:45 am</span><span class="m">Veteranas Coclé <i>vs Metro Centro B</i></span></div>
+        <div class="j"><span class="h">1:00 pm</span><span class="m">Potras del Este <i>vs New West Veteranas</i></span></div>
+        <div class="j"><span class="h">2:30 pm</span><span class="m">Metro Norte <i>vs Veteranas Coclé</i></span></div>
+        <div class="dia">Domingo 20 de septiembre</div>
+        <div class="j"><span class="h">9:00 am</span><span class="m">Metro Centro A <i>vs Veteranas de Azuero</i></span></div>
+        <div class="j"><span class="h">10:45 am</span><span class="m">Veteranas C3 <i>vs Las Quinceañeras</i></span></div>
+        <div class="j"><span class="h">12:00 m</span><span class="m">Chicas del Oeste <i>vs Potras del Este</i></span></div>
+      </div>
+
+    </div>
+    <p class="nota">El primer equipo de cada juego es el visitante. Horarios sujetos al desarrollo de la jornada.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="porvenir">
+      <div class="pv"><b>Posiciones</b><span>Se publican al terminar cada jornada, con el criterio de desempate que aplique en cada caso.</span></div>
+      <div class="pv"><b>Líderes</b><span>Bateo y pitcheo del torneo, actualizados con los juegos ya jugados.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="mella">La Mella League</p>
+    <p>Anotación, narración y estadísticas del torneo</p>
+    <p><a href="https://wa.me/50764973574">6497-3574</a> &nbsp;·&nbsp; <a href="https://wa.me/50762327853">6232-7853</a></p>
+    <p style="margin-top:14px;font-size:12px;opacity:.7">Torneo organizado por Revolution Softball Team · Veteranas Metro Centro 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
