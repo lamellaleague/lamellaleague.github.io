@@ -326,7 +326,18 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 .sw:hover{color:var(--cal)}
 .sw.a.on{background:var(--hondo);border-color:var(--hondo);color:#fff}
 .sw.b.on{background:var(--turq);border-color:var(--turq);color:#08312D}
-.sw.c.on{background:var(--ambar);border-color:var(--ambar);color:#14140E} .sw.d.on{background:var(--cal);border-color:var(--cal);color:#14140E} .t21.sen{border-left-color:var(--cal)} .t21.sen h2 em{color:var(--cal)} .t21.sen .flash{background:var(--humo);color:#14140E} .num{margin-top:14px;padding-top:4px}
+.sw.c.on{background:var(--ambar);border-color:var(--ambar);color:#14140E} .sw.d.on{background:var(--cal);border-color:var(--cal);color:#14140E}
+.sw.e{grid-column:1/-1}
+.sw.e.on{background:#D9A62E;border-color:#D9A62E;color:#0B1733}
+.cob{margin:22px 0 0;background:var(--bloque);border-left:6px solid #D9A62E;border-radius:4px;padding:20px 22px 18px}
+.cob h3{font-family:var(--disp);font-size:clamp(21px,5vw,30px);text-transform:uppercase;font-weight:400;color:#fff;line-height:1.1}
+.cob .org{margin-top:6px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--humo)}
+.cob .dato{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cob .dato div{background:rgba(255,255,255,.04);border-radius:3px;padding:10px 8px;text-align:center}
+.cob .dato b{display:block;font-family:var(--disp);font-size:26px;color:#F2D07A;line-height:1}
+.cob .dato span{display:block;margin-top:4px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--humo)}
+.cob .cuando{margin-top:14px;font-size:15px;line-height:1.5;color:#E8E5D8}
+.cob .cuando b{color:#F2D07A} .t21.sen{border-left-color:var(--cal)} .t21.sen h2 em{color:var(--cal)} .t21.sen .flash{background:var(--humo);color:#14140E} .num{margin-top:14px;padding-top:4px}
 .num table{width:100%;border-collapse:collapse;font-size:14px}
 .num th{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--humo);font-weight:500;text-align:right;padding:6px 4px;border-bottom:1px solid var(--linea)}
 .num td{text-align:right;padding:8px 4px;border-bottom:1px solid var(--linea)}
@@ -385,6 +396,7 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 <button class="sw b" type="button" data-p="prod-jack">JACK Andy Alonso<small>En juego</small></button>
 <button class="sw d" type="button" data-p="prod-senior">Meracho Senior<small>En juego · miércoles</small></button>
 <button class="sw c" type="button" data-p="prod-birria">La Birria<small>Lista abierta</small></button>
+<button class="sw e" type="button" data-p="prod-cobertura">Coberturas<small>Copa Diamante 50+ · 19 y 20 sep</small></button>
 </div>
 <div class="prodwrap" id="prod-ligas">
 <section class="t21" id="temporada21">
@@ -407,10 +419,6 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 <div class="tl-fila a"><div class="tl-cab"><b>Merachos o JACK</b><i>$450 · $400</i></div><div class="tl-pista"><span style="left:27.03%;width:26.13%"></span></div><div class="tl-pie"><b>Arranca el 1 de octubre</b> · se juega la que se llene primero</div></div>
 </div>
 <p class="nota">Las barras amarillas son aproximadas: el calendario exacto de cada liga se publica aquí cuando se llenen los cupos. Si llueve, se corre una semana.</p>
-
-<p class="rotulo">Cobertura</p>
-<p class="nota" style="padding-top:2px">Este <b>sábado 19 y domingo 20</b> La Mella está en la <b>Copa Diamante de Veteranas 50+</b>, en Los Andes: diez equipos, dos cuadros y 17 juegos. Equipos, calendario y números del torneo en su propia página.</p>
-<div class="cta"><a class="turq" href="veteranas50/">Ver la Copa Diamante</a></div>
 
 <p class="rotulo">Cuánto sale por jugador · referencia</p>
 
@@ -632,6 +640,28 @@ footer{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--linea);font-s
 </section>
 </div>
 
+<div class="prodwrap" id="prod-cobertura" hidden>
+<section class="t21" id="coberturas">
+<span class="flash">Este fin de semana · 19 y 20 de septiembre</span>
+<h2>Coberturas<br><em>torneos de otras organizaciones</em></h2>
+<p class="entrada">La Mella no sólo organiza sus ligas: también <b>cubre torneos de otros</b> — anotación, narración y estadísticas, con la página de resultados del torneo. Esto es lo que estamos cubriendo ahora.</p>
+
+<div class="cob">
+<h3>Copa Diamante · Veteranas 50+</h3>
+<div class="org">V versión · organiza Revolution Softball Team &middot; Veteranas Metro Centro</div>
+<div class="dato">
+<div><b>10</b><span>Equipos</span></div>
+<div><b>17</b><span>Juegos</span></div>
+<div><b>2</b><span>Cuadros</span></div>
+</div>
+<div class="cuando"><b>Sábado 19 y domingo 20 de septiembre.</b><br>Cuadro Los Andes N.&ordm; 1 y Complejo Los Andes N.&ordm; 2. Tres juegos de ronda regular por equipo; los dos mejores disputan el campeonato el domingo a las 2:30 pm.</div>
+<div class="cta"><a class="turq" href="veteranas50/">Ver equipos, calendario y n&uacute;meros</a></div>
+</div>
+
+<p class="nota">&iquest;Organizas un torneo y quieres que se publiquen sus n&uacute;meros como los de estas ligas? Escr&iacute;benos al <b>6497-3574</b>.</p>
+</section>
+</div>
+
 <div class="prodwrap" id="prod-birria" hidden>
 <section class="t21 birria" id="birria21">
 <span class="flash">Lista abierta · sin compromiso</span>
@@ -835,7 +865,7 @@ ev.userChoice.then(function(){ ev=null; ci.hidden=true });
 </script>
 <script>
 (function(){
- var P=['prod-ligas','prod-jack','prod-senior','prod-birria'];
+ var P=['prod-ligas','prod-jack','prod-senior','prod-birria','prod-cobertura'];
  document.querySelectorAll('.sw').forEach(function(b){
   b.addEventListener('click',function(){
    document.querySelectorAll('.sw').forEach(function(x){x.classList.toggle('on',x===b)});
