@@ -90,6 +90,42 @@ h2{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spaci
 .j.fin{background:linear-gradient(90deg,rgba(217,166,46,.20),rgba(217,166,46,.04))}
 .j.fin .m{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:14px}
 
+/* jornada: resultados, tabla y líderes */
+.res{display:grid;gap:8px;margin-bottom:26px}
+.rj{display:grid;grid-template-columns:70px 1fr auto;gap:10px;align-items:center;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);
+  border-radius:11px;padding:10px 13px}
+.rj .h{font-family:var(--disp);font-weight:600;font-size:12.5px;color:var(--gold);white-space:nowrap}
+.rj .m{font-size:14.5px;line-height:1.3}
+.rj .m b{font-weight:700}
+.rj .e{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.tbl th{font-family:var(--disp);font-weight:500;font-size:10.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);text-align:right;padding:0 0 8px 8px;
+  border-bottom:1px solid rgba(217,166,46,.35)}
+.tbl th:nth-child(2){text-align:left}
+.tbl td{padding:9px 0 9px 8px;border-bottom:1px solid rgba(255,255,255,.08);
+  text-align:right;font-size:14.5px}
+.tbl td:nth-child(2){text-align:left;font-weight:600}
+.tbl td:first-child{color:var(--gold);font-family:var(--disp);font-weight:600;width:26px;padding-left:0}
+.lid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:16px;margin-top:8px}
+.lb{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.11);border-radius:13px;padding:14px 16px 6px}
+.lb h3{margin:0 0 8px;font-family:var(--disp);font-weight:600;text-transform:uppercase;
+  letter-spacing:.11em;font-size:12.5px;color:var(--gold2)}
+.lb table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.lb td{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:14px;vertical-align:top}
+.lb tr:last-child td{border-bottom:0}
+.lb td.v{text-align:right;font-family:var(--disp);font-weight:600;color:var(--gold);white-space:nowrap;padding-left:8px}
+.lb td i{font-style:normal;display:block;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.aviso{margin-top:24px;border:1px solid rgba(217,166,46,.35);border-radius:12px;
+  padding:14px 17px;background:rgba(217,166,46,.06);color:var(--cream);font-size:13.5px;line-height:1.55}
+@media(max-width:560px){
+  .rj{grid-template-columns:62px 1fr;gap:8px}
+  .rj .e{grid-column:1/-1;text-align:left}
+  .tbl td,.tbl th{padding-left:6px}
+  .tbl td{font-size:13.5px}
+}
+
 /* bloques por venir */
 .porvenir{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .pv{border:1px dashed rgba(217,166,46,.45);border-radius:14px;padding:26px 20px;text-align:center;
@@ -198,12 +234,88 @@ footer a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(21
   </div>
 </section>
 
-<section style="padding-top:0">
+<section style="padding-top:0" id="jornada1">
   <div class="wrap">
-    <div class="porvenir">
-      <div class="pv"><b>Posiciones</b><span>Se publican al terminar cada jornada, con el criterio de desempate que aplique en cada caso.</span></div>
-      <div class="pv"><b>Líderes</b><span>Bateo y pitcheo del torneo, actualizados con los juegos ya jugados.</span></div>
+    <p class="rotulo">Jornada 1 &middot; s&aacute;bado 19 de septiembre</p>
+    <h2>Resultados y posiciones</h2>
+    <p class="nota" style="margin:0 0 20px">Complejo Los Andes N.&deg; 2. Cada equipo lleva dos de sus tres juegos.</p>
+
+    <div class="res">
+      <div class="rj"><div class="h">8:30 am</div><div class="m"><b>Potras del Este 13</b> &ndash; Metro Centro B 1</div><div class="e">4 ep.</div></div>
+      <div class="rj"><div class="h">10:30 am</div><div class="m"><b>Veteranas Metro Norte 9</b> &ndash; New West Veteranas 4</div><div class="e">4 ep.</div></div>
+      <div class="rj"><div class="h">11:45 am</div><div class="m"><b>Veteranas Cocl&eacute; 14</b> &ndash; Metro Centro B 2</div><div class="e">4 ep.</div></div>
+      <div class="rj"><div class="h">1:00 pm</div><div class="m"><b>Potras del Este 7</b> &ndash; New West Veteranas 4</div><div class="e">5 ep.</div></div>
+      <div class="rj"><div class="h">2:30 pm</div><div class="m"><b>Veteranas Metro Norte 14</b> &ndash; Veteranas Cocl&eacute; 1</div><div class="e">4 ep.</div></div>
     </div>
+
+    <table class="tbl">
+      <tr><th></th><th>Equipo</th><th>G</th><th>P</th><th>AF</th><th>EC</th><th>Dif.</th></tr>
+      <tr><td>1</td><td>Veteranas Metro Norte</td><td>2</td><td>0</td><td>23</td><td>5</td><td>+18</td></tr>
+      <tr><td>2</td><td>Potras del Este</td><td>2</td><td>0</td><td>20</td><td>5</td><td>+15</td></tr>
+      <tr><td>3</td><td>Veteranas Cocl&eacute;</td><td>1</td><td>1</td><td>15</td><td>16</td><td>&minus;1</td></tr>
+      <tr><td>4</td><td>New West Veteranas</td><td>0</td><td>2</td><td>8</td><td>16</td><td>&minus;8</td></tr>
+      <tr><td>5</td><td>Metro Centro B</td><td>0</td><td>2</td><td>3</td><td>27</td><td>&minus;24</td></tr>
+    </table>
+    <p class="nota">AF: carreras a favor &middot; EC: carreras en contra. Los juegos del Cuadro Los Andes N.&deg; 1 se publican al confirmarse.</p>
+  </div>
+</section>
+
+<section style="padding-top:0" id="lideres">
+  <div class="wrap">
+    <p class="rotulo">Al corte de la jornada 1</p>
+    <h2>L&iacute;deres</h2>
+
+    <div class="lid">
+      <div class="lb">
+        <h3>Bateo</h3>
+        <table>
+          <tr><td>Evelyn Flores<i>Metro Centro B &middot; 2 juegos</i></td><td class="v">1.000<br><span style="font-size:11px;color:var(--muted)">4-4</span></td></tr>
+          <tr><td>Migdalia De Romero<i>New West &middot; 2 juegos</i></td><td class="v">1.000<br><span style="font-size:11px;color:var(--muted)">4-4</span></td></tr>
+          <tr><td>Nidia Samaniego<i>Veteranas Cocl&eacute; &middot; 2 juegos</i></td><td class="v">1.000<br><span style="font-size:11px;color:var(--muted)">4-4</span></td></tr>
+          <tr><td>Rosa Ch&aacute;vez<i>Potras del Este &middot; 2 juegos</i></td><td class="v">.800<br><span style="font-size:11px;color:var(--muted)">4-5</span></td></tr>
+          <tr><td>Tete Soma<i>Metro Norte &middot; 2 juegos</i></td><td class="v">.800<br><span style="font-size:11px;color:var(--muted)">4-5</span></td></tr>
+          <tr><td>Jessica Osorio<i>Metro Norte &middot; 2 juegos</i></td><td class="v">.800<br><span style="font-size:11px;color:var(--muted)">4-5</span></td></tr>
+        </table>
+      </div>
+
+      <div class="lb">
+        <h3>Carreras impulsadas</h3>
+        <table>
+          <tr><td>Rosa Ch&aacute;vez<i>Potras del Este &middot; 2 juegos</i></td><td class="v">7</td></tr>
+          <tr><td>Migdalia De Romero<i>New West &middot; 2 juegos</i></td><td class="v">4</td></tr>
+          <tr><td>Nuris Del Rosario<i>Veteranas Cocl&eacute; &middot; 2 juegos</i></td><td class="v">4</td></tr>
+          <tr><td>Yara Montero<i>Metro Norte &middot; 2 juegos</i></td><td class="v">4</td></tr>
+          <tr><td>Yamilka Pacheco<i>Metro Norte &middot; 1 juego</i></td><td class="v">4</td></tr>
+          <tr><td>Evelyn Flores<i>Metro Centro B &middot; 2 juegos</i></td><td class="v">3</td></tr>
+        </table>
+      </div>
+
+      <div class="lb">
+        <h3>Jonrones</h3>
+        <table>
+          <tr><td>Rosa Ch&aacute;vez<i>Potras del Este</i></td><td class="v">2</td></tr>
+          <tr><td>Evelyn Flores<i>Metro Centro B</i></td><td class="v">1</td></tr>
+          <tr><td>Migdalia De Romero<i>New West</i></td><td class="v">1</td></tr>
+          <tr><td>Nuris Del Rosario<i>Veteranas Cocl&eacute;</i></td><td class="v">1</td></tr>
+          <tr><td>Laura Quintero<i>Metro Norte</i></td><td class="v">1</td></tr>
+          <tr><td>Yamilka Pacheco<i>Metro Norte</i></td><td class="v">1</td></tr>
+        </table>
+      </div>
+
+      <div class="lb">
+        <h3>Lanzadoras con juego ganado</h3>
+        <table>
+          <tr><td>Mar&iacute;a Castro<i>Veteranas Cocl&eacute; &middot; 5.0 entradas</i></td><td class="v">1</td></tr>
+          <tr><td>Mixie Urrutia<i>Potras del Este &middot; 5.0 entradas</i></td><td class="v">1</td></tr>
+          <tr><td>Elsa Rosales<i>Potras del Este &middot; 4.0 entradas</i></td><td class="v">1</td></tr>
+          <tr><td>Iveth Urriola<i>Metro Norte &middot; 4.0 entradas &middot; 4 K</i></td><td class="v">1</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="aviso">Cifras al cierre de la jornada del s&aacute;bado, <b>sujetas a revisi&oacute;n
+    administrativa de la organizaci&oacute;n del torneo</b>. Se actualizan aqu&iacute; si hay
+    alg&uacute;n cambio.</div>
   </div>
 </section>
 
