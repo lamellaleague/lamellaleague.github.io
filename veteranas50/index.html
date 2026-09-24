@@ -153,6 +153,51 @@ footer a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(21
   .eq figure img{max-height:58px}
   .j{grid-template-columns:72px 1fr;padding:10px 12px}
 }
+
+/* ---------- CAMPEONATO ---------- */
+.camp{background:radial-gradient(900px 380px at 50% 0%,rgba(217,166,46,.16),transparent 70%)}
+.podio{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 26px}
+.pz{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 10px;text-align:center}
+.pz figure{margin:0 auto 8px;background:#F7F5EF;border-radius:9px;height:74px;display:flex;align-items:center;justify-content:center;padding:6px}
+.pz figure img{max-height:60px;width:auto}
+.pz .p{font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pz b{display:block;font-family:var(--disp);font-weight:600;text-transform:uppercase;font-size:14px;letter-spacing:.03em;line-height:1.2;margin-top:3px}
+.pz.oro{border:2px solid var(--gold);background:linear-gradient(180deg,rgba(217,166,46,.22),rgba(217,166,46,.05))}
+.pz.oro .p{color:var(--gold2)}
+.partido{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;margin-bottom:22px}
+.partido h3{margin:0;font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:14px;padding:12px 16px;background:linear-gradient(90deg,var(--navy3),var(--navy2));border-bottom:2px solid var(--gold);color:var(--gold2)}
+.partido.gran h3{background:linear-gradient(90deg,#7A5A12,var(--navy2))}
+.lin{overflow-x:auto;padding:14px 16px 4px}
+.lin table{border-collapse:collapse;width:100%;min-width:420px;font-variant-numeric:tabular-nums}
+.lin th{font-family:var(--disp);font-weight:500;font-size:11px;letter-spacing:.12em;color:var(--muted);padding:0 6px 6px;text-align:center;border-bottom:1px solid rgba(217,166,46,.35)}
+.lin th:first-child{text-align:left;padding-left:0}
+.lin td{padding:9px 6px;text-align:center;font-size:15px;border-bottom:1px solid rgba(255,255,255,.07)}
+.lin td:first-child{text-align:left;padding-left:0;font-weight:600}
+.lin td.r{font-family:var(--disp);font-weight:700;font-size:20px;color:var(--gold)}
+.lin tr.gana td:first-child{color:var(--gold2)}
+.lin td.big{background:rgba(217,166,46,.18);font-weight:700;border-radius:4px}
+.cron{padding:6px 16px 16px;max-width:72ch}
+.cron p{margin:10px 0 0;font-size:15.5px}
+.cron p.lead{font-size:17px;color:var(--cream)}
+.dato{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(255,255,255,.10);border-top:1px solid rgba(255,255,255,.10)}
+.dato div{background:rgba(11,23,51,.6);padding:12px 10px;text-align:center}
+.dato b{display:block;font-family:var(--disp);font-weight:700;color:var(--gold);font-size:24px;line-height:1}
+.dato span{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:0 0 26px}
+.fig{background:linear-gradient(160deg,rgba(217,166,46,.20),rgba(255,255,255,.03) 60%);border:1px solid rgba(217,166,46,.45);border-radius:14px;padding:16px 16px 14px}
+.fig .eqn{font-family:var(--disp);font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.fig .nm{display:block;font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(26px,5.6vw,34px);line-height:1;color:var(--gold2);margin:6px 0 8px;text-wrap:balance}
+.fig .hz{font-size:15px;line-height:1.35}
+.fig .hz b{color:var(--cream)}
+.fig.c3{border-color:rgba(255,255,255,.22);background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02) 60%)}
+.fig.c3 .nm{color:var(--cream)}
+.subt{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:15px;color:var(--gold);margin:6px 0 10px}
+.gracias{background:linear-gradient(180deg,rgba(217,166,46,.14),rgba(217,166,46,.03));border-block:2px solid var(--gold)}
+.gracias p{font-size:clamp(18px,3.6vw,22px);font-weight:700;line-height:1.45;max-width:60ch;margin:0 0 14px}
+.gracias .firma{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(20px,4.4vw,26px);color:var(--gold2);margin:18px 0 2px}
+.gracias .firma span{display:block;font-family:var(--body);text-transform:none;letter-spacing:0;font-size:15px;font-weight:600;color:var(--muted);margin-top:4px}
+@media(max-width:640px){.podio{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -172,6 +217,70 @@ footer a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(21
   </div>
 </header>
 
+
+<section class="camp" id="campeonato">
+  <div class="wrap">
+    <p class="rotulo">Domingo 20 de septiembre &middot; Cuadro Los Andes N.&deg; 1</p>
+    <h2>Potras del Este, campeonas de la Copa Diamante</h2>
+
+    <div class="podio">
+      <div class="pz oro"><figure><img src="potras.png" alt=""></figure><span class="p">Campeonas</span><b>Potras del Este</b></div>
+      <div class="pz"><figure><img src="c3.png" alt=""></figure><span class="p">Subcampeonas</span><b>Veteranas C3</b></div>
+      <div class="pz"><figure><img src="azuero.png" alt=""></figure><span class="p">Tercer lugar</span><b>Veteranas de Azuero</b></div>
+      <div class="pz"><figure><img src="cocle.png" alt=""></figure><span class="p">Cuarto lugar</span><b>Veteranas Cocl&eacute;</b></div>
+    </div>
+
+    <p class="subt">Las figuras de la final</p>
+    <div class="figs">
+      <div class="fig"><span class="eqn">Potras del Este</span><span class="nm">Nectalina Vel&aacute;squez</span><div class="hz"><b>3 de 4 y 3 impulsadas.</b> Su triple con las bases llenas en el cuarto inning le dio vuelta a la final.</div></div>
+      <div class="fig"><span class="eqn">Potras del Este &middot; lanzadora</span><span class="nm">Elsa Rosales</span><div class="hz"><b>Los 6 innings completos</b> y la victoria del campeonato.</div></div>
+      <div class="fig"><span class="eqn">Potras del Este</span><span class="nm">Elvira Z&aacute;rate</span><div class="hz"><b>Jonr&oacute;n</b> por el jard&iacute;n izquierdo en el inning de las siete carreras.</div></div>
+      <div class="fig"><span class="eqn">Potras del Este</span><span class="nm">Dalia C&aacute;rdenas</span><div class="hz"><b>3 imparables</b> en la final.</div></div>
+      <div class="fig c3"><span class="eqn">Veteranas C3</span><span class="nm">Maria Garibaldo</span><div class="hz"><b>3 de 3 y 2 bases robadas.</b> Perfecta en el plato.</div></div>
+      <div class="fig c3"><span class="eqn">Veteranas C3</span><span class="nm">Mara Young</span><div class="hz"><b>Doble productor</b> en el tercer inning para poner a C3 al frente, y lanz&oacute; la final.</div></div>
+      <div class="fig c3"><span class="eqn">Veteranas C3</span><span class="nm">Ofelina Lucero</span><div class="hz"><b>2 carreras impulsadas</b> para mantener a C3 en el juego.</div></div>
+    </div>
+
+    <div class="partido gran">
+      <h3>Gran final &middot; Potras del Este 12 &ndash; Veteranas C3 6</h3>
+      <div class="lin"><table>
+        <tr><th>Equipo</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>C</th><th>H</th></tr>
+        <tr><td>Veteranas C3</td><td>0</td><td>0</td><td>3</td><td>1</td><td>2</td><td>0</td><td class="r">6</td><td>15</td></tr>
+        <tr class="gana"><td>Potras del Este</td><td>0</td><td>0</td><td>1</td><td class="big">7</td><td>4</td><td>X</td><td class="r">12</td><td>19</td></tr>
+      </table></div>
+      <div class="dato">
+        <div><b>34</b><span>imparables entre las dos</span></div>
+        <div><b>5</b><span>bases robadas de Potras</span></div>
+        <div><b>7</b><span>carreras en el 4.&ordm; inning</span></div>
+        <div><b>6</b><span>innings completos de Elsa Rosales</span></div>
+      </div>
+      <div class="cron">
+        <p class="lead">Una final de las que se cuentan despu&eacute;s. Treinta y cuatro imparables, atrapadas y tiros que no caben en ninguna planilla, y dos equipos de mujeres de m&aacute;s de 50 a&ntilde;os corriendo cada base como si fuera la &uacute;ltima.</p>
+        <p>Veteranas C3 golpe&oacute; primero. En el tercer inning, con base por bolas de Elizabeth Santamaria, elevado de sacrificio de Cristina Ceballos y doble de Mara Young por la l&iacute;nea del jard&iacute;n izquierdo, se fue arriba 3&ndash;1, y en el cuarto amplió a 4&ndash;1.</p>
+        <p>Entonces lleg&oacute; el cuarto inning de Potras del Este: siete carreras. Sencillo de Olga Vergara, triple de Nectalina Vel&aacute;squez que limpi&oacute; las bases, rodado productor de Rosa Ch&aacute;vez, jonr&oacute;n solitario de Elvira Z&aacute;rate por el jard&iacute;n izquierdo y sencillo de Gloria Arrocha. El juego cambi&oacute; de due&ntilde;a en un solo inning, y en el quinto Potras agreg&oacute; cuatro m&aacute;s.</p>
+        <p>C3 nunca baj&oacute; los brazos: 15 imparables, Maria Garibaldo de 3&ndash;3 con dos bases robadas y Ofelina Lucero con dos carreras impulsadas. Enfrente estuvo Elsa Rosales, que lanz&oacute; los seis innings completos para llevarse la victoria. Por Potras, Nectalina Vel&aacute;squez (3&ndash;4, tres impulsadas) y Dalia C&aacute;rdenas pegaron tres hits cada una, y el equipo rob&oacute; cinco bases y complet&oacute; un doble play.</p>
+      </div>
+    </div>
+
+    <div class="partido">
+      <h3>Tercer lugar &middot; Veteranas de Azuero 7 &ndash; Veteranas Cocl&eacute; 2</h3>
+      <div class="lin"><table>
+        <tr><th>Equipo</th><th>1</th><th>2</th><th>3</th><th>C</th><th>H</th></tr>
+        <tr class="gana"><td>Veteranas de Azuero</td><td>2</td><td>0</td><td class="big">5</td><td class="r">7</td><td>11</td></tr>
+        <tr><td>Veteranas Cocl&eacute;</td><td>0</td><td>2</td><td>0</td><td class="r">2</td><td>4</td></tr>
+      </table></div>
+      <div class="cron">
+        <p>Azuero abri&oacute; con dos en el primero, con sencillo de Amalia Gonz&aacute;lez y doble de Anayansi Gonz&aacute;lez por la l&iacute;nea. Cocl&eacute; respondi&oacute; en el segundo con un doble de Dalys Barria que empat&oacute; 2&ndash;2. En el tercero, Azuero conect&oacute; seis hits para cinco carreras; el golpe m&aacute;s fuerte fue el sencillo de Idalia Aguilar que trajo dos. Leoty Sandoval se llev&oacute; la victoria desde el c&iacute;rculo.</p>
+      </div>
+      <div class="figs" style="margin:4px 16px 16px">
+        <div class="fig"><span class="eqn">Veteranas de Azuero</span><span class="nm">Idalia Aguilar</span><div class="hz"><b>Sencillo de 2 carreras</b> en el tercer inning que decidi&oacute; el juego.</div></div>
+        <div class="fig"><span class="eqn">Veteranas de Azuero &middot; lanzadora</span><span class="nm">Leoty Sandoval</span><div class="hz"><b>La victoria</b>: 3 innings, 2 carreras.</div></div>
+        <div class="fig c3"><span class="eqn">Veteranas Cocl&eacute;</span><span class="nm">Dalys Barria</span><div class="hz"><b>Doble de 2 carreras</b> para empatar el juego en el segundo.</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
 <section>
   <div class="wrap">
     <p class="rotulo">Quiénes juegan</p>
@@ -192,7 +301,7 @@ footer a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(21
   </div>
 </section>
 
-<div class="franja"><div class="wrap"><p>Resultados, posiciones y líderes — al cierre de cada jornada</p></div></div>
+<div class="franja"><div class="wrap"><p>Potras del Este, campeonas de la Copa Diamante 50+ 2026</p></div></div>
 
 <section>
   <div class="wrap">
@@ -237,7 +346,7 @@ footer a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(21
 <section style="padding-top:0" id="jornada1">
   <div class="wrap">
     <p class="rotulo">Grupo B &middot; 19 y 20 de septiembre</p>
-    <h2>Resultados y posiciones</h2>
+    <h2>Resultados del grupo</h2>
     <p class="nota" style="margin:0 0 20px">Los siete juegos del grupo, ya jugados.
     S&aacute;bado en el Complejo Los Andes N.&deg; 2, domingo en el Cuadro Los Andes N.&deg; 1.</p>
 
@@ -256,16 +365,7 @@ footer a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(21
       <div class="rj"><div class="h">10:45 am</div><div class="m"><b>Veteranas Metro Norte 23</b> &ndash; Metro Centro B 2</div><div class="e">2 ep.</div></div>
     </div>
 
-    <table class="tbl">
-      <tr><th></th><th>Equipo</th><th>JJ</th><th>G</th><th>P</th><th>AF</th><th>EC</th><th>Dif.</th></tr>
-      <tr><td>1</td><td>Veteranas Metro Norte</td><td>3</td><td>3</td><td>0</td><td>46</td><td>7</td><td>+39</td></tr>
-      <tr><td>2</td><td>Potras del Este</td><td>2</td><td>2</td><td>0</td><td>20</td><td>5</td><td>+15</td></tr>
-      <tr><td>3</td><td>Veteranas Cocl&eacute;</td><td>3</td><td>1</td><td>2</td><td>20</td><td>23</td><td>&minus;3</td></tr>
-      <tr><td>4</td><td>New West Veteranas</td><td>3</td><td>1</td><td>2</td><td>15</td><td>21</td><td>&minus;6</td></tr>
-      <tr><td>5</td><td>Metro Centro B</td><td>3</td><td>0</td><td>3</td><td>5</td><td>50</td><td>&minus;45</td></tr>
-    </table>
-    <p class="nota">JJ: juegos jugados &middot; AF: carreras a favor &middot; EC: carreras en contra.
-    Potras del Este qued&oacute; con dos juegos y el resto con tres, tal como sali&oacute; el calendario del grupo.</p>
+    
   </div>
 </section>
 
@@ -339,9 +439,14 @@ footer a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(21
       </div>
     </div>
 
-    <div class="aviso">Cifras tomadas de las planillas de los siete juegos, <b>sujetas a revisi&oacute;n
-    administrativa de la organizaci&oacute;n del torneo</b>. El orden de la premiaci&oacute;n lo
-    define la organizaci&oacute;n, no esta p&aacute;gina. Se actualiza aqu&iacute; si hay alg&uacute;n cambio.</div>
+    <div class="aviso">Cifras tomadas de las planillas de los siete juegos del grupo.</div>
+  </div>
+</section>
+
+<section class="gracias">
+  <div class="wrap">
+    <p>Gracias a los diez equipos, a sus familias y a la organizaci&oacute;n de Revolution Softball Team &middot; Veteranas Metro Centro. Fue un honor anotar y narrar este torneo: una final con jugadas que ninguna aplicaci&oacute;n alcanza a anotar.</p>
+    <p class="firma">Atentamente, William Rodr&iacute;guez (WARO)<span>La Mella League &middot; Para nuevos torneos y coberturas, quedo a sus &oacute;rdenes.</span></p>
   </div>
 </section>
 
